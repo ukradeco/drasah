@@ -193,15 +193,7 @@
     </style>
 </head>
 <body>
-    ```
 
-### الخطوة التالية (الجزء 2: الهيكل والترويسة)
-في الجزء القادم، سأقوم ببناء:
-1.  **القائمة العلوية:** تحتوي على شعار UKRA وروابط التنقل السريع.
-2.  **قسم الـ Hero:** ترويسة الصفحة مع ملخص تنفيذي سريع ورسالة ترحيبية باسم المؤسسة.
-3.  **لوحة التحكم العلوية (Dashboard Summary):** تعرض أرقاماً سريعة (مثل المساحة 600م، الهدف 2026، عدد الفريق) كمدخل للخطة.
-
-هل أنت جاهز لاعتماد هذا الجزء والانتقال للجزء الثاني؟
 <div class="main-wrapper" style="display: flex; min-height: 100vh;">
     
     <aside class="sidebar no-print" style="width: 260px; background: var(--primary-color); color: white; position: sticky; top: 0; height: 100vh; overflow-y: auto; padding: 20px; flex-shrink: 0;">
@@ -415,15 +407,49 @@
                 </div>
             </div>
         </section>
-        <section id="facility" class="section-box">
+<section id="facility" class="section-box">
             <div class="section-title">
-                <h2><i class="fa-solid fa-warehouse"></i> المركز التشغيلي (طريق العيون) - 600م²</h2>
-                <span class="badge badge-warning" style="font-size: 0.9rem;">الإيجار: 80,000 ريال/سنة</span>
+                <h2><i class="fa-solid fa-building"></i> البنية التحتية والمقرات</h2>
+                <i class="fa-solid fa-map-location"></i>
             </div>
 
             <p style="margin-bottom: 25px; color: var(--text-muted);">
-                تم تخطيط المساحة (20م واجهة × 30م عمق) لدمج ثلاث وظائف رئيسية (العرض، التجميع، التخزين) في مكان واحد لتقليل الهدر اللوجستي.
+                تتوزع عمليات "أوكرة" بين الإدارة والتخطيط (سلطانة) والتنفيذ والتشغيل (طريق العيون) لضمان بيئة عمل احترافية.
             </p>
+
+            <div class="grid-2" style="margin-bottom: 30px;">
+                <div style="background: white; border-right: 4px solid var(--secondary-color); padding: 20px; box-shadow: var(--shadow); border-radius: 8px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0;">مكتب سلطانة (الإدارة)</h4>
+                            <span class="badge badge-warning">المقر الرئيسي</span>
+                        </div>
+                        <i class="fa-solid fa-briefcase fa-2x" style="color: #eee;"></i>
+                    </div>
+                    <hr style="margin: 10px 0; border-color: #f1f1f1;">
+                    <ul style="font-size: 0.9rem; list-style: none; color: #555;">
+                        <li style="margin-bottom: 5px;"><i class="fa-solid fa-check" style="color: var(--secondary-color);"></i> استقبال كبار العملاء (VIP).</li>
+                        <li style="margin-bottom: 5px;"><i class="fa-solid fa-check" style="color: var(--secondary-color);"></i> الإدارة المالية والتعاقدات.</li>
+                        <li style="margin-bottom: 5px;"><i class="fa-solid fa-check" style="color: var(--secondary-color);"></i> مدفوع الإيجار لنهاية العام.</li>
+                    </ul>
+                </div>
+
+                <div style="background: white; border-right: 4px solid #27ae60; padding: 20px; box-shadow: var(--shadow); border-radius: 8px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0;">طريق العيون (600م²)</h4>
+                            <span class="badge badge-success">مصنع + معرض + مستودع</span>
+                        </div>
+                        <i class="fa-solid fa-industry fa-2x" style="color: #eee;"></i>
+                    </div>
+                    <hr style="margin: 10px 0; border-color: #f1f1f1;">
+                    <ul style="font-size: 0.9rem; list-style: none; color: #555;">
+                        <li style="margin-bottom: 5px;"><i class="fa-solid fa-check" style="color: #27ae60;"></i> خط الإنتاج والتجميع.</li>
+                        <li style="margin-bottom: 5px;"><i class="fa-solid fa-check" style="color: #27ae60;"></i> المعرض المفتوح (Showroom).</li>
+                        <li style="margin-bottom: 5px;"><i class="fa-solid fa-check" style="color: #27ae60;"></i> مستودع الأخشاب والاكسسوارات.</li>
+                    </ul>
+                </div>
+            </div>
 
             <div style="background: #e9ecef; border: 2px dashed #bdc3c7; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
                 <h4 style="text-align: center; margin-bottom: 15px; color: #7f8c8d;">مخطط توزيع المساحة (Layout Plan)</h4>
@@ -741,13 +767,60 @@
                 <h4 style="margin-bottom: 15px; color: var(--primary-color);">
                     <i class="fa-solid fa-map-location-dot"></i> النطاقات الجغرافية المستهدفة (Zoning)
                 </h4>
-                <div class="map-placeholder" style="position: relative; background: #e0e0e0; background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ec/Madinah_Montage.jpg'); background-size: cover; background-blend-mode: overlay;">
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px;">
-                        <i class="fa-solid fa-map fa-2x" style="color: var(--secondary-color);"></i>
-                        <p style="margin-top: 10px; font-weight: bold;">خريطة المدينة المنورة التشغيلية</p>
-                        <small style="color: #666;">تم تقسيم المدينة إلى 3 نطاقات بيعية</small>
+<div style="position: relative; height: 500px; width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid #ddd; margin-bottom: 20px;">
+                
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d116246.57726354655!2d39.6112234!3d24.4711516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2ssa!4v1700000000000" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0; filter: grayscale(30%);" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; 
+                    background: radial-gradient(circle at center, 
+                        rgba(231, 76, 60, 0.3) 0%, rgba(231, 77, 60, 0.536) 15%, /* المنطقة الحمراء: المركزية */
+                        rgba(241, 196, 15, 0.25) 16%, rgba(241, 196, 15, 0.6) 15%, /* المنطقة الصفراء: الدائري */
+                        rgba(39, 174, 96, 0.2) 41%, rgba(39, 174, 96, 0.1) 30%, /* المنطقة الخضراء: الأطراف */
+                        rgba(255, 255, 255, 0) 71%);">
+                </div>
+
+                <div style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); background: rgba(192, 57, 43, 0.9); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; pointer-events: none;">
+                    المنطقة المركزية
+                </div>
+                <div style="position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); background: rgba(243, 156, 18, 0.9); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; pointer-events: none;">
+                    الدائري الثاني
+                </div>
+
+                <div style="position: absolute; bottom: 20px; right: 20px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); width: 200px;">
+                    <h5 style="margin-bottom: 10px; font-size: 0.9rem; border-bottom: 1px solid #eee; padding-bottom: 5px;">خريطة الاستهداف البيعي</h5>
+                    
+                    <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                        <span style="width: 15px; height: 15px; background: rgba(231, 76, 60, 0.8); border-radius: 50%; display: inline-block; margin-left: 8px;"></span>
+                        <div>
+                            <span style="font-size: 0.8rem; font-weight: bold;">النطاق الأحمر</span>
+                            <div style="font-size: 0.7rem; color: #666;">فنادق 5 نجوم (تجديد شامل)</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                        <span style="width: 15px; height: 15px; background: rgba(241, 196, 15, 0.8); border-radius: 50%; display: inline-block; margin-left: 8px;"></span>
+                        <div>
+                            <span style="font-size: 0.8rem; font-weight: bold;">النطاق الأصفر</span>
+                            <div style="font-size: 0.7rem; color: #666;">شقق وفنادق اقتصادية</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <span style="width: 15px; height: 15px; background: rgba(39, 174, 96, 0.8); border-radius: 50%; display: inline-block; margin-left: 8px;"></span>
+                        <div>
+                            <span style="font-size: 0.8rem; font-weight: bold;">النطاق الأخضر</span>
+                            <div style="font-size: 0.7rem; color: #666;">الأحياء الجديدة (مبيعات أفراد)</div>
+                        </div>
                     </div>
                 </div>
+            </div>
                 
                 <div class="grid-3" style="margin-top: 15px;">
                     <div style="text-align: center; font-size: 0.85rem;">
