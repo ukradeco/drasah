@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة أونارا - دراسة استثمارية متكاملة | المدينة المنورة</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --soft-gold: #f4e8c1;
+            --deep-blue: #1a2a3a;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--light-bg);
+            scroll-behavior: smooth;
+        }
+
+        /* تأثير الزوم في قسم الهيرو */
+        .hero-zoom {
+            position: relative;
+            overflow: hidden;
+            height: 90vh;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=2070&auto=format&fit=crop'); /* صورة تعبيرية للمدينة */
+            background-size: cover;
+            background-position: center;
+            animation: zoomInOut 20s infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes zoomInOut {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-gold);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+<nav class="glass-nav fixed w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                    <img src="ownara-logo (2).png" style="width: 120px; height: 70px;" alt="Ownara Logo" class="w-6 h-6">
+                <div>
+                    <span class="text-xl font-black text-gray-800 tracking-wider">Ownara</span>
+                    <p class="text-[10px] text-gray-500 font-bold leading-tight" data-i18n="nav_brand_sub">أونارا لإدارة الفنادق</p>
+                </div>
+            </div>
+            
+            <div class="hidden lg:flex items-center gap-8 font-bold text-sm text-gray-700">
+                <a href="#summary" class="nav-link" data-i18n="nav_summary">ملخص المشروع</a>
+                <a href="#jaber" class="nav-link" data-i18n="nav_jaber">فندق جابر بن صخر</a>
+                <a href="#haram" class="nav-link" data-i18n="nav_haram">فرصة ساحة الحرم</a>
+                <a href="#market" class="nav-link" data-i18n="nav_market">تحليل المنافسين</a>
+                <a href="#finance" class="nav-link" data-i18n="nav_finance">البيانات المالية</a>
+                <a href="#ideas" class="nav-link text-yellow-600 italic" data-i18n="nav_ideas">أفكار استثمارية</a>
+            </div>
+
+            <button onclick="toggleLanguage()" class="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-bold transition-all ml-4">
+                <i class="fa-solid fa-globe"></i>
+                <span id="lang-btn-text" data-i18n="lang_btn">English</span>
+            </button>
+            
+            </div>
+    </nav>
+
+    <section class="hero-zoom flex items-center justify-center text-center text-white px-6">
+        <div class="hero-bg"></div>
+        <div class="relative z-10" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="text-yellow-500 font-bold text-xl mb-4 tracking-[0.3em]" data-i18n="hero_location">المدينة المنورة</h2>
+            
+            <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight">
+                <span data-i18n="hero_title_main">دراسة الجدوى الاستراتيجية</span> <br> 
+                <span class="text-yellow-400" data-i18n="hero_title_sub">لفرص الاستثمار الفندقي</span>
+            </h1>
+
+            <p class="text-lg md:text-xl max-w-3xl mx-auto font-light leading-relaxed opacity-90" data-i18n="hero_description">
+                رؤية شركة "أونارا" لتطوير وتشغيل فندق جابر بن صخر، والاستحواذ على حصص تشغيلية في فنادق الـ 5 نجوم بالمنطقة المركزية لموسم رمضان وما بعده.
+            </p>
+
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <a href="#jaber" class="bg-white text-gray-900 px-8 py-4 rounded-xl font-bold hover:bg-yellow-500 hover:text-white transition-all shadow-2xl" data-i18n="hero_btn_explore">
+                    ابدأ باستكشاف البيانات
+                </a>
+                <a href="#ideas" class="bg-transparent border-2 border-white/30 backdrop-blur-md text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all" data-i18n="hero_btn_vision">
+                    الرؤية الإبداعية 2026
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+    <section id="location-map" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="bg-yellow-100 text-yellow-700 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest" data-i18n="loc_analysis_tag">Location Analysis</span>
+                <h2 class="text-4xl font-black text-gray-800 mt-4 font-['Cairo']" data-i18n="loc_title">الموقع والارتباط الاستراتيجي</h2>
+                <p class="text-gray-500 mt-2" data-i18n="loc_subtitle">تحليل القرب الزمني والجغرافي من أهم معالم المدينة المنورة</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                
+                <div class="card overflow-hidden rounded-[2.5rem] shadow-2xl border-8 border-gray-50" data-aos="fade-right">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d40459.782841969165!2d39.61339703620072!3d24.45626330334142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDI3JzQ3LjUiTiAzOcKwMzknNTMuMCJF!5e0!3m2!1sen!2ssa!4v1767652103184!5m2!1sen!2ssa" width="100%" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="space-y-8" data-aos="fade-left">
+                    
+                    <div class="card p-8 bg-gray-50 rounded-3xl border border-gray-100">
+                        <h4 class="font-bold text-gray-800 mb-6 flex items-center gap-2">
+                            <i class="fa-solid fa-map-pin text-red-500"></i>
+                            <span data-i18n="loc_dist_analysis">تحليل المسافات (بالكيلومتر)</span>
+                        </h4>
+                        <div id="locationAnalysisChart"></div>
+                    </div>
+
+                    <div class="card p-8 bg-gray-900 rounded-3xl text-white relative overflow-hidden">
+                        <h4 class="font-bold mb-6 italic text-yellow-500" data-i18n="loc_connectivity_title">ارتباط الموقع بالمعالم الحيوية</h4>
+                        <div class="relative h-48 w-full">
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center">
+                                <div class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center border-2 border-white shadow-xl animate-bounce">
+                                    <i class="fa-solid fa-hotel text-sm"></i>
+                                </div>
+                                <span class="text-[9px] font-bold block mt-1" data-i18n="loc_hotel_label">فندق جابر</span>
+                            </div>
+
+                            <svg class="absolute inset-0 w-full h-full opacity-30">
+                                <line x1="50%" y1="50%" x2="10%" y2="20%" stroke="white" stroke-width="1" stroke-dasharray="4" />
+                                <line x1="50%" y1="50%" x2="90%" y2="10%" stroke="white" stroke-width="1" stroke-dasharray="4" />
+                                <line x1="50%" y1="50%" x2="5%" y2="50%" stroke="white" stroke-width="1" stroke-dasharray="4" />
+                                <line x1="50%" y1="50%" x2="95%" y2="70%" stroke="white" stroke-width="1" stroke-dasharray="4" />
+                                <line x1="50%" y1="50%" x2="30%" y2="90%" stroke="white" stroke-width="1" stroke-dasharray="4" />
+                                <line x1="50%" y1="50%" x2="70%" y2="95%" stroke="white" stroke-width="1" stroke-dasharray="4" />
+                            </svg>
+
+                            <div class="absolute top-4 left-4 text-[9px] text-gray-400" data-i18n="m_haram">المسجد النبوي (10 كم)</div>
+                            <div class="absolute top-0 right-4 text-[9px] text-gray-400" data-i18n="m_airport">المطار (17.1 كم)</div>
+                            <div class="absolute top-1/2 left-0 -translate-y-1/2 text-[9px] text-gray-400" data-i18n="m_qiblatain">مسجد القبلتين (13 كم)</div>
+                            <div class="absolute bottom-4 right-4 text-[9px] text-gray-400" data-i18n="m_train">محطة القطار (8 كم)</div>
+                            <div class="absolute bottom-0 left-1/4 text-[9px] text-gray-400" data-i18n="m_quba">مسجد قباء (6.9 كم)</div>
+                            <div class="absolute bottom-8 right-1/4 text-[9px] text-gray-400" data-i18n="m_mall">الراشد مول (5.4 كم)</div>
+                        </div>
+                        <p class="text-[10px] text-gray-500 mt-4 italic text-center border-t border-gray-800 pt-4" data-i18n="loc_network_desc">
+                            يتمتع الموقع بشبكة طرق تربطه مباشرة بمداخل المدينة الرئيسية.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var optionsLoc = {
+                series: [{
+                    name: 'المسافة (كم)',
+                    data: [10, 6.9, 13, 5.4, 17.1, 8]
+                }],
+                chart: {
+                    type: 'bar',
+                    height: 300,
+                    toolbar: { show: false }
+                },
+                plotOptions: {
+                    bar: {
+                        borderRadius: 6,
+                        columnWidth: '45%',
+                        distributed: true,
+                        dataLabels: { position: 'top' }
+                    }
+                },
+                colors: ['#D4AF37', '#2c3e50', '#7a9e7e', '#3b82f6', '#ef4444', '#6366f1'],
+                xaxis: {
+                    categories: ['الحرم', 'قباء', 'القبلتين', 'الراشد مول', 'المطار', 'القطار'],
+                    labels: { style: { fontSize: '10px', fontWeight: 'bold' } }
+                },
+                yaxis: { show: false },
+                dataLabels: {
+                    enabled: true,
+                    formatter: function (val) { return val + " كم"; },
+                    offsetY: -20,
+                    style: { fontSize: '10px', colors: ["#304758"] }
+                },
+                grid: { show: false },
+                legend: { show: false }
+            };
+
+            var chartLoc = new ApexCharts(document.querySelector("#locationAnalysisChart"), optionsLoc);
+            chartLoc.render();
+        });
+    </script>
+    <section id="summary" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl font-black text-gray-800 mb-4" data-i18n="summary_main_title">الملخص التنفيذي للدراسة</h2>
+                    <div class="w-24 h-1 bg-yellow-500 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-xl transition-shadow" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="w-14 h-14 bg-yellow-100 text-yellow-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3 text-gray-800" data-i18n="summary_goal_title">الهدف الاستراتيجي</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm" data-i18n="summary_goal_desc">
+                            تشغيل وإدارة فندق جابر بن صخر بالمدينة المنورة، بالتوازي مع الاستحواذ على حصة تشغيلية (20 غرفة) في فندق 5 نجوم بساحة الحرم لموسم رمضان.
+                        </p>
+                    </div>
+
+                    <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-xl transition-shadow" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3 text-gray-800" data-i18n="summary_scope_title">نطاق الاستثمار</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm" data-i18n="summary_scope_desc">
+                            التركيز على المنطقة المركزية بالمدينة المنورة، مستهدفين الزوار المعتمرين الباحثين عن الفخامة (5 نجوم) والخدمة الاقتصادية المتميزة.
+                        </p>
+                    </div>
+
+                    <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-xl transition-shadow" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="w-14 h-14 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3 text-gray-800" data-i18n="summary_roi_title">العوائد المتوقعة</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm" data-i18n="summary_roi_desc">
+                            تحقيق صافي ربح سنوي يتجاوز 1.3 مليون ريال من فندق جابر، بالإضافة إلى أرباح تشغيلية فورية من صفقة فندق ساحة الحرم.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section id="jaber" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12 items-start">
+                
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <span class="text-yellow-600 font-bold tracking-widest text-sm uppercase" data-i18n="jaber_project_tag">مشروع المدينة المنورة الرئيسي (75 غرفة)</span>
+                    <h2 class="text-4xl font-black text-gray-800 mt-2 mb-6">
+                        <span data-i18n="jaber_hotel_name">فندق جابر بن صخر</span> <br>
+                        <span class="text-2xl text-yellow-700" data-i18n="jaber_suites_title">"أجنحة حارات المدينة القديمة"</span>
+                    </h2>
+                    
+                    <p class="text-gray-600 mb-8 leading-relaxed" data-i18n="jaber_description">
+                        تم تطوير الرؤية لتشمل 70 غرفة بنمط عصري، بالإضافة إلى **5 أجنحة تراثية** تجسد عبق التاريخ. كل جناح هو رحلة زمنية إلى أشهر حارات المدينة المنورة القديمة، مجهزة بتقنيات الواقع الافتراضي (VR) للسير في أزقة الماضي.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="bg-white p-4 rounded-2xl border-r-4 border-yellow-500 shadow-sm">
+                            <p class="text-gray-400 text-[10px] mb-1" data-i18n="jaber_total_rooms_label">إجمالي الغرف</p>
+                            <p class="text-xl font-bold text-gray-800" data-i18n="jaber_total_rooms_value">75 وحدة</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border-r-4 border-yellow-700 shadow-sm">
+                            <p class="text-gray-400 text-[10px] mb-1" data-i18n="jaber_heritage_suites_label">أجنحة تراثية (VR)</p>
+                            <p class="text-xl font-bold text-yellow-700" data-i18n="jaber_heritage_suites_value">5 أجنحة</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-3xl mb-8 border border-yellow-100">
+                        <h4 class="font-bold text-gray-800 mb-4 flex items-center gap-2 text-sm" data-i18n="jaber_neighborhood_titles">
+                            <i class="fa-solid fa-map-location-dot text-yellow-600"></i> مسميات الأجنحة (حارات المدينة)
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-yellow-50 text-yellow-800 rounded-lg text-xs font-bold border border-yellow-100 italic" data-i18n="suite_agwat">جناح حارة الأغوات</span>
+                            <span class="px-3 py-1 bg-yellow-50 text-yellow-800 rounded-lg text-xs font-bold border border-yellow-100 italic" data-i18n="suite_anbariya">جناح حارة العنبرية</span>
+                            <span class="px-3 py-1 bg-yellow-50 text-yellow-800 rounded-lg text-xs font-bold border border-yellow-100 italic" data-i18n="suite_saha">جناح حارة الساحة</span>
+                            <span class="px-3 py-1 bg-yellow-50 text-yellow-800 rounded-lg text-xs font-bold border border-yellow-100 italic" data-i18n="suite_majidi">جناح باب المجيدي</span>
+                            <span class="px-3 py-1 bg-yellow-50 text-yellow-800 rounded-lg text-xs font-bold border border-yellow-100 italic" data-i18n="suite_tayyar">جناح زقاق الطيار</span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-gradient-to-l from-gray-900 to-gray-700 rounded-3xl text-white shadow-2xl relative overflow-hidden">
+                        <div class="relative z-10 flex justify-between items-center text-center md:text-right">
+                            <div>
+                                <p class="text-gray-300 text-xs" data-i18n="jaber_annual_income_label">إجمالي الدخل السنوي المتوقع</p>
+                                <p class="text-3xl font-black text-yellow-400 mt-1 font-mono">
+                                    <span data-i18n="jaber_annual_income_value">5,840,000</span> <span class="text-lg" data-i18n="currency_sar">ر.س</span>
+                                </p>
+                                <p class="text-[10px] text-green-400 font-bold" data-i18n="jaber_income_increase">+ زيادة 450 ألف من الأجنحة التراثية</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2 grid grid-cols-2 gap-4" data-aos="fade-left">
+                    <div class="col-span-2 relative group overflow-hidden rounded-3xl h-72 cursor-pointer shadow-xl border-4 border-white" onclick="this.requestFullscreen()">
+                        <img src="Gemini_Generated_Image_bp33x4bp33x4bp33.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Heritage Suite">
+                        <div class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white text-[10px] px-3 py-1 rounded-full"><i class="fa-solid fa-magnifying-glass-plus ml-1"></i> <span data-i18n="click_to_zoom">اضغط للتكبير</span></div>
+                        <div class="absolute top-4 left-4 bg-yellow-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg" data-i18n="real_hotel_model">نموذج واقعي للفندق</div>
+                    </div>
+                    <div class="relative group overflow-hidden rounded-3xl h-48 cursor-pointer shadow-lg border-2 border-white" onclick="this.requestFullscreen()">
+                        <img src="حارة الساحة.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="bg-gray-800 rounded-3xl h-48 flex flex-col items-center justify-center text-white p-6 text-center border-b-4 border-yellow-500">
+                        <i class="fa-solid fa-vr-cardboard text-4xl mb-3 text-yellow-500 animate-pulse"></i>
+                        <h5 class="font-bold text-sm" data-i18n="vr_experience_title">تجربة الـ VR</h5>
+                        <p class="text-[10px] text-gray-400 mt-2" data-i18n="vr_experience_desc">محاكاة افتراضية للسير في حارات المدينة القديمة داخل كل جناح</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="haram" class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-50 rounded-full -mr-32 -mt-32 opacity-50"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                
+                <div class="w-full lg:w-5/12 order-2 lg:order-1">
+                    <div class="card p-8 bg-white border-t-8 border-yellow-500 shadow-2xl rounded-3xl" data-aos="fade-up">
+                        <h3 class="text-2xl font-black text-gray-800 mb-6 flex items-center gap-2">
+                            <i class="fa-solid fa-calculator text-yellow-600"></i>
+                            <span data-i18n="haram_finance_title">الجدوى المالية (شهر رمضان)</span>
+                        </h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-end border-b pb-4">
+                                <div>
+                                    <p class="text-gray-500 text-sm" data-i18n="haram_sales_label">إجمالي المبيعات المستهدفة</p>
+                                    <p class="text-xs text-blue-500 font-bold" data-i18n="haram_sales_calc">(900 ريال × 20 غرفة × 30 ليلة)</p>
+                                </div>
+                                <span class="text-2xl font-black text-gray-800 font-mono">
+                                    <span data-i18n="haram_sales_value">540,000</span> <span class="text-xs" data-i18n="currency_sar">ر.س</span>
+                                </span>
+                            </div>
+
+                            <div class="flex justify-between items-end border-b pb-4">
+                                <div>
+                                    <p class="text-gray-500 text-sm" data-i18n="haram_cost_label">تكلفة الحجز (فاضي مليان)</p>
+                                    <p class="text-xs text-red-400 font-bold" data-i18n="haram_cost_calc">(400 ريال لليلة - عقد حصري)</p>
+                                </div>
+                                <span class="text-2xl font-black text-red-600 font-mono">
+                                    <span data-i18n="haram_cost_value">240,000</span> <span class="text-xs" data-i18n="currency_sar">ر.س</span>
+                                </span>
+                            </div>
+
+                            <div class="p-6 bg-green-50 rounded-2xl border border-green-100 mt-6 text-center">
+                                <p class="text-green-700 font-bold text-sm mb-1 uppercase tracking-widest" data-i18n="haram_profit_label">صافي الربح التشغيلي للشهر</p>
+                                <p class="text-5xl font-black text-green-600 font-mono">
+                                    <span data-i18n="haram_profit_value">300,000</span> <span class="text-xl italic" data-i18n="currency_sar">ر.س</span>
+                                </p>
+                                <p class="text-[10px] text-green-500 mt-2 font-bold" data-i18n="haram_profit_note">* تم استبعاد تكاليف خدمات الـ VIP لتعظيم الهامش الربحي</p>
+                            </div>
+                        </div>
+
+                        <div id="profitChart" class="mt-8"></div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-7/12 order-1 lg:order-2" data-aos="fade-left">
+                    <div class="inline-block px-4 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-black mb-4">
+                        <i class="fa-solid fa-crown ml-1"></i> <span data-i18n="haram_badge">فرصة استثمارية ذهبية</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-black text-gray-800 leading-tight mb-6">
+                        <span data-i18n="haram_title_part1">الاستحواذ التشغيلي في</span> <br> 
+                        <span class="text-yellow-600 italic" data-i18n="haram_title_part2">ساحة الحرم النبوي الشريف</span>
+                    </h2>
+                    
+                    <p class="text-gray-600 text-lg leading-relaxed mb-8" data-i18n="haram_description">
+                        تعتمد استراتيجية "أونارا" على اقتناص فرص "التشغيل المضمون" في الفنادق ذات الخمس نجوم المطلة مباشرة على ساحة الحرم النبوي. تم التفاوض على سعر تنافسي (400 ريال) لليلة الواحدة بنظام الحجز الكامل لـ 20 غرفة، مما يمنحنا مرونة عالية في إعادة البيع بأسعار الموسم (900 ريال).
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-4">
+                            <div class="text-yellow-600 text-xl mt-1"><i class="fa-solid fa-handshake-angle"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-800" data-i18n="haram_feature_1_title">شراكة استراتيجية</h4>
+                                <p class="text-sm text-gray-500" data-i18n="haram_feature_1_desc">اتفاقية مبرمة مع إدارة الفندق لضمان الأولوية في مواسم العمرة القادمة.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="text-yellow-600 text-xl mt-1"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-800" data-i18n="haram_feature_2_title">ضمان الإشغال</h4>
+                                <p class="text-sm text-gray-500" data-i18n="haram_feature_2_desc">نظام "فاضي مليان" يقلل المخاطر التشغيلية ويرفع كفاءة التدفق النقدي.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 rounded-3xl overflow-hidden shadow-2xl h-64 border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover" alt="Luxury Hotel Suite" data-i18n="alt_luxury_suite">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var optionsProfit = {
+                series: [{
+                    name: 'القيمة',
+                    data: [240000, 540000, 300000]
+                }],
+                chart: {
+                    type: 'bar',
+                    height: 200,
+                    toolbar: { show: false }
+                },
+                plotOptions: {
+                    bar: {
+                        borderRadius: 8,
+                        distributed: true,
+                        columnWidth: '50%',
+                    }
+                },
+                colors: ['#ef4444', '#3b82f6', '#10b981'],
+                dataLabels: {
+                    enabled: true,
+                    formatter: function (val) { return val.toLocaleString(); },
+                    style: { fontSize: '10px' }
+                },
+                xaxis: {
+                    categories: ['التكلفة', 'المبيعات', 'الربح الصافي'],
+                    labels: { style: { fontWeight: 'bold' } }
+                },
+                yaxis: { show: false },
+                grid: { show: false },
+                legend: { show: false }
+            };
+
+            var chartProfit = new ApexCharts(document.querySelector("#profitChart"), optionsProfit);
+            chartProfit.render();
+        });
+    </script>
+    
+<section id="market" class="py-24 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row justify-between items-end mb-12" data-aos="fade-up">
+            <div class="max-w-2xl">
+                <h2 class="text-3xl font-black text-gray-800 mb-4" data-i18n="market_main_title">تحليل المشهد التنافسي</h2>
+                <p class="text-gray-600" data-i18n="market_desc">رصد دقيق لأسعار وخدمات الفنادق المنافسة في شارع جابر بن صخر والمنطقة المركزية، لتحديد الثغرات السوقية التي ستستغلها "أونارا".</p>
+            </div>
+            <div class="hidden lg:block">
+                <span class="text-xs font-bold text-gray-400" data-i18n="market_update_text">آخر تحديث للأسعار: موسم 2025/2026</span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="lg:col-span-1" data-aos="fade-right">
+                <div class="card p-6 bg-white h-full border-b-4 border-blue-500">
+                    <h4 class="font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-simple text-blue-500"></i>
+                        <span data-i18n="market_chart_compare">مقارنة أسعار الليلة (ر.س)</span>
+                    </h4>
+                    <div id="competitorPriceChart"></div>
+                    <div class="mt-6 p-4 bg-blue-50 rounded-xl">
+                        <p class="text-xs text-blue-800 leading-relaxed">
+                            <i class="fa-solid fa-info-circle ml-1"></i>
+                            <span data-i18n="market_analysis_note">نلاحظ أن متوسط سعر "أونارا" (350 ريال) يقع في النطاق الذهبي؛ فهو أعلى من الفنادق المتهالكة وأقل بكثير من الفنادق الفاخرة البعيدة عن الحرم.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2" data-aos="fade-left">
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+                    <table class="w-full text-right">
+                        <thead class="bg-gray-800 text-white text-sm">
+                            <tr>
+                                <th class="p-5" data-i18n="table_h_hotel">الفندق المنافس</th>
+                                <th class="p-5 text-center" data-i18n="table_h_price">السعر</th>
+                                <th class="p-5" data-i18n="table_h_features">نقاط القوة / الضعف</th>
+                                <th class="p-5 text-center" data-i18n="table_h_rating">التقييم التشغيلي</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-5">
+                                    <p class="font-bold text-gray-800" data-i18n="h1_name">فندق عمرية</p>
+                                    <p class="text-[10px] text-gray-400" data-i18n="h1_loc">على الدائري</p>
+                                </td>
+                                <td class="p-5 text-center font-mono font-bold text-red-500" data-i18n="h1_price">648</td>
+                                <td class="p-5 text-xs text-gray-600">
+                                    <span class="text-green-600 font-bold">+</span> <span data-i18n="h1_pros">جديد، نادي رياضي، مواقف</span> <br>
+                                    <span class="text-red-500 font-bold">-</span> <span data-i18n="h1_cons">سعر مرتفع جداً</span>
+                                </td>
+                                <td class="p-5 text-center italic text-xs text-gray-400 italic" data-i18n="h1_status">منافس غير مباشر (سعر)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-5">
+                                    <p class="font-bold text-gray-800" data-i18n="h2_name">فندق لفيف</p>
+                                    <p class="text-[10px] text-gray-400" data-i18n="h2_loc">جديد</p>
+                                </td>
+                                <td class="p-5 text-center font-mono font-bold text-blue-600" data-i18n="h2_price">356</td>
+                                <td class="p-5 text-xs text-gray-600" data-i18n="h2_desc">تخزين أمتعة، مطعم وكافيه</td>
+                                <td class="p-5 text-center">
+                                    <span class="text-blue-500 font-bold text-[10px]" data-i18n="h2_status">المنافس الأشرس لـ "أونارا"</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-5">
+                                    <p class="font-bold text-gray-800" data-i18n="h3_name">فندق إيليت</p>
+                                    <p class="text-[10px] text-gray-400" data-i18n="h3_loc">شارع جانبي</p>
+                                </td>
+                                <td class="p-5 text-center font-mono font-bold" data-i18n="h3_price">341</td>
+                                <td class="p-5 text-xs text-gray-600" data-i18n="h3_desc">توصيل للمطار والقطار</td>
+                                <td class="p-5 text-center">
+                                    <span class="text-red-500 font-bold text-[10px]" data-i18n="h3_status">موقع منزوي، خدمات محدودة</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-yellow-50/50">
+                                <td class="p-5 border-r-4 border-yellow-500">
+                                    <p class="font-black text-yellow-700" data-i18n="hownara_name">أونارا (جابر)</p>
+                                    <p class="text-[10px] text-yellow-600 font-bold" data-i18n="hownara_tag">هدفنا السعري</p>
+                                </td>
+                                <td class="p-5 text-center font-mono font-black text-gray-900 bg-yellow-100" data-i18n="hownara_price">350</td>
+                                <td class="p-5 text-xs font-bold text-gray-800" data-i18n="hownara_desc">تشغيل ذكي، إدارة "أونارا" الاحترافية، توازن مثالي بين السعر والموقع.</td>
+                                <td class="p-5 text-center">
+                                    <span class="bg-green-500 text-white text-[9px] px-2 py-1 rounded-full font-bold" data-i18n="hownara_status">أفضل خيار استثماري</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up">
+            <div class="bg-white p-6 rounded-2xl text-center shadow-sm">
+                <i class="fa-solid fa-wifi text-2xl text-gray-300 mb-3"></i>
+                <h5 class="text-sm font-bold text-gray-700" data-i18n="feat_wifi">تغطية ذكية</h5>
+            </div>
+            <div class="bg-white p-6 rounded-2xl text-center shadow-sm border-b-4 border-yellow-500">
+                <i class="fa-solid fa-van-shuttle text-2xl text-yellow-500 mb-3"></i>
+                <h5 class="text-sm font-bold text-gray-700" data-i18n="feat_shuttle">نقل ترددي</h5>
+            </div>
+            <div class="bg-white p-6 rounded-2xl text-center shadow-sm">
+                <i class="fa-solid fa-broom text-2xl text-gray-300 mb-3"></i>
+                <h5 class="text-sm font-bold text-gray-700" data-i18n="feat_5star">خدمة 5 نجوم</h5>
+            </div>
+            <div class="bg-white p-6 rounded-2xl text-center shadow-sm">
+                <i class="fa-solid fa-shield-halved text-2xl text-gray-300 mb-3"></i>
+                <h5 class="text-sm font-bold text-gray-700" data-i18n="feat_security">أمان متكامل</h5>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var optionsComp = {
+                series: [{
+                    name: 'سعر الليلة',
+                    data: [648, 356, 341, 350, 229, 208]
+                }],
+                chart: {
+                    type: 'radar',
+                    height: 300,
+                    toolbar: { show: false }
+                },
+                colors: ['#D4AF37'],
+                xaxis: {
+                    categories: ['عمرية', 'لفيف', 'إيليت', 'أونارا', 'بلاتنيوم', 'الماسة'],
+                    labels: { style: { fontSize: '10px', fontWeight: 'bold' } }
+                },
+                fill: { opacity: 0.2 },
+                markers: { size: 4 },
+                yaxis: { show: false }
+            };
+
+            var chartComp = new ApexCharts(document.querySelector("#competitorPriceChart"), optionsComp);
+            chartComp.render();
+        });
+    </script>
+  
+<section id="finance" class="py-24 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <span class="bg-yellow-100 text-yellow-700 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest" data-i18n="fin_tag">Financial Engineering</span>
+            <h2 class="text-4xl font-black text-gray-800 mt-4" data-i18n="fin_title">الهيكل المالي والتدفقات النقدية</h2>
+            <p class="text-gray-500 mt-4 max-w-3xl mx-auto" data-i18n="fin_subtitle">تحليل دقيق لرأس المال العامل (CAPEX) والمصاريف التشغيلية (OPEX) مع حسابات الربحية للأجنحة التراثية "حارات المدينة".</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            
+            <div class="card p-10 bg-gray-50 rounded-[2.5rem] border border-gray-100 relative overflow-hidden" data-aos="fade-right">
+                <div class="flex justify-between items-start mb-10">
+                    <div>
+                        <h4 class="font-black text-2xl text-gray-800" data-i18n="fin_capex_title">ميزانية التأسيس</h4>
+                        <p class="text-xs text-gray-400 mt-1 italic" data-i18n="fin_capex_desc">تشمل التجهيز الفندقي واللمسات التراثية</p>
+                    </div>
+                    <div class="bg-yellow-500 text-white p-4 rounded-2xl shadow-lg">
+                        <p class="text-[10px] opacity-80 leading-none" data-i18n="fin_total_req_label">الإجمالي المطلوب</p>
+                        <p class="text-xl font-bold font-mono"><span data-i18n="fin_total_req_val">929,500</span> <span class="text-xs" data-i18n="currency_sar">SAR</span></p>
+                    </div>
+                </div>
+
+                <div id="detailedSetupChart"></div>
+
+                <div class="mt-8 space-y-4">
+                    <div class="flex justify-between items-center p-3 bg-white rounded-xl shadow-sm">
+                        <span class="text-sm font-bold text-gray-700"><i class="fa-solid fa-bed ml-2 text-blue-500"></i> <span data-i18n="fin_setup_std">التأسيس الفندقي (70 غرفة)</span></span>
+                        <span class="font-mono font-bold text-gray-500"><span data-i18n="fin_setup_std_val">554,500</span> <span data-i18n="currency_sar_small">ر.س</span></span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-white rounded-xl shadow-sm border-r-4 border-yellow-500">
+                        <span class="text-sm font-bold text-yellow-700"><i class="fa-solid fa-mosque ml-2"></i> <span data-i18n="fin_setup_heritage">أجنحة الحارات + VR (5 وحدات)</span></span>
+                        <span class="font-mono font-bold text-yellow-600"><span data-i18n="fin_setup_heritage_val">375,000</span> <span data-i18n="currency_sar_small">ر.س</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-10 bg-gray-50 rounded-[2.5rem] border border-gray-100 shadow-xl" data-aos="fade-left">
+                <h4 class="font-black text-2xl text-gray-800 mb-8" data-i18n="fin_opex_title">المصاريف التشغيلية السنوية</h4>
+                <div id="annualOpexChart"></div>
+                
+                <div class="grid grid-cols-2 gap-4 mt-8">
+                    <div class="p-4 bg-white rounded-2xl">
+                        <p class="text-[10px] text-gray-400 uppercase" data-i18n="fin_rent_label">إيجار الفندق سنوياً</p>
+                        <p class="font-bold text-gray-800 font-mono text-lg" data-i18n="fin_rent_val">1,000,008</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-2xl border-b-4 border-red-400">
+                        <p class="text-[10px] text-gray-400 uppercase" data-i18n="fin_salaries_label">الرواتب والأجور</p>
+                        <p class="font-bold text-gray-800 font-mono text-lg" data-i18n="fin_salaries_val">1,105,200</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="overflow-hidden rounded-[3rem] border border-gray-100 shadow-2xl bg-white mb-16" data-aos="fade-up">
+            <div class="bg-gray-800 p-8 text-white flex justify-between items-center">
+                <h4 class="text-xl font-black" data-i18n="fin_table_title">بيان الدخل التقديري (بعد إضافة الأجنحة التراثية)</h4>
+                <span class="text-xs bg-green-500 px-3 py-1 rounded-full font-bold animate-pulse" data-i18n="fin_table_badge">تحديث: عوائد مرتفعة</span>
+            </div>
+            <div class="p-0">
+                <table class="w-full text-right">
+                    <thead>
+                        <tr class="bg-gray-100 text-gray-600 text-xs uppercase font-black">
+                            <th class="p-6" data-i18n="fin_th_item">البند الاستثماري</th>
+                            <th class="p-6" data-i18n="fin_th_desc">الوصف / العدد</th>
+                            <th class="p-6 text-center" data-i18n="fin_th_rev">الإيراد السنوي</th>
+                            <th class="p-6 text-center" data-i18n="fin_th_status">الحالة</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-50">
+                        <tr>
+                            <td class="p-6 font-bold text-gray-700" data-i18n="fin_row_std">الغرف العصرية (Standard)</td>
+                            <td class="p-6 text-sm text-gray-500" data-i18n="fin_row_std_desc">70 غرفة × 350 ر.س × 220 يوم</td>
+                            <td class="p-6 text-center font-mono font-bold text-gray-800" data-i18n="fin_row_std_val">5,390,000</td>
+                            <td class="p-6 text-center"><span class="text-[10px] bg-blue-100 text-blue-600 px-2 py-1 rounded-md font-bold" data-i18n="fin_status_basic">تشغيل أساسي</span></td>
+                        </tr>
+                        <tr class="bg-yellow-50/30">
+                            <td class="p-6 font-bold text-yellow-700" data-i18n="fin_row_heritage">أجنحة الحارات (Heritage)</td>
+                            <td class="p-6 text-sm text-gray-500" data-i18n="fin_row_heritage_desc">5 أجنحة × 900 ر.س × 100 يوم</td>
+                            <td class="p-6 text-center font-mono font-black text-yellow-600" data-i18n="fin_row_heritage_val">450,000</td>
+                            <td class="p-6 text-center"><span class="text-[10px] bg-yellow-200 text-yellow-800 px-2 py-1 rounded-md font-bold" data-i18n="fin_status_growth">نمو إبداعي</span></td>
+                        </tr>
+                        <tr class="bg-gray-50 font-black">
+                            <td class="p-6 text-lg text-gray-800" data-i18n="fin_row_total">إجمالي الإيرادات الكلية</td>
+                            <td class="p-6"></td>
+                            <td class="p-6 text-center text-2xl text-gray-900 font-mono" data-i18n="fin_row_total_val">5,840,000</td>
+                            <td class="p-6 text-center text-xs text-gray-400" data-i18n="fin_row_per_year">ر.س / سنوياً</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-8 bg-green-600 rounded-[2rem] text-white shadow-lg transform hover:-translate-y-2 transition-transform">
+                <p class="text-xs opacity-80 mb-2 uppercase tracking-widest" data-i18n="fin_net_profit_label">صافي الربح السنوي المتوقع</p>
+                <p class="text-4xl font-black font-mono" data-i18n="fin_net_profit_val">1,785,342</p>
+                <p class="text-[10px] mt-4 font-bold bg-white/20 p-2 rounded-lg italic text-center" data-i18n="fin_net_profit_note">يشمل أرباح جابر + الأجنحة التراثية</p>
+            </div>
+            <div class="p-8 bg-blue-600 rounded-[2rem] text-white shadow-lg transform hover:-translate-y-2 transition-transform">
+                <p class="text-xs opacity-80 mb-2 uppercase tracking-widest" data-i18n="fin_margin_label">هامش الربح التشغيلي</p>
+                <p class="text-4xl font-black font-mono">30.5%</p>
+                <div class="w-full bg-white/20 h-2 mt-4 rounded-full overflow-hidden">
+                    <div class="bg-white h-full" style="width: 30%;"></div>
+                </div>
+            </div>
+            <div class="p-8 bg-gray-900 rounded-[2rem] text-white shadow-lg transform hover:-translate-y-2 transition-transform">
+                <p class="text-xs opacity-80 mb-2 uppercase tracking-widest" data-i18n="fin_roi_label">استرداد رأس المال (ROI)</p>
+                <p class="text-4xl font-black font-mono"><span data-i18n="fin_roi_val">~ 6</span> <span class="text-sm" data-i18n="fin_roi_unit">أشهر</span></p>
+                <p class="text-[10px] mt-4 text-gray-400 italic text-center" data-i18n="fin_roi_note">سرعة استرداد عالية نظراً لجاهزية المبنى</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. شارت التأسيس التفصيلي (Sunburst style or Donut)
+            var optionsSetup = {
+                series: [554500, 375000],
+                chart: { type: 'donut', height: 350 },
+                labels: ['التأسيس الفندقي المعتاد', 'تجهيز أجنحة الحارات + VR'],
+                colors: ['#2c3e50', '#D4AF37'],
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            size: '75%',
+                            labels: {
+                                show: true,
+                                name: { show: true, fontSize: '12px', fontWeight: 'bold' },
+                                value: { show: true, fontSize: '20px', fontWeight: 'black', formatter: val => parseInt(val).toLocaleString() },
+                                total: { show: true, label: 'إجمالي التأسيس', formatter: () => '929,500' }
+                            }
+                        }
+                    }
+                },
+                legend: { position: 'bottom' },
+                dataLabels: { enabled: false }
+            };
+            new ApexCharts(document.querySelector("#detailedSetupChart"), optionsSetup).render();
+
+            // 2. شارت المصاريف التشغيلية (Polar Area)
+            var optionsOpex = {
+                series: [1105200, 1000008, 519600, 213950, 84000],
+                chart: { type: 'polarArea', height: 350 },
+                labels: ['الرواتب', 'الإيجار', 'م. ثابتة', 'م. حكومية', 'إعلانات'],
+                fill: { opacity: 0.8 },
+                colors: ['#ef4444', '#3b82f6', '#10b981', '#f59e0b', '#6366f1'],
+                responsive: [{
+                    breakpoint: 480,
+                    options: { chart: { width: 200 }, legend: { position: 'bottom' } }
+                }],
+                legend: { position: 'right', fontSize: '12px' }
+            };
+            new ApexCharts(document.querySelector("#annualOpexChart"), optionsOpex).render();
+        });
+    </script>
+<section id="ideas" class="py-24 bg-gray-50 relative overflow-hidden">
+    <div class="container mx-auto px-6">
+        <div class="flex items-center gap-4 mb-12" data-aos="fade-up">
+            <div class="h-12 w-2 bg-yellow-600 rounded-full"></div>
+            <div>
+                <h2 class="text-3xl font-black text-gray-800" data-i18n="ideas_main_title">الرؤية التطويرية 2026</h2>
+                <p class="text-sm text-gray-500" data-i18n="ideas_main_subtitle">أفكار استراتيجية لتعظيم الربحية وتحسين تجربة الزائر</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="card p-8 bg-white group hover:bg-yellow-600 transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
+                    <i class="fa-solid fa-microchip text-2xl text-yellow-600 group-hover:text-white"></i>
+                </div>
+                <h3 class="font-bold text-xl mb-4 group-hover:text-white" data-i18n="ideas_card1_title">نظام التسعير الديناميكي (AI)</h3>
+                <p class="text-gray-600 text-sm leading-relaxed group-hover:text-yellow-50" data-i18n="ideas_card1_desc">
+                    استخدام خوارزميات الذكاء الاصطناعي لتغيير أسعار الغرف لحظياً بناءً على حجم الطلب في المدينة المنورة ومواعيد رحلات القطار والطيران، مما يرفع العائد بنسبة 15%.
+                </p>
+            </div>
+
+            <div class="card p-8 bg-white group hover:bg-gray-800 transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
+                    <i class="fa-solid fa-mosque text-2xl text-gray-700 group-hover:text-white"></i>
+                </div>
+                <h3 class="font-bold text-xl mb-4 group-hover:text-white" data-i18n="ideas_card2_title">باقات "الزيارة" المتكاملة</h3>
+                <p class="text-gray-600 text-sm leading-relaxed group-hover:text-gray-300" data-i18n="ideas_card2_desc">
+                    توقيع شراكات مع مرشدين محليين لتقديم جولات حصرية (أحد، قباء، القبلتين) تبدأ وتنتهي من باب الفندق، مما يخلق عائداً إضافياً (Non-Room Revenue).
+                </p>
+            </div>
+
+            <div class="card p-8 bg-white group hover:bg-yellow-700 transition-all duration-500" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
+                    <i class="fa-solid fa-mug-hot text-2xl text-yellow-600 group-hover:text-white"></i>
+                </div>
+                <h3 class="font-bold text-xl mb-4 group-hover:text-white" data-i18n="ideas_card3_title">مقهى "أونارا" المتخصص</h3>
+                <p class="text-gray-600 text-sm leading-relaxed group-hover:text-yellow-50" data-i18n="ideas_card3_desc">
+                    تحويل ركن في اللوبي لمقهى مختص يقدم "قهوة المدينة" وأجود أنواع التمور بهوية أونارا، لرفع مستوى رضا الضيوف وزيادة الدخل اليومي.
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-12 p-8 bg-white border-r-8 border-green-500 rounded-2xl shadow-sm" data-aos="zoom-in">
+            <h4 class="font-bold text-gray-800 mb-2 italic underline" data-i18n="ideas_expert_label">توصية خبير الاستثمار:</h4>
+            <p class="text-gray-600 text-sm leading-relaxed font-bold" data-i18n="ideas_expert_desc">
+                "نوصي بتركيز جهود التسويق الرقمي على وكالات السفر في (إندونيسيا وباكستان وتركيا) لعقود الإشغال الطويل (B2B)، حيث تضمن هذه الشريحة تدفقاً نقدياً مستقراً بعيداً عن تقلبات الأفراد، خاصة في الفترات التي تلي شهر رمضان."
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+        .gallery-container { padding: 80px 0; background: #fdfcfb; }
+        
+        /* تصميم الكارت المزدوج */
+        .room-pair-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            border: 1px solid #eee;
+            margin: 20px;
+        }
+        
+        .image-wrapper {
+            display: flex;
+            height: 300px;
+            gap: 2px; /* خط فاصل بسيط بين الصورتين */
+            background: #eee;
+        }
+        
+        .room-img {
+            width: 50%;
+            height: 100%;
+            object-cover: cover;
+            transition: width 0.5s ease;
+            filter: grayscale(20%);
+        }
+        
+        .room-img:hover {
+            width: 70%; /* تأثير توسيع الصورة عند التمرير */
+            filter: grayscale(0%);
+        }
+
+        .content-box {
+            padding: 25px;
+            text-align: right;
+        }
+
+        .category-badge {
+            font-size: 10px;
+            font-weight: 900;
+            padding: 4px 12px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .badge-heritage { background: #f4e8c1; color: #91733a; border: 1px solid #d4af37; }
+        .badge-standard { background: #e0f2f1; color: #00695c; }
+        .badge-luxury { background: #eceff1; color: #263238; }
+
+        /* تخصيص التمرير */
+        .swiper-pagination-bullet-active { background: #d4af37 !important; }
+    </style>
+
+<section id="gallery" class="gallery-container">
+    <div class="container mx-auto px-6">
+        <div class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-black text-gray-800" data-i18n="gal_main_title">معرض النماذج السكنية</h2>
+            <p class="text-gray-500 mt-2 italic" data-i18n="gal_main_subtitle">عرض تفصيلي (غرفة النوم + الحمام) لكل فئة تشغيلية</p>
+            <div class="w-20 h-1 bg-yellow-600 mt-4 rounded-full"></div>
+        </div>
+
+        <div class="swiper roomSwiper">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide">
+                    <div class="room-pair-card">
+                        <div class="image-wrapper">
+                            <img src="حارة الاغوات.png" class="room-img" data-i18n-title="gal_agwat_t1">
+                            <img src="حارة الاغوات1.png" class="room-img" data-i18n-title="gal_agwat_t2">
+                        </div>
+                        <div class="content-box">
+                            <span class="category-badge badge-heritage" data-i18n="gal_badge_heritage">أجنحة الحارات (Luxury Heritage)</span>
+                            <h3 class="text-xl font-bold text-gray-800" data-i18n="gal_h_agwat">جناح حارة الأغوات</h3>
+                            <p class="text-xs text-gray-500 mt-2" data-i18n="gal_d_agwat">دمج بين الجدران الطينية الخام وأثاث Modern Century الفاخر.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="room-pair-card">
+                        <div class="image-wrapper">
+                            <img src="حارة الساحة.png" class="room-img" data-i18n-title="gal_saha_t1">
+                            <img src="حارة الساحة 1.png" class="room-img" data-i18n-title="gal_saha_t2">
+                        </div>
+                        <div class="content-box">
+                            <span class="category-badge badge-heritage" data-i18n="gal_badge_heritage">أجنحة الحارات (Luxury Heritage)</span>
+                            <h3 class="text-xl font-bold text-gray-800" data-i18n="gal_h_saha">جناح حارة الساحة</h3>
+                            <p class="text-xs text-gray-500 mt-2" data-i18n="gal_d_saha">دمج بين الجدران الجيرية الخام وأثاث Modern Century الفاخر القديم المظهر.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="room-pair-card">
+                        <div class="image-wrapper">
+                            <img src="غرفة مودرن فندق جابر بن صخر.png" class="room-img" data-i18n-title="gal_jaber_t1">
+                            <img src="حمام غرفة جابر بن صخر .png" class="room-img" data-i18n-title="gal_jaber_t2">
+                        </div>
+                        <div class="content-box">
+                            <span class="category-badge badge-standard" data-i18n="gal_badge_standard">النموذج القياسي (70 وحدة)</span>
+                            <h3 class="text-xl font-bold text-gray-800" data-i18n="gal_h_jaber">الغرف العصرية - جابر بن صخر</h3>
+                            <p class="text-xs text-gray-500 mt-2" data-i18n="gal_d_jaber">تصميم يركز على الكفاءة التشغيلية والراحة بلمسة مينيماليزم.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="room-pair-card">
+                        <div class="image-wrapper">
+                            <img src="طراز فندقي 1.png" class="room-img" data-i18n-title="gal_haram_t1">
+                            <img src="طراز فندقي.png" class="room-img" data-i18n-title="gal_haram_t2">
+                        </div>
+                        <div class="content-box">
+                            <span class="category-badge badge-luxury" data-i18n="gal_badge_luxury">فئة 5 نجوم (ساحة الحرم)</span>
+                            <h3 class="text-xl font-bold text-gray-800" data-i18n="gal_h_haram">أجنحة النخبة - ساحة الحرم</h3>
+                            <p class="text-xs text-gray-500 mt-2" data-i18n="gal_d_haram">أعلى معايير الرفاهية المباشرة بجوار المسجد النبوي الشريف.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="room-pair-card">
+                        <div class="image-wrapper">
+                            <img src="حارة العنبرية.png" class="room-img" data-i18n-title="gal_anbariya_t1">
+                            <img src="حارة العنبرية 1.png" class="room-img" data-i18n-title="gal_anbariya_t2">
+                        </div>
+                        <div class="content-box">
+                            <span class="category-badge badge-heritage" data-i18n="gal_badge_heritage">أجنحة الحارات (Luxury Heritage)</span>
+                            <h3 class="text-xl font-bold text-gray-800" data-i18n="gal_h_anbariya">جناح حارة العنبرية</h3>
+                            <p class="text-xs text-gray-500 mt-2" data-i18n="gal_d_anbariya">طابع البوابات التاريخية مجسد في أحجار البازلت الأسود.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next" style="color: #d4af37;"></div>
+            <div class="swiper-button-prev" style="color: #d4af37;"></div>
+        </div>
+    </div>
+</section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var swiper = new Swiper(".roomSwiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                centeredSlides: true,
+                autoplay: { delay: 4000 },
+                pagination: { el: ".swiper-pagination", clickable: true },
+                navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+                breakpoints: {
+                    1024: { slidesPerView: 2 },
+                    1440: { slidesPerView: 2.5 }
+                }
+            });
+        });
+    </script>
+
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-3">
+                                        <img src="ownara-logo (2).png" style="width: 150px; height: 90px;" alt="Ownara Logo" class="w-6 h-6">
+
+                    <div>
+                        <span class="text-2xl font-black tracking-widest uppercase">Ownara</span>
+                        <p class="text-[10px] text-gray-500 italic" data-i18n="footer_brand_sub">Ownara HOTEL MANAGEMENT & OPERATION</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 text-gray-400">
+                    <a href="#" class="hover:text-yellow-500 transition-colors"><i class="fa-brands fa-linkedin-in text-xl"></i></a>
+                    <a href="#" class="hover:text-yellow-500 transition-colors"><i class="fa-brands fa-x-twitter text-xl"></i></a>
+                    <a href="#" class="hover:text-yellow-500 transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p data-i18n="footer_data_note">جميع البيانات المذكورة في هذه الدراسة مبنية على تحليلات سوق المدينة المنورة لموسم 2025/2026.</p>
+                <p class="mt-2" data-i18n="footer_copyright">© شركة أونارا لإدارة وتشغيل الفنادق والحجوزات الفندقية.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // إغلاق أي سكريبتات معلقة وضمان عمل AOS
+        document.addEventListener("DOMContentLoaded", function() {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                easing: 'ease-in-out'
+            });
+        });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+// 1. قاموس الترجمة
+const translations = {
+    ar: {
+        "إجمالي التأسيس": "إجمالي التأسيس",
+        hero_location: "المدينة المنورة",
+        hero_title_main: "دراسة الجدوى الاستراتيجية",
+        hero_title_sub: "لفرص الاستثمار الفندقي",
+        hero_description: "رؤية شركة 'أونارا' لتطوير وتشغيل فندق جابر بن صخر، والاستحواذ على حصص تشغيلية في فنادق الـ 5 نجوم بالمنطقة المركزية لموسم رمضان وما بعده.",
+        hero_btn_explore: "ابدأ باستكشاف البيانات",
+        hero_btn_vision: "الرؤية الإبداعية 2026",
+        nav_brand_sub: "أونارا لإدارة الفنادق",
+        nav_summary: "ملخص المشروع",
+        nav_jaber: "فندق جابر بن صخر",
+        nav_haram: "فرصة ساحة الحرم",
+        nav_market: "تحليل المنافسين",
+        nav_finance: "البيانات المالية",
+        nav_ideas: "أفكار استثمارية",
+        lang_btn: "English",
+        dir: "rtl",
+        nav_summary: "ملخص المشروع",
+        nav_jaber: "فندق جابر بن صخر",
+        nav_haram: "فرصة ساحة الحرم",
+        nav_market: "تحليل المنافسين",
+        nav_finance: "البيانات المالية",
+        nav_ideas: "أفكار استثمارية",
+        hero_tag: "المدينة المنورة",
+        hero_title: "دراسة الجدوى الاستراتيجية لفرص الاستثمار الفندقي",
+        hero_desc: "رؤية شركة 'أونارا' لتطوير وتشغيل فندق جابر بن صخر، والاستحواذ على حصص تشغيلية في فنادق الـ 5 نجوم بالمنطقة المركزية.",
+        hero_btn: "ابدأ باستكشاف البيانات",
+        hero_btn_ideas: "الرؤية الإبداعية 2026",
+        loc_title: "الموقع والارتباط الاستراتيجي",
+        fin_title: "الهيكل المالي والتدفقات النقدية",
+        lang_btn: "English",
+        chart_dist_categories: ['الحرم', 'قباء', 'القبلتين', 'الراشد مول', 'المطار', 'القطار'],
+        loc_analysis_tag: "تحليل الموقع",
+        loc_title: "الموقع والارتباط الاستراتيجي",
+        loc_subtitle: "تحليل القرب الزمني والجغرافي من أهم معالم المدينة المنورة",
+        loc_dist_analysis: "تحليل المسافات (بالكيلومتر)",
+        loc_connectivity_title: "ارتباط الموقع بالمعالم الحيوية",
+        loc_hotel_label: "فندق جابر",
+        m_haram: "المسجد النبوي (10 كم)",
+        m_airport: "المطار (17.1 كم)",
+        m_qiblatain: "مسجد القبلتين (13 كم)",
+        m_train: "محطة القطار (8 كم)",
+        m_quba: "مسجد قباء (6.9 كم)",
+        m_mall: "الراشد مول (5.4 كم)",
+        loc_network_desc: "يتمتع الموقع بشبكة طرق تربطه مباشرة بمداخل المدينة الرئيسية.",
+        chart_loc_names: ['الحرم', 'قباء', 'القبلتين', 'الراشد مول', 'المطار', 'القطار'],
+        summary_main_title: "الملخص التنفيذي للدراسة",
+        summary_goal_title: "الهدف الاستراتيجي",
+        summary_goal_desc: "تشغيل وإدارة فندق جابر بن صخر بالمدينة المنورة، بالتوازي مع الاستحواذ على حصة تشغيلية (20 غرفة) في فندق 5 نجوم بساحة الحرم لموسم رمضان.",
+        summary_scope_title: "نطاق الاستثمار",
+        summary_scope_desc: "التركيز على المنطقة المركزية بالمدينة المنورة، مستهدفين الزوار المعتمرين الباحثين عن الفخامة (5 نجوم) والخدمة الاقتصادية المتميزة.",
+        summary_roi_title: "العوائد المتوقعة",
+        summary_roi_desc: "تحقيق صافي ربح سنوي يتجاوز 1.3 مليون ريال من فندق جابر، بالإضافة إلى أرباح تشغيلية فورية من صفقة فندق ساحة الحرم.",
+        jaber_project_tag: "مشروع المدينة المنورة الرئيسي (75 غرفة)",
+        jaber_hotel_name: "فندق جابر بن صخر",
+        jaber_suites_title: '"أجنحة حارات المدينة القديمة"',
+        jaber_description: "تم تطوير الرؤية لتشمل 70 غرفة بنمط عصري، بالإضافة إلى 5 أجنحة تراثية تجسد عبق التاريخ. كل جناح هو رحلة زمنية إلى أشهر حارات المدينة المنورة القديمة، مجهزة بتقنيات الواقع الافتراضي (VR) للسير في أزقة الماضي.",
+        jaber_total_rooms_label: "إجمالي الغرف",
+        jaber_total_rooms_value: "75 وحدة",
+        jaber_heritage_suites_label: "أجنحة تراثية (VR)",
+        jaber_heritage_suites_value: "5 أجنحة",
+        jaber_neighborhood_titles: "مسميات الأجنحة (حارات المدينة)",
+        suite_agwat: "جناح حارة الأغوات",
+        suite_anbariya: "جناح حارة العنبرية",
+        suite_saha: "جناح حارة الساحة",
+        suite_majidi: "جناح باب المجيدي",
+        suite_tayyar: "جناح زقاق الطيار",
+        jaber_annual_income_label: "إجمالي الدخل السنوي المتوقع",
+        jaber_annual_income_value: "5,840,000",
+        jaber_income_increase: "+ زيادة 450 ألف من الأجنحة التراثية",
+        click_to_zoom: "اضغط للتكبير",
+        real_hotel_model: "نموذج واقعي للفندق",
+        vr_experience_title: "تجربة الـ VR",
+        vr_experience_desc: "محاكاة افتراضية للسير في حارات المدينة القديمة داخل كل جناح",
+        currency_sar: "ر.س",
+        haram_finance_title: "الجدوى المالية (شهر رمضان)",
+        haram_sales_label: "إجمالي المبيعات المستهدفة",
+        haram_sales_calc: "(900 ريال × 20 غرفة × 30 ليلة)",
+        haram_sales_value: "540,000",
+        haram_cost_label: "تكلفة الحجز (فاضي مليان)",
+        haram_cost_calc: "(400 ريال لليلة - عقد حصري)",
+        haram_cost_value: "240,000",
+        haram_profit_label: "صافي الربح التشغيلي للشهر",
+        haram_profit_value: "300,000",
+        haram_profit_note: "* تم استبعاد تكاليف خدمات الـ VIP لتعظيم الهامش الربحي",
+        haram_badge: "فرصة استثمارية ذهبية",
+        haram_title_part1: "الاستحواذ التشغيلي في",
+        haram_title_part2: "ساحة الحرم النبوي الشريف",
+        haram_description: "تعتمد استراتيجية 'أونارا' على اقتناص فرص 'التشغيل المضمون' في الفنادق ذات الخمس نجوم المطلة مباشرة على ساحة الحرم النبوي. تم التفاوض على سعر تنافسي (400 ريال) لليلة الواحدة بنظام الحجز الكامل لـ 20 غرفة، مما يمنحنا مرونة عالية في إعادة البيع بأسعار الموسم (900 ريال).",
+        haram_feature_1_title: "شراكة استراتيجية",
+        haram_feature_1_desc: "اتفاقية مبرمة مع إدارة الفندق لضمان الأولوية في مواسم العمرة القادمة.",
+        haram_feature_2_title: "ضمان الإشغال",
+        haram_feature_2_desc: "نظام 'فاضي مليان' يقلل المخاطر التشغيلية ويرفع كفاءة التدفق النقدي.",
+        alt_luxury_suite: "جناح فندقي فاخر",
+        currency_sar: "ر.س",
+        market_main_title: "تحليل المشهد التنافسي",
+        market_desc: "رصد دقيق لأسعار وخدمات الفنادق المنافسة في شارع جابر بن صخر والمنطقة المركزية، لتحديد الثغرات السوقية التي ستستغلها 'أونارا'.",
+        market_update_text: "آخر تحديث للأسعار: موسم 2025/2026",
+        market_chart_compare: "مقارنة أسعار الليلة (ر.س)",
+        market_analysis_note: "نلاحظ أن متوسط سعر 'أونارا' (350 ريال) يقع في النطاق الذهبي؛ فهو أعلى من الفنادق المتهالكة وأقل بكثير من الفنادق الفاخرة البعيدة عن الحرم.",
+        table_h_hotel: "الفندق المنافس",
+        table_h_price: "السعر",
+        table_h_features: "نقاط القوة / الضعف",
+        table_h_rating: "التقييم التشغيلي",
+        h1_name: "فندق عمرية", h1_loc: "على الدائري", h1_price: "648", h1_pros: "جديد، نادي رياضي، مواقف", h1_cons: "سعر مرتفع جداً", h1_status: "منافس غير مباشر (سعر)",
+        h2_name: "فندق لفيف", h2_loc: "جديد", h2_price: "356", h2_desc: "تخزين أمتعة، مطعم وكافيه", h2_status: "المنافس الأشرس لـ 'أونارا'",
+        h3_name: "فندق إيليت", h3_loc: "شارع جانبي", h3_price: "341", h3_desc: "توصيل للمطار والقطار", h3_status: "موقع منزوي، خدمات محدودة",
+        hownara_name: "أونارا (جابر)", hownara_tag: "هدفنا السعري", hownara_price: "350", hownara_desc: "تشغيل ذكي، إدارة 'أونارا' الاحترافية، توازن مثالي بين السعر والموقع.", hownara_status: "أفضل خيار استثماري",
+        feat_wifi: "تغطية ذكية", feat_shuttle: "نقل ترددي", feat_5star: "خدمة 5 نجوم", feat_security: "أمان متكامل",
+        radar_categories: ['عمرية', 'لفيف', 'إيليت', 'أونارا', 'بلاتنيوم', 'الماسة'],
+        fin_tag: "الهندسة المالية",
+        fin_title: "الهيكل المالي والتدفقات النقدية",
+        fin_subtitle: "تحليل دقيق لرأس المال العامل (CAPEX) والمصاريف التشغيلية (OPEX) مع حسابات الربحية للأجنحة التراثية 'حارات المدينة'.",
+        fin_capex_title: "ميزانية التأسيس",
+        fin_capex_desc: "تشمل التجهيز الفندقي واللمسات التراثية",
+        fin_total_req_label: "الإجمالي المطلوب",
+        fin_total_req_val: "929,500",
+        fin_setup_std: "التأسيس الفندقي (70 غرفة)",
+        fin_setup_std_val: "554,500",
+        fin_setup_heritage: "أجنحة الحارات + VR (5 وحدات)",
+        fin_setup_heritage_val: "375,000",
+        fin_opex_title: "المصاريف التشغيلية السنوية",
+        fin_rent_label: "إيجار الفندق سنوياً",
+        fin_rent_val: "1,000,008",
+        fin_salaries_label: "الرواتب والأجور",
+        fin_salaries_val: "1,105,200",
+        fin_table_title: "بيان الدخل التقديري (بعد إضافة الأجنحة التراثية)",
+        fin_table_badge: "تحديث: عوائد مرتفعة",
+        fin_th_item: "البند الاستثماري",
+        fin_th_desc: "الوصف / العدد",
+        fin_th_rev: "الإيراد السنوي",
+        fin_th_status: "الحالة",
+        fin_row_std: "الغرف العصرية (Standard)",
+        fin_row_std_desc: "70 غرفة × 350 ر.س × 220 يوم",
+        fin_row_std_val: "5,390,000",
+        fin_status_basic: "تشغيل أساسي",
+        fin_row_heritage: "أجنحة الحارات (Heritage)",
+        fin_row_heritage_desc: "5 أجنحة × 900 ر.س × 100 يوم",
+        fin_row_heritage_val: "450,000",
+        fin_status_growth: "نمو إبداعي",
+        fin_row_total: "إجمالي الإيرادات الكلية",
+        fin_row_total_val: "5,840,000",
+        fin_row_per_year: "ر.س / سنوياً",
+        fin_net_profit_label: "صافي الربح السنوي المتوقع",
+        fin_net_profit_val: "1,785,342",
+        fin_net_profit_note: "يشمل أرباح جابر + الأجنحة التراثية",
+        fin_margin_label: "هامش الربح التشغيلي",
+        fin_roi_label: "استرداد رأس المال (ROI)",
+        fin_roi_val: "~ 6",
+        fin_roi_unit: "أشهر",
+        fin_roi_note: "سرعة استرداد عالية نظراً لجاهزية المبنى",
+        currency_sar: "SAR",
+        currency_sar_small: "ر.س",
+        donut_labels: ['التأسيس الفندقي', 'أجنحة الحارات + VR'],
+        polar_labels: ['الرواتب', 'الإيجار', 'م. ثابتة', 'م. حكومية', 'إعلانات'],
+        ideas_main_title: "الرؤية التطويرية 2026",
+        ideas_main_subtitle: "أفكار استراتيجية لتعظيم الربحية وتحسين تجربة الزائر",
+        ideas_card1_title: "نظام التسعير الديناميكي (AI)",
+        ideas_card1_desc: "استخدام خوارزميات الذكاء الاصطناعي لتغيير أسعار الغرف لحظياً بناءً على حجم الطلب في المدينة المنورة ومواعيد رحلات القطار والطيران، مما يرفع العائد بنسبة 15%.",
+        ideas_card2_title: "باقات 'الزيارة' المتكاملة",
+        ideas_card2_desc: "توقيع شراكات مع مرشدين محليين لتقديم جولات حصرية (أحد، قباء، القبلتين) تبدأ وتنتهي من باب الفندق، مما يخلق عائداً إضافياً (Non-Room Revenue).",
+        ideas_card3_title: "مقهى 'أونارا' المتخصص",
+        ideas_card3_desc: "تحويل ركن في اللوبي لمقهى مختص يقدم 'قهوة المدينة' وأجود أنواع التمور بهوية أونارا، لرفع مستوى رضا الضيوف وزيادة الدخل اليومي.",
+        ideas_expert_label: "توصية خبير الاستثمار:",
+        ideas_expert_desc: "نوصي بتركيز جهود التسويق الرقمي على وكالات السفر في (إندونيسيا وباكستان وتركيا) لعقود الإشغال الطويل (B2B)، حيث تضمن هذه الشريحة تدفقاً نقدياً مستقراً بعيداً عن تقلبات الأفراد، خاصة في الفترات التي تلي شهر رمضان.",
+        gal_main_title: "معرض النماذج السكنية",
+        gal_main_subtitle: "عرض تفصيلي (غرفة النوم + الحمام) لكل فئة تشغيلية",
+        gal_badge_heritage: "أجنحة الحارات (Luxury Heritage)",
+        gal_badge_standard: "النموذج القياسي (70 وحدة)",
+        gal_badge_luxury: "فئة 5 نجوم (ساحة الحرم)",
+        gal_h_agwat: "جناح حارة الأغوات",
+        gal_d_agwat: "دمج بين الجدران الطينية الخام وأثاث Modern Century الفاخر.",
+        gal_h_saha: "جناح حارة الساحة",
+        gal_d_saha: "دمج بين الجدران الجيرية الخام وأثاث Modern Century الفاخر القديم المظهر.",
+        gal_h_jaber: "الغرف العصرية - جابر بن صخر",
+        gal_d_jaber: "تصميم يركز على الكفاءة التشغيلية والراحة بلمسة مينيماليزم.",
+        gal_h_haram: "أجنحة النخبة - ساحة الحرم",
+        gal_d_haram: "أعلى معايير الرفاهية المباشرة بجوار المسجد النبوي الشريف.",
+        gal_h_anbariya: "جناح حارة العنبرية",
+        gal_d_anbariya: "طابع البوابات التاريخية مجسد في أحجار البازلت الأسود.",
+        // تلميحات الصور (Titles)
+        gal_agwat_t1: "غرفة النوم: سرير خشب خام + إضاءة مودرن",
+        gal_agwat_t2: "الحمام: مغاسل حجرية + صنابير نحاسية",
+        gal_saha_t1: "غرفة النوم: روشان خشبي + إضاءة دافئة",
+        gal_saha_t2: "الحمام: تصميم تراثي مطور",
+        gal_jaber_t1: "غرفة النوم العصرية",
+        gal_jaber_t2: "حمام مودرن عملي",
+        gal_haram_t1: "جناح ملكي مطل على ساحة الحرم",
+        gal_haram_t2: "حمام رخامي فاخر",
+        gal_anbariya_t1: "النوم: حجر البازلت + سرير جلد",
+        gal_anbariya_t2: "الحمام: طابع صخري مع إضاءة خفية",
+        footer_brand_sub: "أونارا لإدارة وتشغيل الفنادق",
+        footer_data_note: "جميع البيانات المذكورة في هذه الدراسة مبنية على تحليلات سوق المدينة المنورة لموسم 2025/2026.",
+        footer_copyright: "© شركة أونارا لإدارة وتشغيل الفنادق والحجوزات الفندقية.",
+        c_loc: ['الحرم', 'قباء', 'القبلتين', 'الراشد مول', 'المطار', 'القطار'],
+        c_profit: ['التكلفة', 'المبيعات', 'الربح الصافي'],
+        c_comp: ['عمرية', 'لفيف', 'إيليت', 'أونارة', 'بلاتنيوم', 'الماسة'],
+        c_setup: ['التأسيس المعتاد', 'أجنحة الحارات + VR'],
+        c_opex: ['الرواتب', 'الإيجار', 'م. ثابتة', 'م. حكومية', 'إعلانات']
+    },
+    en: {
+        "إجمالي التأسيس": "Total Setup",
+        hero_location: "MADINAH AL-MUNAWARA",
+        hero_title_main: "Strategic Feasibility Study",
+        hero_title_sub: "for Hotel Investment Opportunities",
+        hero_description: "Ownara's vision to develop and operate Jaber Bin Sakhar Hotel and acquire operational shares in 5-star hotels in the Central Area for Ramadan season and beyond.",
+        hero_btn_explore: "Start Exploring Data",
+        hero_btn_vision: "Creative Vision 2026",
+        nav_brand_sub: "Ownara Hotel Management",
+        nav_summary: "Project Summary",
+        nav_jaber: "Jaber Hotel",
+        nav_haram: "Haram Plaza Opportunity",
+        nav_market: "Competitor Analysis",
+        nav_finance: "Financial Data",
+        nav_ideas: "Investment Ideas",
+        lang_btn: "العربية",
+        dir: "ltr",
+        nav_summary: "Summary",
+        nav_jaber: "Jaber Hotel",
+        nav_haram: "Al-Haram Opportunity",
+        nav_market: "Competitors",
+        nav_finance: "Financials",
+        nav_ideas: "Investment Ideas",
+        hero_tag: "MADINAH AL-MUNAWARA",
+        hero_title: "Strategic Feasibility Study for Hotel Investment",
+        hero_desc: "Ownara's vision to develop and operate Jaber Bin Sakhar Hotel and acquire operational shares in 5-star hotels in the Central Area.",
+        hero_btn: "Explore Data",
+        hero_btn_ideas: "Creative Vision 2026",
+        loc_title: "Strategic Location & Connectivity",
+        fin_title: "Financial Structure & Cash Flow",
+        lang_btn: "العربية",
+        chart_dist_categories: ['Haram', 'Quba', 'Qiblatain', 'Rashid Mall', 'Airport', 'Train'],
+        loc_analysis_tag: "Location Analysis",
+        loc_title: "Location & Strategic Connectivity",
+        loc_subtitle: "Temporal and spatial proximity analysis to Madinah's key landmarks",
+        loc_dist_analysis: "Distance Analysis (Kilometers)",
+        loc_connectivity_title: "Location Connectivity to Vital Landmarks",
+        loc_hotel_label: "Jaber Hotel",
+        m_haram: "Al-Masjid an-Nabawi (10 km)",
+        m_airport: "Airport (17.1 km)",
+        m_qiblatain: "Qiblatain Mosque (13 km)",
+        m_train: "Train Station (8 km)",
+        m_quba: "Quba Mosque (6.9 km)",
+        m_mall: "Rashid Mega Mall (5.4 km)",
+        loc_network_desc: "The location features a strategic road network connecting directly to Madinah's main entrances.",
+        chart_loc_names: ['Haram', 'Quba', 'Qiblatain', 'Rashid Mall', 'Airport', 'Train'],
+        summary_main_title: "Executive Summary of the Study",
+        summary_goal_title: "Strategic Goal",
+        summary_goal_desc: "Operating and managing Jaber Bin Sakhar Hotel in Madinah, alongside acquiring an operational stake (20 rooms) in a 5-star hotel at Haram Plaza for the Ramadan season.",
+        summary_scope_title: "Investment Scope",
+        summary_scope_desc: "Focusing on the Central Area of Madinah, targeting Umrah visitors seeking luxury (5 stars) and premium economic services.",
+        summary_roi_title: "Expected Returns",
+        summary_roi_desc: "Achieving an annual net profit exceeding 1.3 million SAR from Jaber Hotel, plus immediate operational profits from the Haram Plaza hotel deal.",
+        jaber_project_tag: "Main Madinah Project (75 Rooms)",
+        jaber_hotel_name: "Jaber Bin Sakhar Hotel",
+        jaber_suites_title: '"Old Neighborhood Suites"',
+        jaber_description: "The vision has been developed to include 70 modern-style rooms, plus 5 heritage suites embodying history. Each suite is a journey through time to Madinah's most famous old neighborhoods, equipped with VR technology to walk through the alleys of the past.",
+        jaber_total_rooms_label: "Total Rooms",
+        jaber_total_rooms_value: "75 Units",
+        jaber_heritage_suites_label: "Heritage Suites (VR)",
+        jaber_heritage_suites_value: "5 Suites",
+        jaber_neighborhood_titles: "Suite Designations (Madinah Alleys)",
+        suite_agwat: "Al-Aghwat Suite",
+        suite_anbariya: "Al-Anbariyah Suite",
+        suite_saha: "Al-Saha Suite",
+        suite_majidi: "Bab Al-Majidi Suite",
+        suite_tayyar: "Zuqaq Al-Tayyar Suite",
+        jaber_annual_income_label: "Total Expected Annual Income",
+        jaber_annual_income_value: "5,840,000",
+        jaber_income_increase: "+ 450k increase from Heritage Suites",
+        click_to_zoom: "Click to Zoom",
+        real_hotel_model: "Realistic Hotel Model",
+        vr_experience_title: "VR Experience",
+        vr_experience_desc: "Virtual simulation of walking through old Madinah alleys inside each suite",
+        currency_sar: "SAR",
+        haram_finance_title: "Financial Feasibility (Ramadan)",
+        haram_sales_label: "Total Targeted Sales",
+        haram_sales_calc: "(900 SAR × 20 Rooms × 30 Nights)",
+        haram_sales_value: "540,000",
+        haram_cost_label: "Booking Cost (Commitment Basis)",
+        haram_cost_calc: "(400 SAR per night - Exclusive Contract)",
+        haram_cost_value: "240,000",
+        haram_profit_label: "Monthly Net Operating Profit",
+        haram_profit_value: "300,000",
+        haram_profit_note: "* VIP service costs excluded to maximize profit margins",
+        haram_badge: "Golden Investment Opportunity",
+        haram_title_part1: "Operational Acquisition in",
+        haram_title_part2: "Al-Masjid an-Nabawi Courtyard",
+        haram_description: "Ownara's strategy focuses on seizing 'guaranteed operation' opportunities in 5-star hotels directly overlooking the Prophet's Mosque courtyard. A competitive rate of 400 SAR per night has been negotiated on a full-commitment basis for 20 rooms, providing high flexibility for resale at seasonal rates (900 SAR).",
+        haram_feature_1_title: "Strategic Partnership",
+        haram_feature_1_desc: "Agreement signed with hotel management to ensure priority for upcoming Umrah seasons.",
+        haram_feature_2_title: "Guaranteed Occupancy",
+        haram_feature_2_desc: "The 'Full Commitment' system reduces operational risks and enhances cash flow efficiency.",
+        alt_luxury_suite: "Luxury Hotel Suite",
+        currency_sar: "SAR",
+        market_main_title: "Competitive Landscape Analysis",
+        market_desc: "Precise monitoring of prices and services of competing hotels in Jaber Bin Sakhar Street and the Central Area, identifying market gaps for 'Ownara' to leverage.",
+        market_update_text: "Latest price update: 2025/2026 Season",
+        market_chart_compare: "Nightly Price Comparison (SAR)",
+        market_analysis_note: "We note that 'Ownara's' average price (350 SAR) falls within the golden range; higher than dilapidated hotels and significantly lower than luxury hotels far from the Haram.",
+        table_h_hotel: "Competing Hotel",
+        table_h_price: "Price",
+        table_h_features: "Strengths / Weaknesses",
+        table_h_rating: "Operational Rating",
+        h1_name: "Omriya Hotel", h1_loc: "On the Ring Road", h1_price: "648", h1_pros: "New, Gym, Parking", h1_cons: "Very high price", h1_status: "Indirect competitor (Price)",
+        h2_name: "Lafeef Hotel", h2_loc: "New", h2_price: "356", h2_desc: "Luggage storage, Restaurant & Cafe", h2_status: "Fiercest competitor to 'Ownara'",
+        h3_name: "Elite Hotel", h3_loc: "Side street", h3_price: "341", h3_desc: "Airport & Train shuttle", h3_status: "Secluded location, limited services",
+        hownara_name: "Ownara (Jaber)", hownara_tag: "Our Pricing Target", hownara_price: "350", hownara_desc: "Smart operation, professional 'Ownara' management, perfect balance between price and location.", hownara_status: "Best Investment Choice",
+        feat_wifi: "Smart WiFi", feat_shuttle: "Shuttle Service", feat_5star: "5-Star Service", feat_security: "Integrated Security",
+        radar_categories: ['Omriya', 'Lafeef', 'Elite', 'Ownara', 'Platinum', 'Al-Massa'],
+                fin_tag: "Financial Engineering",
+        fin_title: "Financial Structure & Cash Flows",
+        fin_subtitle: "Detailed analysis of Working Capital (CAPEX) and Operating Expenses (OPEX) with profitability calculations for 'Old Madinah Alleys' suites.",
+        fin_capex_title: "Initial Setup Budget",
+        fin_capex_desc: "Includes hotel equipment and heritage touches",
+        fin_total_req_label: "Total Capital Required",
+        fin_total_req_val: "929,500",
+        fin_setup_std: "Hotel Setup (70 Rooms)",
+        fin_setup_std_val: "554,500",
+        fin_setup_heritage: "Heritage Suites + VR (5 Units)",
+        fin_setup_heritage_val: "375,000",
+        fin_opex_title: "Annual Operating Expenses",
+        fin_rent_label: "Annual Hotel Rent",
+        fin_rent_val: "1,000,008",
+        fin_salaries_label: "Salaries & Wages",
+        fin_salaries_val: "1,105,200",
+        fin_table_title: "Estimated Income Statement (Post Heritage Expansion)",
+        fin_table_badge: "Update: High Yields",
+        fin_th_item: "Investment Item",
+        fin_th_desc: "Description / Quantity",
+        fin_th_rev: "Annual Revenue",
+        fin_th_status: "Status",
+        fin_row_std: "Standard Modern Rooms",
+        fin_row_std_desc: "70 Rooms × 350 SAR × 220 Days",
+        fin_row_std_val: "5,390,000",
+        fin_status_basic: "Core Operation",
+        fin_row_heritage: "Heritage Neighborhood Suites",
+        fin_row_heritage_desc: "5 Suites × 900 SAR × 100 Days",
+        fin_row_heritage_val: "450,000",
+        fin_status_growth: "Creative Growth",
+        fin_row_total: "Total Gross Revenue",
+        fin_row_total_val: "5,840,000",
+        fin_row_per_year: "SAR / Year",
+        fin_net_profit_label: "Expected Annual Net Profit",
+        fin_net_profit_val: "1,785,342",
+        fin_net_profit_note: "Includes Jaber profits + Heritage Suites",
+        fin_margin_label: "Operating Profit Margin",
+        fin_roi_label: "Return on Investment (ROI)",
+        fin_roi_val: "~ 6",
+        fin_roi_unit: "Months",
+        fin_roi_note: "High recovery speed due to building readiness",
+        currency_sar: "SAR",
+        currency_sar_small: "SAR",
+        donut_labels: ['Hotel Setup', 'Heritage Suites + VR'],
+        polar_labels: ['Salaries', 'Rent', 'Fixed Exp.', 'Gov. Fees', 'Ads'],
+        ideas_main_title: "Development Vision 2026",
+        ideas_main_subtitle: "Strategic ideas to maximize profitability and enhance visitor experience",
+        ideas_card1_title: "Dynamic Pricing System (AI)",
+        ideas_card1_desc: "Utilizing AI algorithms to adjust room rates in real-time based on demand levels in Madinah and transportation schedules, increasing revenue by 15%.",
+        ideas_card2_title: "Integrated 'Visit' Packages",
+        ideas_card2_desc: "Forming partnerships with local guides to offer exclusive tours (Uhud, Quba, Qiblatain) starting and ending at the hotel, generating Non-Room Revenue.",
+        ideas_card3_title: "Specialized Ownara Cafe",
+        ideas_card3_desc: "Converting a lobby corner into a specialty cafe serving 'Madinah Coffee' and premium dates with Ownara's brand to boost guest satisfaction and daily income.",
+        ideas_expert_label: "Investment Expert Recommendation:",
+        ideas_expert_desc: "We recommend focusing digital marketing efforts on travel agencies in (Indonesia, Pakistan, and Turkey) for long-term B2B occupancy contracts. This segment ensures stable cash flow away from individual market fluctuations, especially during post-Ramadan periods.",
+        gal_main_title: "Residential Models Gallery",
+        gal_main_subtitle: "Detailed view (Bedroom + Bathroom) for each operational category",
+        gal_badge_heritage: "Heritage Suites (Luxury)",
+        gal_badge_standard: "Standard Model (70 Units)",
+        gal_badge_luxury: "5-Star Category (Haram Plaza)",
+        gal_h_agwat: "Al-Aghwat Suite",
+        gal_d_agwat: "A blend of raw mud walls and luxury Modern Century furniture.",
+        gal_h_saha: "Al-Saha Suite",
+        gal_d_saha: "A blend of raw lime walls and vintage-look Modern Century furniture.",
+        gal_h_jaber: "Modern Rooms - Jaber Bin Sakhar",
+        gal_d_jaber: "Design focused on operational efficiency and comfort with a minimalist touch.",
+        gal_h_haram: "Elite Suites - Al Haram Plaza",
+        gal_d_haram: "Highest standards of luxury, directly adjacent to the Prophet's Mosque.",
+        gal_h_anbariya: "Al-Anbariyah Suite",
+        gal_d_anbariya: "Historical gate character embodied in black basalt stones.",
+        // Tooltips (Titles)
+        gal_agwat_t1: "Bedroom: Raw wood bed + modern lighting",
+        gal_agwat_t2: "Bathroom: Stone sinks + brass faucets",
+        gal_saha_t1: "Bedroom: Wooden Roshan + warm lighting",
+        gal_saha_t2: "Bathroom: Enhanced heritage design",
+        gal_jaber_t1: "Modern Executive Bedroom",
+        gal_jaber_t2: "Functional Modern Bathroom",
+        gal_haram_t1: "Royal Suite overlooking the Haram",
+        gal_haram_t2: "Luxury Marble Bathroom",
+        gal_anbariya_t1: "Sleeping Area: Basalt stone + leather bed",
+        gal_anbariya_t2: "Bathroom: Rock-texture with hidden lighting",
+        footer_brand_sub: "Ownara HOTEL MANAGEMENT & OPERATION",
+        footer_data_note: "All data mentioned in this study is based on Madinah market analysis for the 2025/2026 season.",
+        footer_copyright: "© Ownara Hotel Management & Reservations Company.",
+                c_loc: ['Haram', 'Quba', 'Qiblatain', 'Rashid Mall', 'Airport', 'Train'],
+        c_profit: ['Cost', 'Sales', 'Net Profit'],
+        c_comp: ['Omriya', 'Lafeef', 'Elite', 'Onara', 'Platinum', 'Al-Massa'],
+        c_setup: ['Standard Setup', 'Heritage Suites + VR'],
+        c_opex: ['Salaries', 'Rent', 'Fixed Exp.', 'Gov. Fees', 'Ads']
+    }
+};
+
+
+let currentLang = 'ar';
+
+// 2. وظيفة تغيير اللغة
+function toggleLanguage() {
+    currentLang = currentLang === 'ar' ? 'en' : 'ar';
+    const data = translations[currentLang];
+
+    document.documentElement.lang = currentLang;
+    document.documentElement.dir = data.dir;
+
+    // ترجمة النصوص
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (data[key]) el.textContent = data[key];
+    });
+
+    // ترجمة التلميحات
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+        const key = el.getAttribute('data-i18n-title');
+        if (data[key]) el.setAttribute('title', data[key]);
+    });
+
+    document.getElementById('lang-btn-text').textContent = data.lang_btn;
+
+    // تحديث كافة الشارتات فوراً
+    updateAllCharts(data);
+}
+
+function updateAllCharts(langData) {
+    if (window.chartLoc) window.chartLoc.updateOptions({ xaxis: { categories: langData.c_loc } });
+    if (window.chartProfit) window.chartProfit.updateOptions({ xaxis: { categories: langData.c_profit } });
+    if (window.chartComp) window.chartComp.updateOptions({ xaxis: { categories: langData.c_comp } });
+    if (window.chartSetup) window.chartSetup.updateOptions({ labels: langData.c_setup });
+    if (window.chartOpex) window.chartOpex.updateOptions({ labels: langData.c_opex });
+}
+
+// ==========================================
+// 3. تهيئة المكونات (Swiper Loop & Charts)
+// ==========================================
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // أ. تهيئة Swiper بنظام الـ Loop (حل مشكلة التوقف)
+    if (typeof Swiper !== 'undefined') {
+        new Swiper(".roomSwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true, // تفعيل التمرير اللانهائي
+            centeredSlides: true,
+            autoplay: { delay: 3500, disableOnInteraction: false },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+            breakpoints: {
+                1024: { slidesPerView: 2 },
+                1440: { slidesPerView: 2.5 }
+            }
+        });
+    }
+
+    // ب. تهيئة الرسوم البيانية (تعريفها كـ window للوصول العالمي)
+    
+    // 1. شارت الموقع
+    window.chartLoc = new ApexCharts(document.querySelector("#locationAnalysisChart"), {
+        series: [{ name: 'Distance', data: [10, 6.9, 13, 5.4, 17.1, 8] }],
+        chart: { type: 'bar', height: 300, toolbar: {show: false} },
+        colors: ['#D4AF37'],
+        xaxis: { categories: translations.ar.c_loc }
+    });
+    window.chartLoc.render();
+
+    // 2. شارت الأرباح (ساحة الحرم)
+    window.chartProfit = new ApexCharts(document.querySelector("#profitChart"), {
+        series: [{ name: 'Value', data: [240000, 540000, 300000] }],
+        chart: { type: 'bar', height: 200, toolbar: {show: false} },
+        colors: ['#ef4444', '#3b82f6', '#10b981'],
+        xaxis: { categories: translations.ar.c_profit }
+    });
+    window.chartProfit.render();
+
+    // 3. شارت المنافسين
+    window.chartComp = new ApexCharts(document.querySelector("#competitorPriceChart"), {
+        series: [{ name: 'Price', data: [648, 356, 341, 350, 229, 208] }],
+        chart: { type: 'radar', height: 300, toolbar: {show: false} },
+        colors: ['#D4AF37'],
+        xaxis: { categories: translations.ar.c_comp }
+    });
+    window.chartComp.render();
+
+    // 4. شارت ميزانية التأسيس
+    window.chartSetup = new ApexCharts(document.querySelector("#detailedSetupChart"), {
+        series: [554500, 375000],
+        labels: translations.ar.c_setup,
+        chart: { type: 'donut', height: 300 },
+        colors: ['#2c3e50', '#D4AF37']
+    });
+    window.chartSetup.render();
+
+    // 5. شارت المصاريف التشغيلية
+    window.chartOpex = new ApexCharts(document.querySelector("#annualOpexChart"), {
+        series: [1105200, 1000008, 519600, 213950, 84000],
+        labels: translations.ar.c_opex,
+        chart: { type: 'polarArea', height: 350 },
+        colors: ['#ef4444', '#3b82f6', '#10b981', '#f59e0b', '#6366f1']
+    });
+    window.chartOpex.render();
+
+    // تهيئة AOS للأنيميشن
+    AOS.init({ duration: 1000, once: true });
+});
+</script>
+</body>
+</html>
