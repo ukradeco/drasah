@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مصفوفة أونارا المالية - الإصدار الاحترافي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root { --gold: #D4AF37; --navy: #0F172A; --blue: #3B82F6; --emerald: #10B981; --red: #EF4444; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f1f5f9; color: var(--navy); }
+        .bg-navy { background-color: var(--navy) !important; }
+        .text-gold { color: var(--gold) !important; }
+        .input-card { border-radius: 2rem; background: white; padding: 1.5rem; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .input-field { width: 100%; padding: 10px; border-radius: 12px; border: 2px solid #f1f5f9; font-weight: bold; text-align: center; transition: 0.3s; color: var(--navy); }
+        .input-field:focus { border-color: var(--gold); outline: none; background: #fffdf5; }
+        .info-tag { font-size: 9px; font-weight: 800; text-transform: uppercase; color: #64748b; margin-bottom: 4px; display: block; }
+        .stat-label { font-size: 11px; font-weight: 700; color: #94a3b8; }
+        .stat-value { font-family: 'Courier New', Courier, monospace; font-weight: 900; }
+        .flow-line {
+        stroke-dasharray: 8;
+        animation: flow 2s linear infinite;
+    }
+
+    /* تنسيق رؤوس الأسهم يدوياً لضمان الدقة */
+    .arrow-head-down {
+        width: 0; height: 0; 
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 8px solid currentColor;
+    }
+    
+    /* لضمان ثبات الدوائر في الشاشات المختلفة */
+    #portfolio-flow .absolute {
+        transition: all 0.3s ease-in-out;
+    }
+    </style>
+</head>
+<body class="py-10 px-4">
+
+    <div class="max-w-7xl mx-auto">
+        
+        <header class="text-center mb-12">
+            <div class="inline-block px-4 py-1 bg-navy text-gold rounded-full text-[10px] font-black uppercase mb-4 tracking-widest">ONARA ERP FINANCIAL ENGINE 2026</div>
+            <h1 class="text-3xl md:text-5xl font-black text-slate-900 mb-2">هندسة <span class="text-gold">التدفقات المالية</span></h1>
+            <p class="text-slate-500 italic">نظام التوازن الاستراتيجي بين التكاليف، الضرائب، وأرباح الشركاء.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+            
+            <div class="input-card border-t-8 border-slate-400">
+                <h3 class="font-black text-xs mb-4 uppercase border-b pb-2"><i class="fa-solid fa-money-bill-transfer"></i> 1. بنود المصروفات (السنوية)</h3>
+                <div class="space-y-3">
+                    <div>
+                        <span class="info-tag">الفرش والسيارات (تأسيس)</span>
+                        <input type="number" id="in-capex" value="1800000" class="input-field" oninput="runEngine()">
+                    </div>
+                    <div>
+                        <span class="info-tag">إيجار الفندق السنوي</span>
+                        <input type="number" id="in-rent" value="1500000" class="input-field" oninput="runEngine()">
+                    </div>
+                    <div>
+                        <span class="info-tag">تشغيل سنوي (رواتب/طاقة)</span>
+                        <input type="number" id="in-ops" value="1200000" class="input-field" oninput="runEngine()">
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <span class="info-tag">زكاة وضريبة (%)</span>
+                            <input type="number" id="in-tax-per" value="21" class="input-field border-red-100 text-red-500" oninput="runEngine()">
+                        </div>
+                        <div>
+                            <span class="info-tag">مخاطر/مخالفات (%)</span>
+                            <input type="number" id="in-risk-per" value="10" class="input-field border-orange-100 text-orange-500" oninput="runEngine()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-card border-t-8 border-gold bg-navy text-white">
+                <h3 class="font-black text-xs text-gold mb-4 uppercase border-b border-white/10 pb-2"><i class="fa-solid fa-shield-halved"></i> 2. تكلفة الغرفة (أونارا)</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="stat-label">إيجار + تشغيل (يومي)</span>
+                        <span class="stat-value text-white" id="res-onara-ops-daily">0</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="stat-label">استرداد أصول (سنة: <input type="number" id="in-recovery-years" value="3" class="w-8 bg-transparent text-gold outline-none" oninput="runEngine()">)</span>
+                        <span class="stat-value text-gold" id="res-onara-recovery-daily">0</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="stat-label">قيمة الزكاة والضريبة</span>
+                        <span class="stat-value text-red-400" id="res-onara-tax-val">0</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                        <span class="stat-label">مخصص المخاطر</span>
+                        <span class="stat-value text-orange-400" id="res-onara-risk-val">0</span>
+                    </div>
+                    <div class="text-center pt-2">
+                        <p class="text-[9px] text-slate-400 uppercase">إجمالي تكلفة أونارا النهائية (يومياً)</p>
+                        <div class="text-4xl font-black text-white" id="res-onara-total-daily">0</div>
+                        <div class="text-center pt-2 border-t border-white/10 mt-2 bg-blue-500/10 rounded-xl p-2">
+                            <p class="text-[9px] text-blue-400 font-black uppercase tracking-tighter">قيمة تشغيل (المنتج) - ميزانية السيولة المحفوظة</p>
+                            <div class="text-2xl font-black text-blue-400 font-mono" id="res-ops-product-only">0</div>
+                            <p class="text-[8px] text-slate-500 italic mt-1">(إيجار + تشغيل + ضرائبها + مخاطرها)</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-card border-t-8 border-blue-500">
+                <h3 class="font-black text-xs text-blue-600 mb-4 uppercase border-b pb-2"><i class="fa-solid fa-handshake"></i> 3. بيع الغرفة للمستثمر</h3>
+                <div class="space-y-4">
+                    <div>
+                        <span class="info-tag text-blue-500">نسبة ربح أونارا المضافة (%)</span>
+                        <input type="number" id="in-onara-profit-per" value="30" class="input-field border-blue-100" oninput="runEngine()">
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded-2xl">
+                        <p class="stat-label text-blue-600 mb-1 uppercase">تكلفة المستثمر (يومياً)</p>
+                        <div class="text-3xl font-black text-navy" id="res-inv-cost-daily">0</div>
+                    </div>
+                    <div class="space-y-2 border-t pt-4">
+                        <div class="flex justify-between text-[11px] font-bold">
+                            <span class="text-slate-400">تكلفة في الشهر</span>
+                            <span id="res-inv-cost-month">0</span>
+                        </div>
+                        <div class="flex justify-between text-[11px] font-bold">
+                            <span class="text-slate-400">تكلفة في السنة</span>
+                            <span id="res-inv-cost-year">0</span>
+                        </div>
+                        <div class="flex justify-between text-[11px] font-bold text-blue-600">
+                            <span class="font-black italic">تكلفة 5 سنوات</span>
+                            <span id="res-inv-cost-5y" class="font-black">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-card border-t-8 border-emerald-500">
+                <h3 class="font-black text-xs text-emerald-600 mb-4 uppercase border-b pb-2"><i class="fa-solid fa-chart-line"></i> 4. نتائج المبيعات والربحية</h3>
+                <div class="space-y-4">
+                    <div>
+                        <span class="info-tag text-emerald-500">سعر الليلة للمعتمر (المتغير)</span>
+                        <input type="number" id="in-market-price" value="350" class="input-field border-emerald-100 text-emerald-600" oninput="runEngine()">
+                    </div>
+                    
+                    <div class="bg-slate-900 p-4 rounded-2xl text-white">
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div>
+                                <p class="text-[8px] text-gold uppercase font-black">ربح أونارا (يوم)</p>
+                                <p class="text-sm font-black" id="onara-profit-daily">0</p>
+                                <p class="text-[8px] text-slate-400" id="onara-profit-per-daily">0%</p>
+                            </div>
+                            <div>
+                                <p class="text-[8px] text-emerald-400 uppercase font-black">ربح المستثمر (يوم)</p>
+                                <p class="text-sm font-black" id="inv-profit-daily">0</p>
+                                <p class="text-[8px] text-slate-400" id="inv-profit-per-daily">0%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center text-[10px] font-bold">
+                            <span class="text-slate-400">ليالي التشغيل: <input type="number" id="in-occ-days" value="240" class="w-8 outline-none font-black text-navy" oninput="runEngine()"></span>
+                            <span class="text-blue-500">ربح أونارا السنوي</span>
+                            <span id="onara-profit-year" class="text-blue-600">0</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[10px] font-bold">
+                            <span class="text-slate-400"></span>
+                            <span class="text-emerald-500">ربح المستثمر السنوي</span>
+                            <span id="inv-profit-year" class="text-emerald-600">0</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[10px] font-black border-t pt-2">
+                            <span class="text-slate-900">إجمالي ربح 5 سنوات</span>
+                            <span id="total-5y-all" class="text-gold">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="p-6 bg-white rounded-3xl border border-slate-200 italic shadow-sm">
+            <p class="text-xs text-slate-500 text-center leading-relaxed">
+                <i class="fa-solid fa-circle-info text-gold mr-2"></i>
+                <b>ملاحظة:</b> يتم احتساب "تكلفة المستثمر" عبر إضافة ربح أونارا (30%) طردياً على تكاليف أونارا الكلية. سعر المعتمر يتحكم في صافي دخل المستثمر فقط بعد خصم التكاليف المحملة عليه.
+            </p>
+        </div>
+    </div>
+
+<section id="portfolio-flow" class="mt-12 mb-20">
+    <div class="bg-white rounded-[3rem] shadow-2xl p-10 border border-slate-200 relative overflow-hidden">
+        <h3 class="text-center font-black text-navy uppercase tracking-widest mb-16 underline decoration-gold decoration-4 underline-offset-8">
+            الهيكلة المالية السنوية للمحفظة (إجمالي ٧٥ غرفة)
+        </h3>
+
+<div class="relative flex justify-center items-center h-[800px] w-full">
+    
+    <div class="absolute z-30 w-72 h-72 bg-navy border-8 border-gold rounded-full flex flex-col justify-center items-center text-center shadow-2xl">
+        <p class="text-gold text-[10px] font-black mb-1">المحفظة السنوية</p>
+        <div id="flow-total-portfolio" class="text-white text-3xl font-black font-mono">0</div>
+        <p class="text-slate-400 text-[8px] mt-1 uppercase">Central Portfolio</p>
+    </div>
+
+    <div class="absolute top-0 flex flex-col items-center">
+        <div class="w-40 h-40 bg-white border-4 border-emerald-500 rounded-full flex flex-col justify-center items-center text-center shadow-lg">
+            <p class="text-slate-500 text-[9px] font-black uppercase">إيراد المبيعات</p>
+            <div id="flow-total-sales" class="text-emerald-600 text-sm font-black font-mono">0</div>
+        </div>
+        <div class="h-16 flex flex-col items-center">
+            <div class="w-1 h-full bg-emerald-500 relative">
+                <div class="absolute -bottom-1 -left-[4px] border-l-[5px] border-r-[5px] border-t-[8px] border-l-transparent border-r-transparent border-t-emerald-500"></div>
+            </div>
+            <span class="text-[9px] font-black text-emerald-600 mt-1">دخول سيولة</span>
+        </div>
+    </div>
+
+    <div class="absolute bottom-0 flex flex-col items-center">
+        <div class="h-16 flex flex-col items-center">
+            <span class="text-[9px] font-black text-blue-600 mb-1">سداد تكاليف</span>
+            <div class="w-1 h-full bg-blue-500 relative">
+                <div class="absolute -bottom-1 -left-[4px] border-l-[5px] border-r-[5px] border-t-[8px] border-l-transparent border-r-transparent border-t-blue-500"></div>
+            </div>
+        </div>
+        <div class="w-40 h-40 bg-white border-4 border-blue-500 rounded-full flex flex-col justify-center items-center text-center shadow-lg">
+            <p class="text-slate-500 text-[9px] font-black uppercase">التشغيل والإيجار</p>
+            <div id="flow-total-ops" class="text-blue-700 text-sm font-black font-mono">0</div>
+        </div>
+    </div>
+
+    <div class="absolute right-0 flex items-center">
+        <div class="w-20 flex items-center">
+            <span class="text-[9px] font-black text-gold absolute -mt-8 mr-2">رسوم إدارة</span>
+            <div class="h-1 w-full bg-gold relative">
+                <div class="absolute -right-1 -top-[3px] border-t-[5px] border-b-[5px] border-l-[8px] border-t-transparent border-b-transparent border-l-gold"></div>
+            </div>
+        </div>
+        <div class="w-40 h-40 bg-white border-4 border-gold rounded-full flex flex-col justify-center items-center text-center shadow-lg">
+            <p class="text-slate-500 text-[9px] font-black uppercase">أرباح أونارا</p>
+            <div id="flow-onara-profit" class="text-navy text-sm font-black font-mono">0</div>
+        </div>
+    </div>
+
+    <div class="absolute left-0 flex items-center">
+        <div class="w-40 h-40 bg-white border-4 border-purple-500 rounded-full flex flex-col justify-center items-center text-center shadow-lg">
+            <p class="text-slate-500 text-[9px] font-black uppercase">أرباح المستثمرين</p>
+            <div id="flow-investors-profit" class="text-purple-700 text-sm font-black font-mono">0</div>
+        </div>
+        <div class="w-20 flex items-center justify-end">
+            <span class="text-[9px] font-black text-purple-600 absolute -mt-8 ml-2">توزيع عوائد</span>
+            <div class="h-1 w-full bg-purple-500 relative">
+                <div class="absolute -left-1 -top-[3px] border-t-[5px] border-b-[5px] border-r-[8px] border-t-transparent border-b-transparent border-r-purple-500"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+    </div>
+</section>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+function runEngine() {
+    // 1. جلب المدخلات الأساسية (ميزانية المصروفات)
+    const capex = parseFloat(document.getElementById('in-capex').value) || 0;
+    const rent = parseFloat(document.getElementById('in-rent').value) || 0;
+    const ops = parseFloat(document.getElementById('in-ops').value) || 0;
+    const taxPer = parseFloat(document.getElementById('in-tax-per').value) || 0;
+    const riskPer = parseFloat(document.getElementById('in-risk-per').value) || 0;
+    const recoveryYears = parseFloat(document.getElementById('in-recovery-years').value) || 1;
+    const rooms = 75;
+
+    // 2. حساب تكلفة أونارا الحقيقية (البطاقة الثانية)
+    const annualOpex = rent + ops;
+    const dailyOpsRent = annualOpex / (rooms * 365); // تكلفة التشغيل اليومية للغرفة
+    const dailyRecovery = capex / (rooms * 365 * recoveryYears); // قسط استرداد الأصول اليومي
+    
+    const subtotalOnaraCost = dailyOpsRent + dailyRecovery;
+    const taxVal = subtotalOnaraCost * (taxPer / 100);
+    const riskVal = subtotalOnaraCost * (riskPer / 100);
+    const totalOnaraCostDaily = subtotalOnaraCost + taxVal + riskVal;
+    // المعادلة: نأخذ "إيجار + تشغيل" ونحمله بنصيبه من الضريبة والمخاطر
+    const productOpsTotal = dailyOpsRent + (dailyOpsRent * (taxPer / 100)) + (dailyOpsRent * (riskPer / 100));
+
+    // تحديث الخانة في الواجهة
+    document.getElementById('res-ops-product-only').innerText = Math.round(productOpsTotal).toLocaleString() + " ر.س";
+
+    // تحديث واجهة البطاقة الثانية
+    document.getElementById('res-onara-ops-daily').innerText = Math.round(dailyOpsRent).toLocaleString();
+    document.getElementById('res-onara-recovery-daily').innerText = Math.round(dailyRecovery).toLocaleString();
+    document.getElementById('res-onara-tax-val').innerText = Math.round(taxVal).toLocaleString();
+    document.getElementById('res-onara-risk-val').innerText = Math.round(riskVal).toLocaleString();
+    document.getElementById('res-onara-total-daily').innerText = Math.round(totalOnaraCostDaily).toLocaleString();
+
+    // 3. حساب تكلفة الغرفة على المستثمر (البطاقة الثالثة)
+    const onaraProfitPer = parseFloat(document.getElementById('in-onara-profit-per').value) || 0;
+    const invCostDaily = totalOnaraCostDaily * (1 + (onaraProfitPer / 100)); // التكلفة المحملة على المستثمر يومياً
+    
+    // إجمالي رأس المال الذي سيدفعه المستثمر خلال 5 سنوات (الالتزام المالي الكلي)
+    const totalInvestorCapital5Y = invCostDaily * 365 * 5; 
+
+    document.getElementById('res-inv-cost-daily').innerText = Math.round(invCostDaily).toLocaleString();
+    document.getElementById('res-inv-cost-month').innerText = Math.round(invCostDaily * 30.41).toLocaleString() + " ر.س";
+    document.getElementById('res-inv-cost-year').innerText = Math.round(invCostDaily * 365).toLocaleString() + " ر.س";
+    document.getElementById('res-inv-cost-5y').innerText = Math.round(totalInvestorCapital5Y).toLocaleString() + " ر.س";
+
+    // 4. مبيعات المعتمر والربحية (البطاقة الرابعة)
+    const marketPrice = parseFloat(document.getElementById('in-market-price').value) || 0;
+    const occDays = parseInt(document.getElementById('in-occ-days').value) || 0;
+
+    const onaraProfitDayValue = invCostDaily - totalOnaraCostDaily; // ربح أونارا اليومي من الغرفة
+    const invProfitDayValue = marketPrice - invCostDaily; // ربح المستثمر اليومي من ليلة البيع
+
+    document.getElementById('onara-profit-daily').innerText = Math.round(onaraProfitDayValue).toLocaleString();
+    document.getElementById('onara-profit-per-daily').innerText = ((onaraProfitDayValue/invCostDaily)*100).toFixed(1) + "%";
+    document.getElementById('inv-profit-daily').innerText = Math.round(invProfitDayValue).toLocaleString();
+    document.getElementById('inv-profit-per-daily').innerText = Math.max(0, (invProfitDayValue/marketPrice)*100).toFixed(1) + "%";
+
+    const onaraAnnualProfit = onaraProfitDayValue * 365 * rooms;
+    const invAnnualProfit = invProfitDayValue * occDays; // ربح المستثمر السنوي (مرتبط بأيام التشغيل)
+    const totalInvestorProfit5Y = invAnnualProfit * 5; // إجمالي أرباح المستثمر الصافية في 5 سنوات
+
+    document.getElementById('onara-profit-year').innerText = Math.round(onaraAnnualProfit).toLocaleString();
+    document.getElementById('inv-profit-year').innerText = Math.round(invAnnualProfit).toLocaleString();
+    document.getElementById('total-5y-all').innerText = Math.round(totalInvestorProfit5Y).toLocaleString() + " ر.س";
+
+    // تحديث النتائج السريعة ونقطة التعادل
+    if(document.getElementById('sch-payback-month')) {
+        const invRoi = (invAnnualProfit / (invCostDaily * 365)) * 100;
+        // ملاحظة: ID الكروت السريعة قد تختلف، تأكد من مطابقتها (res-inv-roi, res-onara-payback)
+    }
+
+// --- داخل دالة runEngine ---
+const totalRooms = 75;
+
+// 1. القيمة المركزية السنوية: (ما يدفعه المستثمرون لـ 75 غرفة في السنة الواحدة)
+// حسبناها بناءً على (تكلفة الغرفة السنوية على المستثمر * 75)
+const annualPortfolioCollection = (invCostDaily * 365) * totalRooms;
+document.getElementById('flow-total-portfolio').innerText = Math.round(annualPortfolioCollection).toLocaleString() + " ر.س";
+
+// 2. إجمالي المبيعات السنوية (لـ 75 غرفة)
+const annualPortfolioSales = marketPrice * occDays * totalRooms;
+document.getElementById('flow-total-sales').innerText = Math.round(annualPortfolioSales).toLocaleString() + " ر.س";
+
+// 3. أرباح أونارا السنوية الإجمالية (لـ 75 غرفة)
+const annualOnaraTotalProfit = onaraProfitDayValue * 365 * totalRooms; 
+document.getElementById('flow-onara-profit').innerText = Math.round(annualOnaraTotalProfit).toLocaleString() + " ر.س";
+
+// 4. أرباح المستثمرين السنوية الإجمالية (لـ 75 غرفة)
+const annualInvestorsTotalProfit = invAnnualProfit * totalRooms;
+document.getElementById('flow-investors-profit').innerText = Math.round(annualInvestorsTotalProfit).toLocaleString() + " ر.س";
+
+// 5. ميزانية التشغيل والإيجار السنوية الكاملة للفندق (التي يجب توفرها في الحساب)
+const annualOpsBudgetFull = productOpsTotal * 365 * totalRooms;
+document.getElementById('flow-total-ops').innerText = Math.round(annualOpsBudgetFull).toLocaleString() + " ر.س";
+
+}
+
+let myChart; // متغير عالمي لتخزين الشارت
+
+function generateSchedule(totalProfit, totalCapital) {
+    const weights = [
+        parseFloat(document.getElementById('w1').value) / 100,
+        parseFloat(document.getElementById('w2').value) / 100,
+        parseFloat(document.getElementById('w3').value) / 100,
+        parseFloat(document.getElementById('w4').value) / 100,
+        parseFloat(document.getElementById('w5').value) / 100
+    ];
+
+    const tbody = document.getElementById('schedule-body');
+    tbody.innerHTML = '';
+    
+    let cumulativeCapitalSaved = 0; // حصالة رأس المال
+    let cumulativeProfitEarned = 0; // إجمالي الأرباح الموزعة
+    let paybackFound = false;
+
+    // مصفوفات الشارت
+    let labels = [];
+    let profitData = [];
+    let capitalSavingData = [];
+    let cumulativeTotalData = [];
+
+    for (let month = 1; month <= 60; month++) {
+        let yearIdx = Math.floor((month - 1) / 12);
+        let w = weights[yearIdx];
+        
+        // 1. الربح التشغيلي الشهري (يصرف للمستثمر)
+        let mProfit = (totalProfit * w) / 12;
+        // 2. مخصص استرداد رأس المال (يدخر في الصندوق)
+        let mCapSaving = (totalCapital * w) / 12;
+        
+        cumulativeCapitalSaved += mCapSaving;
+        cumulativeProfitEarned += mProfit;
+        
+        let mTotal = mProfit + mCapSaving; // القيمة الإجمالية المتولدة من الغرفة شهرياً
+
+        labels.push(month);
+        profitData.push(Math.round(mProfit));
+        capitalSavingData.push(Math.round(mCapSaving));
+        cumulativeTotalData.push(Math.round(cumulativeCapitalSaved + cumulativeProfitEarned));
+
+        let rowClass = "";
+        let status = "جاري الحفظ";
+        
+        if (month % 12 === 0) { 
+            rowClass = "bg-orange-50 font-black border-r-4 border-gold"; 
+            status = "إغلاق سنوي"; 
+        }
+
+        // تمييز الشهر الأخير (لحظة استعادة رأس المال)
+        if (month === 60) {
+            rowClass = "bg-navy text-gold font-black border-r-4 border-gold";
+            status = "رد رأس المال كاملاً";
+        }
+
+        tbody.innerHTML += `
+            <tr class="${rowClass} hover:bg-slate-100 transition-colors">
+                <td class="p-3 text-center font-bold">${month}</td>
+                <td class="p-3 text-center font-mono text-blue-600">${Math.round(mCapSaving).toLocaleString()}</td>
+                <td class="p-3 text-center font-mono text-emerald-600">${Math.round(mProfit).toLocaleString()}</td>
+                <td class="p-3 text-center font-black text-navy bg-gold/5">${Math.round(mTotal).toLocaleString()}</td>
+                <td class="p-3 text-center font-mono text-blue-800">${Math.round(cumulativeCapitalSaved).toLocaleString()}</td>
+                <td class="p-3 text-center"><span class="text-[8px] font-black opacity-70 uppercase px-2 py-1 border rounded bg-white">${status}</span></td>
+            </tr>
+        `;
+    }
+
+    // تحديث الملخصات
+    document.getElementById('sch-sum-total').innerText = Math.round(cumulativeCapitalSaved + cumulativeProfitEarned).toLocaleString() + " ر.س";
+    document.getElementById('sch-sum-profit').innerText = Math.round(cumulativeProfitEarned).toLocaleString() + " ر.س";
+    
+    // إظهار الشهر الذي اكتمل فيه الادخار (نظرياً هو الشهر 60)
+    document.getElementById('sch-payback-month').innerText = "الشهر 60";
+
+    updateChart(labels, profitData, capitalSavingData, cumulativeTotalData);
+}
+function updateChart(labels, profitData, capitalData, cumulativeData) {
+    const ctx = document.getElementById('revenueChart').getContext('2d');
+    
+    if (myChart) { myChart.destroy(); } // حذف الشارت القديم لإعادة الرسم عند تغيير الأرقام
+
+    myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [
+            {
+                    label: 'أرباح تشغيلية (تصرف شهرياً)',
+                    data: profitData,
+                    backgroundColor: '#10B981',
+                    stack: 'Stack 0',
+                },
+                {
+                    label: 'مدخرات استرداد رأس المال',
+                    data: capitalData,
+                    backgroundColor: '#3B82F6',
+                    stack: 'Stack 0',
+                },
+                {
+                    label: 'إجمالي العوائد التراكمية',
+                    data: cumulativeData,
+                    type: 'line',
+                    borderColor: '#D4AF37',
+                    borderWidth: 3,
+                    fill: false,
+                    yAxisID: 'y1',
+                    tension: 0.4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: { stacked: true, ticks: { font: { size: 8 } } },
+                y: { stacked: true, beginAtZero: true, title: { display: true, text: 'الدفعات الشهرية' } },
+                y1: { position: 'right', beginAtZero: true, title: { display: true, text: 'المجموع التراكمي' }, grid: { drawOnChartArea: false } }
+            },
+            plugins: {
+                legend: { position: 'top', labels: { font: { family: 'Segoe UI', size: 10 } } }
+            }
+        }
+    });
+}
+// التشغيل التلقائي عند تحميل الصفحة
+window.onload = runEngine;
+    </script>
+</body>
+</html>
