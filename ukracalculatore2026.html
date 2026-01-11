@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة مشروع أوكرة 2026 الديناميكية</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* ألوان مستوحاة من اسم أوكرة والطبيعة */
+            --primary-color: #2e7d32; /* أخضر غامق */
+            --secondary-color: #81c784; /* أخضر فاتح */
+            --accent-color: #f9a825; /* أصفر ذهبي للأرباح */
+            --bg-color: #f4f6f8;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .calculator-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-custom {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            background: white;
+            margin-bottom: 20px;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-5px);
+        }
+
+        .input-group-text {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25);
+        }
+
+        .result-box {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .bg-profit { background-color: var(--primary-color); }
+        .bg-loss { background-color: #c62828; }
+        .bg-break { background-color: #0277bd; }
+
+        h1, h2, h3, h4, h5 { font-weight: 700; }
+    </style>
+</head>
+<body>
+
+    <header class="calculator-header text-center">
+        <div class="container">
+            <h1><i class="fas fa-chart-line ms-2"></i> حاسبة مشروع أوكرة 2026</h1>
+            <p class="lead mb-0">تحليل نقطة التعادل وتقدير الأرباح التشغيلية</p>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row">
+<div class="col-md-4">
+                <div class="card card-custom">
+                    <div class="card-header bg-white border-0 pt-4 px-4">
+                        <h5 class="text-secondary"><i class="fas fa-sliders-h me-2"></i> متغيرات المشروع</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="calcForm">
+                            <div class="mb-4">
+                                <label for="salesInput" class="form-label fw-bold text-dark">المبيعات الشهرية المتوقعة</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="salesInput" value="200000" oninput="calculate()">
+                                    <span class="input-group-text">ر.س</span>
+                                </div>
+                                <small class="text-muted">حرك هذا الرقم لترى تأثيره على الأرباح.</small>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <h6 class="text-primary mb-3"><i class="fas fa-box-open me-2"></i> التكاليف المتغيرة</h6>
+                            <div class="mb-3">
+                                <label for="cogsPercent" class="form-label">نسبة تكلفة البضاعة (من المبيعات)</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="cogsPercent" value="50" step="1" oninput="calculate()">
+                                    <span class="input-group-text">%</span>
+                                </div>
+                                <small class="text-muted text-success" style="font-size: 0.8em;">* بناءً على الملف (100,000 من 200,000)</small>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <h6 class="text-primary mb-3"><i class="fas fa-file-invoice-dollar me-2"></i> المصاريف الثابتة الشهرية</h6>
+                            
+                            <div class="mb-2">
+                                <label class="form-label small">إيجارات ومصاريف ثابتة</label>
+                                <input type="number" class="form-control form-control-sm fixed-cost-input" id="fixedRent" value="13301" oninput="calculate()">
+                            </div>
+
+                            <div class="mb-2">
+                                <label class="form-label small">رواتب وأجور</label>
+                                <input type="number" class="form-control form-control-sm fixed-cost-input" id="wages" value="48500" oninput="calculate()">
+                            </div>
+
+                            <div class="mb-2">
+                                <label class="form-label small">مصاريف حكومية</label>
+                                <input type="number" class="form-control form-control-sm fixed-cost-input" id="govFees" value="7454" oninput="calculate()">
+                            </div>
+
+                            <div class="mb-2">
+                                <label class="form-label small">دعاية وإعلان (متوسط)</label>
+                                <input type="number" class="form-control form-control-sm fixed-cost-input" id="marketing" value="13500" oninput="calculate()">
+                            </div>
+
+                            <div class="mt-3 p-2 bg-light rounded d-flex justify-content-between align-items-center">
+                                <span class="fw-bold small">إجمالي الثابتة:</span>
+                                <span class="fw-bold text-danger" id="totalFixedDisplay">82,755 ر.س</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card card-custom h-100 bg-profit text-white" id="profitCard">
+                            <div class="card-body text-center">
+                                <h6 class="card-title text-white-50">صافي الربح الشهري</h6>
+                                <h2 class="display-6 fw-bold" id="netProfit">0</h2>
+                                <p class="card-text small">هامش ربح: <span id="profitMargin">0%</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="card card-custom h-100">
+                            <div class="card-body text-center">
+                                <h6 class="card-title text-muted">إجمالي المصاريف</h6>
+                                <h3 class="fw-bold text-danger" id="totalExpenses">0</h3>
+                                <small class="text-muted d-block">شامل البضاعة والتشغيل</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="card card-custom h-100 bg-break text-white">
+                            <div class="card-body text-center">
+                                <h6 class="card-title text-white-50">نقطة التعادل (المبيعات)</h6>
+                                <h3 class="fw-bold" id="breakEven">0</h3>
+                                <small class="text-white-50 d-block">لتبدأ في الربح</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-custom mt-3">
+                    <div class="card-header bg-white border-0 pt-4 px-4 d-flex justify-content-between">
+                        <h5 class="text-secondary"><i class="fas fa-chart-pie me-2"></i> تحليل بصري للمصاريف</h5>
+                    </div>
+                    <div class="card-body">
+                        <div style="height: 300px; position: relative;">
+                            <canvas id="expensesChart"></canvas>
+                        </div>
+                        <div class="mt-3 text-center small text-muted">
+                            الرسم البياني يحدث تلقائياً عند تغيير الأرقام في القائمة الجانبية.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="col-12 mt-4">
+                <div class="card card-custom border-success">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="fas fa-bed me-2"></i> كم غرفة نحتاج لبيعها؟ (التعادل التشغيلي)</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-5 border-start">
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">متوسط سعر بيع الغرفة (شامل التركيب)</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="roomPrice" value="5150" oninput="calculate()">
+                                        <span class="input-group-text">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">تكلفة تصنيع الغرفة (مواد خام)</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="roomCost" value="2575" oninput="calculate()">
+                                        <span class="input-group-text">ر.س</span>
+                                    </div>
+                                    <small class="text-muted">الافتراضي 2575 ريال (حسب ملف التجهيزات)</small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-7 text-center">
+                                <h6 class="text-muted">للوصول لنقطة التعادل، يجب بيع وتركيب:</h6>
+                                <div class="display-4 fw-bold text-success my-3">
+                                    <span id="roomsToBreakEven">0</span> <span style="font-size: 0.5em;">غرفة / شهرياً</span>
+                                </div>
+                                <div class="progress" style="height: 25px;">
+                                    <div id="roomsProgressBar" class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                                </div>
+                                <small class="text-muted mt-2 d-block" id="roomsProfitText">كل غرفة إضافية = ربح صافي <span id="profitPerRoomDisplay">0</span> ريال</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div> 
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+        // متغير لتخزين كائن الرسم البياني
+        let expensesChart = null;
+
+        // دالة الحساب الرئيسية الموحدة
+        function calculate() {
+            // ==========================================
+            // 1. جلب المدخلات الأساسية
+            // ==========================================
+            const sales = parseFloat(document.getElementById('salesInput').value) || 0;
+            const cogsPercent = parseFloat(document.getElementById('cogsPercent').value) || 0;
+            
+            const fixedRent = parseFloat(document.getElementById('fixedRent').value) || 0;
+            const wages = parseFloat(document.getElementById('wages').value) || 0;
+            const govFees = parseFloat(document.getElementById('govFees').value) || 0;
+            const marketing = parseFloat(document.getElementById('marketing').value) || 0;
+
+            // ==========================================
+            // 2. العمليات الحسابية للحاسبة الرئيسية
+            // ==========================================
+            
+            // أ) المصاريف الثابتة
+            const totalFixedCosts = fixedRent + wages + govFees + marketing;
+            document.getElementById('totalFixedDisplay').innerText = totalFixedCosts.toLocaleString() + ' ر.س';
+
+            // ب) التكاليف المتغيرة
+            const variableCosts = sales * (cogsPercent / 100);
+
+            // ج) الإجماليات وصافي الربح
+            const totalExpenses = totalFixedCosts + variableCosts;
+            const netProfit = sales - totalExpenses;
+            
+            // د) هامش الربح
+            let margin = 0;
+            if (sales > 0) margin = (netProfit / sales) * 100;
+
+            // هـ) نقطة التعادل المالية
+            const contributionMarginRatio = 1 - (cogsPercent / 100);
+            let breakEvenPoint = 0;
+            if (contributionMarginRatio > 0) {
+                breakEvenPoint = totalFixedCosts / contributionMarginRatio;
+            }
+
+            // ==========================================
+            // 3. تحديث واجهة الحاسبة الرئيسية
+            // ==========================================
+            const profitCard = document.getElementById('profitCard');
+            const netProfitElement = document.getElementById('netProfit');
+            
+            netProfitElement.innerText = netProfit.toLocaleString(undefined, {maximumFractionDigits: 0}) + ' ر.س';
+            document.getElementById('profitMargin').innerText = margin.toFixed(1) + '%';
+
+            if (netProfit >= 0) {
+                profitCard.classList.remove('bg-loss');
+                profitCard.classList.add('bg-profit');
+                if (!netProfitElement.innerText.includes('-')) netProfitElement.innerText = "+ " + netProfitElement.innerText;
+            } else {
+                profitCard.classList.remove('bg-profit');
+                profitCard.classList.add('bg-loss');
+            }
+
+            document.getElementById('totalExpenses').innerText = totalExpenses.toLocaleString(undefined, {maximumFractionDigits: 0}) + ' ر.س';
+            document.getElementById('breakEven').innerText = breakEvenPoint.toLocaleString(undefined, {maximumFractionDigits: 0}) + ' ر.س';
+
+            // تحديث الرسم البياني
+            updateChart(netProfit, totalFixedCosts, variableCosts);
+
+            // ==========================================
+            // 4. حاسبة عدد الغرف (إصلاح المشكلة هنا)
+            // ==========================================
+            
+            // نتأكد أن العناصر موجودة في الصفحة قبل الحساب لتجنب الأخطاء
+            const roomPriceElem = document.getElementById('roomPrice');
+            const roomCostElem = document.getElementById('roomCost');
+
+            if (roomPriceElem && roomCostElem) {
+                const roomPrice = parseFloat(roomPriceElem.value) || 0;
+                const roomCost = parseFloat(roomCostElem.value) || 0;
+                
+                // هامش الربح من الغرفة الواحدة
+                const profitPerRoom = roomPrice - roomCost;
+                
+                // عرض ربح الغرفة
+                const profitDisplay = document.getElementById('profitPerRoomDisplay');
+                if(profitDisplay) profitDisplay.innerText = profitPerRoom.toLocaleString();
+
+                // حساب عدد الغرف المطلوبة (نقطة التعادل بالوحدات)
+                // القانون: التكاليف الثابتة / ربح الوحدة الواحدة
+                let roomsNeeded = 0;
+                if (profitPerRoom > 0) {
+                    roomsNeeded = Math.ceil(totalFixedCosts / profitPerRoom);
+                }
+
+                // تحديث رقم الغرف المطلوب
+                const roomsDisplay = document.getElementById('roomsToBreakEven');
+                if(roomsDisplay) roomsDisplay.innerText = roomsNeeded;
+
+                // تحديث شريط التقدم
+                let currentRoomsSold = 0;
+                if (roomPrice > 0) {
+                    currentRoomsSold = Math.floor(sales / roomPrice);
+                }
+                
+                let progressPercent = 0;
+                if (roomsNeeded > 0) {
+                    progressPercent = (currentRoomsSold / roomsNeeded) * 100;
+                }
+                
+                const progressBar = document.getElementById('roomsProgressBar');
+                if(progressBar) {
+                    const barWidth = progressPercent > 100 ? 100 : progressPercent;
+                    progressBar.style.width = barWidth + '%';
+                    progressBar.innerText = currentRoomsSold + ' غرفة حالياً';
+                    
+                    if (currentRoomsSold >= roomsNeeded) {
+                        progressBar.classList.remove('bg-warning');
+                        progressBar.classList.add('bg-success');
+                    } else {
+                        progressBar.classList.remove('bg-success');
+                        progressBar.classList.add('bg-warning');
+                    }
+                }
+            }
+
+            // ==========================================
+            // 5. تحديث المحاكي الاستراتيجي (إذا وجد)
+            // ==========================================
+            if (typeof updateSimulation === "function") {
+                updateSimulation();
+            }
+        }
+
+        // دالة الرسم البياني
+        function updateChart(profit, fixedCosts, variableCosts) {
+            const ctx = document.getElementById('expensesChart').getContext('2d');
+            let displayProfit = profit > 0 ? profit : 0;
+
+            const data = {
+                labels: ['التكاليف المتغيرة (بضاعة)', 'المصاريف الثابتة', 'صافي الربح المتوقع'],
+                datasets: [{
+                    data: [variableCosts, fixedCosts, displayProfit],
+                    backgroundColor: ['#66bb6a', '#ef5350', '#fbc02d'],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            };
+
+            const config = {
+                type: 'doughnut',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { font: { family: 'Tajawal', size: 14 } } }
+                    }
+                }
+            };
+
+            if (expensesChart) {
+                expensesChart.destroy();
+            }
+            expensesChart = new Chart(ctx, config);
+        }
+
+        // دالة المحاكي الاستراتيجي (مدمجة)
+        function updateSimulation() {
+            // نتأكد أن الجدول موجود
+            if(!document.getElementById('simulationTable')) return;
+
+            let currentSales = parseFloat(document.getElementById('salesInput').value) || 200000;
+            const initialCogsPercent = parseFloat(document.getElementById('cogsPercent').value) || 55;
+            // نحسب التكاليف الثابتة مرة أخرى هنا أو نستخدم قيمة تقريبية للمحاكاة
+            // للأمان سنعيد حسابها سريعاً من المدخلات
+            const fixedRent = parseFloat(document.getElementById('fixedRent').value) || 0;
+            const wages = parseFloat(document.getElementById('wages').value) || 0;
+            const govFees = parseFloat(document.getElementById('govFees').value) || 0;
+            const marketing = parseFloat(document.getElementById('marketing').value) || 0;
+            const fixedCosts = fixedRent + wages + govFees + marketing;
+
+            const growthRate = parseFloat(document.getElementById('growthRate').value) / 100;
+            const targetCogs = parseFloat(document.getElementById('targetCogs').value);
+            const factoryMonth = parseInt(document.getElementById('factoryMonth').value);
+
+            document.getElementById('growthDisplay').innerText = (growthRate * 100).toFixed(0) + '%';
+
+            let totalProfit = 0;
+            let tableHTML = '';
+            
+            let quarters = {
+                1: { sales: 0, profit: 0, cogs: 0, count: 0 },
+                2: { sales: 0, profit: 0, cogs: 0, count: 0 },
+                3: { sales: 0, profit: 0, cogs: 0, count: 0 },
+                4: { sales: 0, profit: 0, cogs: 0, count: 0 }
+            };
+
+            for (let month = 1; month <= 12; month++) {
+                let currentCogsPercent = (month >= factoryMonth) ? targetCogs : initialCogsPercent;
+                let monthlyVariableCost = currentSales * (currentCogsPercent / 100);
+                let monthlyProfit = currentSales - (fixedCosts + monthlyVariableCost);
+
+                let q = Math.ceil(month / 3);
+                quarters[q].sales += currentSales;
+                quarters[q].profit += monthlyProfit;
+                quarters[q].cogs = currentCogsPercent;
+                quarters[q].count++;
+
+                totalProfit += monthlyProfit;
+                currentSales = currentSales * (1 + growthRate);
+            }
+
+            const qNames = ["الربع 1", "الربع 2", "الربع 3", "الربع 4"];
+            for (let i = 1; i <= 4; i++) {
+                let avgSales = quarters[i].sales / 3;
+                let qProfit = quarters[i].profit;
+                let status = qProfit > 0 ? '<span class="badge bg-success">ربح</span>' : '<span class="badge bg-danger">خسارة</span>';
+                
+                if (i * 3 >= factoryMonth && (i-1)*3 < factoryMonth) {
+                    status += ' <span class="badge bg-warning text-dark">المصنع 🏭</span>';
+                }
+
+                tableHTML += `
+                    <tr>
+                        <td>${qNames[i-1]}</td>
+                        <td>${avgSales.toLocaleString(undefined, {maximumFractionDigits:0})}</td>
+                        <td>${quarters[i].cogs}%</td>
+                        <td class="${qProfit >= 0 ? 'text-success' : 'text-danger'} fw-bold">${qProfit.toLocaleString(undefined, {maximumFractionDigits:0})}</td>
+                        <td>${status}</td>
+                    </tr>
+                `;
+            }
+
+            document.getElementById('simulationTable').innerHTML = tableHTML;
+            document.getElementById('totalYearProfit').innerText = totalProfit.toLocaleString(undefined, {maximumFractionDigits: 0}) + ' ر.س';
+            
+            if(totalProfit > 500000) {
+                document.getElementById('strategyTip').innerText = "ممتاز! الأرباح تغطي تكلفة المصنع.";
+                document.getElementById('strategyTip').className = "fw-bold text-success";
+            } else {
+                document.getElementById('strategyTip').innerText = "قد تحتاج تمويل إضافي للمصنع.";
+                document.getElementById('strategyTip').className = "text-muted";
+            }
+        }
+
+        // التشغيل التلقائي عند التحميل
+        window.onload = function() {
+            calculate();
+        };
+    </script>
+
+    <div class="container"><hr class="my-5" style="border-top: 3px dashed var(--primary-color); opacity: 0.2;"></div>
+
+    <div class="container mb-5">
+        <div class="card card-custom border-primary">
+            <div class="card-header bg-dark text-white pt-4 px-4">
+                <h4 class="text-warning"><i class="fas fa-rocket me-2"></i> محاكي النمو والاستحواذ (خطة 2026)</h4>
+                <p class="small text-white-50">توقع أرباحك السنوية بناءً على خطة فتح المصنع ونمو المبيعات</p>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 border-start">
+                        <h6 class="text-primary fw-bold mb-3">إعدادات السيناريو:</h6>
+                        
+                        <div class="mb-3">
+                            <label class="form-label small">نسبة النمو الشهري في المبيعات</label>
+                            <input type="range" class="form-range" id="growthRate" min="0" max="20" step="1" value="5" oninput="updateSimulation()">
+                            <div class="d-flex justify-content-between small text-muted">
+                                <span>0%</span>
+                                <span class="fw-bold text-dark" id="growthDisplay">5%</span>
+                                <span>20%</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label small">تخفيض تكلفة البضاعة (بعد فتح المصنع)</label>
+                            <small class="d-block text-muted x-small mb-2">عند تشغيل المصنع، ستنخفض التكلفة من 55% إلى:</small>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" id="targetCogs" value="35">
+                                <span class="input-group-text">%</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label small">شهر افتتاح المصنع</label>
+                            <select class="form-select form-select-sm" id="factoryMonth" onchange="updateSimulation()">
+                                <option value="13">لا يوجد مصنع (بقاء الوضع الحالي)</option>
+                                <option value="4">شهر 4 (أبريل)</option>
+                                <option value="6" selected>شهر 6 (يونيو)</option>
+                                <option value="9">شهر 9 (سبتمبر)</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-warning w-100 fw-bold mt-2" onclick="updateSimulation()">
+                            <i class="fas fa-calculator me-2"></i> تحديث التوقعات
+                        </button>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-sm text-center align-middle" style="font-size: 0.9rem;">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>الربع</th>
+                                        <th>المتوسط الشهري للمبيعات</th>
+                                        <th>تكلفة البضاعة %</th>
+                                        <th>صافي الربح المتراكم</th>
+                                        <th>الحالة</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="simulationTable">
+                                    </tbody>
+                                <tfoot class="table-dark">
+                                    <tr>
+                                        <td colspan="3" class="text-end fw-bold">إجمالي أرباح سنة 2026 المتوقعة:</td>
+                                        <td colspan="2" class="fw-bold text-warning fs-5" id="totalYearProfit">0 ر.س</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="alert alert-info small mb-0 mt-2">
+                            <i class="fas fa-lightbulb me-2"></i> 
+                            <span id="strategyTip">نصيحة: لاحظ كيف يقفز الربح بعد شهر افتتاح المصنع بسبب انخفاض التكاليف.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // دالة محاكاة النمو السنوي
+        function updateSimulation() {
+            // جلب القيم الحالية من الآلة الحاسبة الرئيسية كنقطة انطلاق
+            let currentSales = parseFloat(document.getElementById('salesInput').value) || 200000;
+            const initialCogsPercent = parseFloat(document.getElementById('cogsPercent').value) || 55;
+            const fixedCosts = 82755; // قيمة تقريبية ثابتة للمحاكاة أو يمكن جلبها ديناميكياً
+
+            // جلب قيم المحاكاة
+            const growthRate = parseFloat(document.getElementById('growthRate').value) / 100;
+            const targetCogs = parseFloat(document.getElementById('targetCogs').value);
+            const factoryMonth = parseInt(document.getElementById('factoryMonth').value);
+
+            // تحديث عرض النسبة
+            document.getElementById('growthDisplay').innerText = (growthRate * 100).toFixed(0) + '%';
+
+            let totalProfit = 0;
+            let tableHTML = '';
+            
+            // تقسيم السنة إلى 4 أرباع للعرض المختصر
+            let quarters = {
+                1: { sales: 0, profit: 0, cogs: 0, count: 0 },
+                2: { sales: 0, profit: 0, cogs: 0, count: 0 },
+                3: { sales: 0, profit: 0, cogs: 0, count: 0 },
+                4: { sales: 0, profit: 0, cogs: 0, count: 0 }
+            };
+
+            for (let month = 1; month <= 12; month++) {
+                // تحديد نسبة التكلفة (هل فتح المصنع أم لا؟)
+                let currentCogsPercent = (month >= factoryMonth) ? targetCogs : initialCogsPercent;
+                
+                // حساب العمليات لهذا الشهر
+                let monthlyVariableCost = currentSales * (currentCogsPercent / 100);
+                let monthlyProfit = currentSales - (fixedCosts + monthlyVariableCost);
+
+                // تجميع البيانات للربع السنوي
+                let q = Math.ceil(month / 3);
+                quarters[q].sales += currentSales;
+                quarters[q].profit += monthlyProfit;
+                quarters[q].cogs = currentCogsPercent; // أخذ آخر نسبة في الربع
+                quarters[q].count++;
+
+                totalProfit += monthlyProfit;
+
+                // تطبيق النمو للشهر القادم
+                currentSales = currentSales * (1 + growthRate);
+            }
+
+            // بناء الجدول
+            const qNames = ["الربع الأول (تأسيس)", "الربع الثاني (نمو)", "الربع الثالث (توسع)", "الربع الرابع (هيمنة)"];
+            
+            for (let i = 1; i <= 4; i++) {
+                let avgSales = quarters[i].sales / 3;
+                let qProfit = quarters[i].profit;
+                let status = qProfit > 0 ? '<span class="badge bg-success">ربح</span>' : '<span class="badge bg-danger">خسارة/تأسيس</span>';
+                
+                // تمييز ربع افتتاح المصنع
+                if (i * 3 >= factoryMonth && (i-1)*3 < factoryMonth) {
+                    status += ' <span class="badge bg-warning text-dark">افتتاح المصنع 🏭</span>';
+                }
+
+                tableHTML += `
+                    <tr>
+                        <td>${qNames[i-1]}</td>
+                        <td>${avgSales.toLocaleString(undefined, {maximumFractionDigits:0})}</td>
+                        <td>${quarters[i].cogs}%</td>
+                        <td class="${qProfit >= 0 ? 'text-success' : 'text-danger'} fw-bold">${qProfit.toLocaleString(undefined, {maximumFractionDigits:0})}</td>
+                        <td>${status}</td>
+                    </tr>
+                `;
+            }
+
+            document.getElementById('simulationTable').innerHTML = tableHTML;
+            document.getElementById('totalYearProfit').innerText = totalProfit.toLocaleString(undefined, {maximumFractionDigits: 0}) + ' ر.س';
+            
+            // تحديث النصيحة
+            if(totalProfit > 500000) {
+                document.getElementById('strategyTip').innerText = "ممتاز! هذه الأرباح كافية لتغطية تكاليف تأسيس المصنع (حوالي 500 ألف) ذاتياً.";
+                document.getElementById('strategyTip').className = "fw-bold text-success";
+            } else {
+                document.getElementById('strategyTip').innerText = "الأرباح جيدة، لكن قد تحتاج لتمويل خارجي بسيط لتسريع فتح المصنع.";
+                document.getElementById('strategyTip').className = "text-muted";
+            }
+        }
+    </script>
+</body>
+</html>
