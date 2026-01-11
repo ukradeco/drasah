@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أونارا - فندق جبار بن صخر | دراسة استثمارية 2026</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+/* -----------------------------------------------------------
+   1. منطق اللغات (ثابت لا يتغير)
+----------------------------------------------------------- */
+html:not([lang="en"]) .lang-en { display: none !important; }
+html[lang="en"] .lang-ar { display: none !important; }
+html[lang="en"] .lang-en { display: block !important; }
+html[lang="en"] { direction: ltr; }
+html[lang="ar"] { direction: rtl; }
+html[lang="en"] table { text-align: left !important; direction: ltr !important; }
+html[lang="en"] th, html[lang="en"] td { text-align: left !important; }
+
+/* -----------------------------------------------------------
+   2. الهوية البصرية (فيروزي ملكي - ذهبي - رمادي)
+----------------------------------------------------------- */
+:root {
+    /* الفيروزي الملكي (Turquoise/Teal) - بديل العودي */
+    --turquoise-deep: #0f3d3e;   /* فيروزي غامق وعميق جداً */
+    --turquoise-mid: #1c767b;    /* فيروزي متوسط للإضاءة */
+    
+    /* الرمادي البلاتيني (للتفاصيل والنصوص) */
+    --platinum-light: #e5e7eb;   /* رمادي فاتح جداً للنصوص الأساسية */
+    --platinum-dim: #cbd5e1;     /* رمادي متوسط للتفاصيل */
+    --charcoal: #c1c2c3;         /* رمادي غامق للخلفيات العامة */
+
+    /* الذهبي (أساس) */
+    --gold-solid: #c5a059;
+}
+
+/* إعدادات الجسم */
+body {
+    background-color: #E5E7EB !important; /* رمادي فاتح واضح (Platinum) */
+    color: var(--charcoal);
+    font-family: 'Cairo', sans-serif;
+    overflow-x: hidden;
+}
+
+/* -----------------------------------------------------------
+   3. الكروت والخلفيات الفيروزية (Turquoise Cards)
+----------------------------------------------------------- */
+.card-investment, 
+.flip-card-front, 
+.flip-card-back,
+.bg-white,       
+.bg-gray-50,     
+.bg-gray-900,
+.bg-\[\#0F172A\] {
+    /* تدرج فيروزي فخم */
+    background: linear-gradient(145deg, var(--turquoise-deep) 0%, var(--turquoise-mid) 100%) !important;
+    
+    /* حدود ذهبية خافتة */
+    border: 1px solid rgba(197, 160, 89, 0.2) !important; 
+    
+    /* النصوص داخل الكروت */
+    color: var(--platinum-light) !important;
+    
+    /* ظل فيروزي غامق */
+    box-shadow: 0 15px 40px rgba(15, 61, 62, 0.25) !important;
+}
+
+section#summary, section#property, section#investor-analysis, section#faq,
+section#location, section#logistics, section#gallery {
+    background-color: #E5E7EB !important; /* توحيد لون الخلفية */
+}
+
+/* -----------------------------------------------------------
+   4. النصوص الذهبية المتدرجة (Gradient Gold)
+----------------------------------------------------------- */
+.text-gold, 
+.text-blue-600, .text-blue-400, .text-blue-700,
+.text-emerald-400, .text-emerald-600,
+.text-navy,
+h2 span.text-gold,
+.font-mono,
+.fa-solid, .fa-brands, i {
+    background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    font-weight: 900;
+    text-shadow: none;
+}
+
+/* -----------------------------------------------------------
+   5. التفاصيل الرمادية (البلاتينيوم)
+----------------------------------------------------------- */
+p, .text-gray-500, .text-gray-600, .text-gray-400 {
+    color: var(--platinum-dim) !important;
+}
+
+/* النصوص خارج الكروت (على الخلفية البيضاء) تكون غامقة */
+section > .container > div > p,
+section > .container > div > h2,
+section > .container > div > h2 span {
+    color: var(--charcoal) !important;
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+/* إعادة تلوين الكلمات الذهبية داخل العناوين الغامقة */
+section > .container > div > h2 span.text-gold {
+    background: linear-gradient(to right, #BF953F, #AA771C);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent;
+}
+
+/* -----------------------------------------------------------
+   6. تنظيف العناصر القديمة
+----------------------------------------------------------- */
+.bg-blue-600, .bg-blue-100, .bg-blue-50, .bg-navy { background-color: transparent !important; }
+.border-blue-600, .border-blue-200, .border-gray-100 { border-color: rgba(197, 160, 89, 0.3) !important; }
+
+/* الأزرار الذهبية (نص الزر فيروزي غامق ليناسب الخلفية) */
+.btn-gold, a.bg-gold {
+    background: linear-gradient(to right, #BF953F, #B38728) !important;
+    color: #0f3d3e !important; /* نص الزر فيروزي غامق */
+    border: 1px solid #FCF6BA;
+    box-shadow: 0 5px 15px rgba(191, 149, 63, 0.4);
+}
+
+/* شريط التنقل */
+.glass-nav {
+    background: rgba(15, 61, 62, 0.95) !important; /* فيروزي غامق */
+    border-bottom: 1px solid var(--gold-solid);
+}
+.glass-nav span, .glass-nav a { color: #fff !important; }
+
+/* الجداول */
+table th { color: var(--gold-solid) !important; border-bottom: 1px solid rgba(255,255,255,0.1); }
+table td { color: var(--platinum-light) !important; border-bottom: 1px solid rgba(255,255,255,0.05); }
+input { background: rgba(0,0,0,0.3) !important; color: #fff !important; border-bottom: 1px solid var(--gold-solid) !important; }
+
+/* تحسينات إضافية للقطار والفوتر */
+#train-cafe, footer {
+    background-color: var(--turquoise-deep) !important;
+}
+/* تحويل اللوجو إلى ذهبي ملكي */
+.real-gold-logo {
+    /* الخطوة 1: إزالة الألوان الأصلية (البني) تماماً */
+    filter: grayscale(100%) 
+    /* الخطوة 2: تطبيق قاعدة لونية صفراء/بنية */
+            sepia(100%) 
+    /* الخطوة 3: تعزيز التشبع للحصول على الذهبي الفاقع */
+            saturate(500%) 
+    /* الخطوة 4: ضبط الإضاءة لتناسب الخلفية الفيروزية */
+            brightness(90%) 
+    /* الخطوة 5: زيادة التباين للمعادن */
+            contrast(120%);
+            
+    transition: all 0.3s ease;
+    opacity: 0.9; /* شفافية بسيطة لدمجه مع الخلفية */
+}
+
+/* عند المرور بالماوس يلمع أكثر */
+.real-gold-logo:hover {
+    filter: grayscale(100%) sepia(100%) saturate(600%) brightness(110%) contrast(130%);
+    transform: scale(1.05);
+}
+</style>
+</head>
+<body class="antialiased">
+
+<nav class="glass-nav fixed w-full z-[100] py-2 transition-all duration-300">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <img src="ownara-logo (2).png" alt="Ownara" class="h-12 md:h-14 img-gold-effect">
+<div class="hidden md:block border-r border-gold/30 pr-4 mr-4">
+    <span class="text-xl font-black text-gold tracking-tighter uppercase leading-none block font-mono">Ownara</span>
+    
+    <p class="text-[9px] text-gold font-bold uppercase tracking-widest mt-1">
+        <span class="lang-ar">إدارة المحافظ والعوائد الفندقية</span>
+        <span class="lang-en">Hotel Portfolio & Revenue Management</span>
+    </p>
+</div>
+        </div>
+        
+        <div class="hidden lg:flex items-center gap-8 font-bold text-[10px] uppercase tracking-wider text-gray-600">
+            <a href="#summary" class="hover:text-gold transition-colors">
+                <span class="lang-ar">فلسفة الاستثمار</span><span class="lang-en">Investment Philosophy</span>
+            </a>
+            <a href="#property" class="hover:text-gold transition-colors">
+                <span class="lang-ar">تفاصيل الوحدات</span><span class="lang-en">Unit Specs</span>
+            </a>
+            <a href="#investor-analysis" class="hover:text-gold transition-colors bg-navy/5 px-4 py-2 rounded-full border border-navy/5">
+<span class="lang-ar text-[#0f3d3e]">تحليل العوائد (25%)</span>
+    <span class="lang-en text-[#0f3d3e]">ROI Analysis (25%)</span>
+            </a>
+            <a href="#faq" class="hover:text-gold transition-colors">
+                <span class="lang-ar">دليل المستثمر</span><span class="lang-en">Investor Guide</span>
+            </a>
+        </div>
+
+        <div class="flex items-center gap-3">
+<button onclick="toggleLang()" class="flex items-center gap-2 bg-white/5 border border-[#c5a059]/50 text-[#c5a059] px-5 py-2.5 rounded-full text-[10px] font-black hover:bg-[#c5a059] hover:text-[#0f3d3e] hover:border-[#c5a059] transition-all duration-300 backdrop-blur-md shadow-lg shadow-[#0f3d3e]/20">
+    <i class="fa-solid fa-globe"></i>
+    <span id="langBtnText">ENGLISH</span>
+</button>
+            <a href="https://wa.me/YOUR_NUMBER" class="hidden md:flex items-center gap-2 bg-gray-900 text-white px-6 py-2.5 rounded-full text-[10px] font-black shadow-lg hover:bg-gold transition-all duration-300">
+                <i class="fa-brands fa-whatsapp text-gold-light"></i>
+                <span class="lang-ar">احجز محفظتك الآن</span>
+                <span class="lang-en">Secure Portfolio</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0f3d3e]/80 via-[#0f3d3e]/50 to-[#0f3d3e] z-10"></div>
+        
+        <img src="Gemini_Generated_Image_bp33x4bp33x4bp33.png" 
+             class="w-full h-full object-cover scale-105 animate-[pulse_10s_infinite]" alt="Luxury View">
+    </div>
+
+    <div class="container mx-auto px-6 relative z-20 text-center text-white">
+        
+        <div data-aos="fade-down" class="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8 shadow-lg">
+            <span class="text-[10px] md:text-xs font-black tracking-widest uppercase text-gold">
+                <span class="lang-ar">فرصة تملك عوائد فندقية - المدينة المنورة 2026</span>
+                <span class="lang-en">Hotel Yield Ownership Opportunity - Madinah 2026</span>
+            </span>
+        </div>
+
+        <h1 data-aos="zoom-in" class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+            <span class="lang-ar text-white">نستثمر معاً في <br><span class="text-gold italic underline decoration-white/10 underline-offset-8">عالم الضيافة</span></span>
+            <span class="lang-en text-white">Invest in the <br><span class="text-gold italic underline decoration-white/10 underline-offset-8">Future of Hospitality</span></span>
+        </h1>
+
+        <p data-aos="fade-up" data-aos-delay="200" class="max-w-3xl mx-auto text-gray-200 text-lg md:text-xl leading-relaxed mb-12 italic font-light">
+            <span class="lang-ar">انضم إلى نخبة المستثمرين في المدينة المنورة بامتلاك حصص عوائد فندقية، حيث تلتقي قدسية المكان بأعلى معايير الكفاءة التشغيلية والربحية المستدامة.</span>
+            <span class="lang-en">Join elite investors in Madinah by owning hotel yield shares, where the sanctity of the location meets the highest standards of operational efficiency.</span>
+        </p>
+
+        <div data-aos="fade-up" data-aos-delay="400" class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-12">
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2rem] group hover:border-gold hover:bg-white/10 transition-all duration-500">
+                <p class="text-[10px] text-gray-300 font-bold uppercase mb-2">
+                    <span class="lang-ar">قيمة تملك المحفظة (5 سنوات)</span>
+                    <span class="lang-en">Portfolio Value (5 Years)</span>
+                </p>
+                <div class="text-3xl font-black text-gold font-mono">
+                    <span>750,000</span>
+                    <span class="text-xs uppercase ml-1 text-white">SAR</span>
+                </div>
+            </div>
+            
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2rem] group hover:border-gold hover:bg-white/10 transition-all duration-500">
+                <p class="text-[10px] text-gray-300 font-bold uppercase mb-2">
+                    <span class="lang-ar">صافي العائد السنوي المستهدف</span>
+                    <span class="lang-en">Target Annual Yield</span>
+                </p>
+                <div class="text-3xl font-black text-white font-mono">
+                    <span class="lang-ar text-sm">يصل إلى </span>
+                    <span>25</span><span class="text-gold">%</span>
+                </div>
+            </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="600" class="flex flex-wrap justify-center gap-6">
+            <a href="#property" class="btn-gold px-12 py-5 rounded-2xl font-black text-lg shadow-2xl hover:scale-105">
+                <span class="lang-ar">تصفح تفاصيل الوحدات</span>
+                <span class="lang-en">View Unit Details</span>
+            </a>
+            <a href="#investor-analysis" class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-12 py-5 rounded-2xl font-black text-lg transition-all hover:bg-white/20 hover:border-white/40">
+                <span class="lang-ar">تحليل الجدوى المالية</span>
+                <span class="lang-en">Financial Analysis</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<section id="summary" class="py-24 bg-white relative overflow-hidden">
+    <div class="container mx-auto px-6">
+        
+        <div class="text-center mb-20" data-aos="fade-up">
+            <span class="text-gold font-bold text-sm tracking-widest uppercase">
+                <span class="lang-ar">المنطق الاستثماري للمحفظة</span>
+                <span class="lang-en">Investment Portfolio Logic</span>
+            </span>
+            <h2 class="text-3xl md:text-5xl font-black text-white-900 mt-4 leading-tight">
+                <span class="lang-ar">فلسفة أونارا في <span class="text-gold">صناعة العوائد</span></span>
+                <span class="lang-en">Ownara's Philosophy in <span class="text-gold">Yield Generation</span></span>
+            </h2>
+            <div class="w-24 h-1.5 bg-gold mx-auto mt-6 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+            
+<div class="card-investment bg-gray-50 p-10 border border-gray-100 rounded-[3rem] group transition-all duration-500 hover:bg-white hover:shadow-2xl hover:-translate-y-2" data-aos="fade-up">
+    <div class="w-16 h-16 bg-white shadow-sm rounded-2xl flex items-center justify-center mb-8 group-hover:bg-gold transition-all duration-500">
+        <i class="fa-solid fa-chart-line text-2xl text-gold group-hover:text-white"></i>
+    </div>
+    <h3 class="font-black text-xl mb-4 text-gray-900">
+        <span class="lang-ar">عوائد تصل إلى 25%</span>
+        <span class="lang-en">Returns Up to 25%</span>
+    </h3>
+    <p class="text-gray-500 text-sm leading-relaxed italic text-justify">
+        <span class="lang-ar">محفظة استثمارية مصممة لمنحك أرباحاً دورية ناتجة عن كفاءة التشغيل الفندقي، مع نسبة نمو سنوي عالية.</span>
+        <span class="lang-en">An investment portfolio designed to grant periodic profits from operational efficiency, with high annual growth.</span>
+    </p>
+</div>
+
+<div class="card-investment bg-[#0F172A] p-10 border border-white/10 rounded-[3rem] group transition-all duration-500 hover:bg-[#1E293B] hover:shadow-2xl hover:-translate-y-2 shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-gold transition-all duration-500">
+        <i class="fa-solid fa-shield-halved text-2xl text-gold group-hover:text-[#0F172A]"></i>
+    </div>
+    <h3 class="font-black text-xl mb-4 text-white">
+        <span class="lang-ar">ضمان استرداد 750,000 ر.س</span>
+        <span class="lang-en">Full 750,000 SAR Recovery</span>
+    </h3>
+    <p class="text-slate-300 text-sm leading-relaxed italic text-justify">
+        <span class="lang-ar">نحن نضمن حماية رأس مالك المستثمر بموجب عقود قانونية تضمن استرداد كامل قيمة المحفظة الأصلية بنهاية مدة الـ 5 سنوات.</span>
+        <span class="lang-en">We guarantee capital protection through legal contracts ensuring the recovery of your full original portfolio value at the end of the 5-year term.</span>
+    </p>
+</div>
+
+            <div class="card-investment bg-gray-50 p-10 border border-gray-100 rounded-[3rem] group transition-all duration-500 hover:bg-white hover:shadow-2xl hover:-translate-y-2" data-aos="fade-up" data-aos-delay="400">
+                <div class="w-16 h-16 bg-white shadow-sm rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#0F172A] transition-all duration-500">
+                    <i class="fa-solid fa-handshake-angle text-2xl text-[#0F172A] group-hover:text-white"></i>
+                </div>
+                <h3 class="font-black text-xl mb-4 text-white-900">
+                    <span class="lang-ar">إدارة تشغيلية ذكية</span>
+                    <span class="lang-en">Smart Operational Management</span>
+                </h3>
+                <p class="text-gray-500 text-sm leading-relaxed italic text-justify">
+                    <span class="lang-ar">تتولى أونارا مهام التشغيل والصيانة والتسويق. أنت تملك العائد، ونحن نتحمل عبء الإدارة اليومية لضمان أعلى معايير الجودة والاستمرارية.</span>
+                    <span class="lang-en">Ownara manages operations, maintenance, and marketing. You own the yield; we handle the daily management to ensure quality.</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="relative p-1 bg-gradient-to-r from-gold to-yellow-600 rounded-[3rem] overflow-hidden shadow-2xl" data-aos="zoom-in">
+            <div class="bg-white rounded-[2.9rem] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-2/3">
+                    <div class="inline-block px-4 py-1 bg-gold/10 text-gold rounded-full text-[10px] font-black uppercase mb-6 tracking-widest">
+                        <span class="lang-ar">المحرك التشغيلي: هندسة الإشغال</span>
+                        <span class="lang-en">Operational Engine: Occupancy Engineering</span>
+                    </div>
+                    <h4 class="text-3xl font-black text-white-900 mb-6 leading-tight">
+                        <span class="lang-ar">كيف نضمن استدامة <span class="text-gold">التدفق التشغيلي</span> لمحفظتك؟</span>
+                        <span class="lang-en">How do we guarantee <span class="text-gold">Operational Flow</span> for your portfolio?</span>
+                    </h4>
+                    <p class="text-gray-600 leading-relaxed text-lg italic text-justify">
+                        <span class="lang-ar">تعتمد أونارا على "نظام توجيه النزلاء" الحصري، والذي يعمل كقنوات استقطاب ذكية تضمن توزيعاً عادلاً وكفاءة إشغال عالية للوحدات الفندقية التابعة لنا. هذا النموذج يضمن مستويات إيرادات مستهدفة طوال العام، مما يحمي هوامش ربح المستثمرين من تقلبات منصات الحجز الخارجية.</span>
+                        <span class="lang-en">Ownara relies on an exclusive "Guest Routing System" that acts as smart attraction channels, ensuring fair distribution and high occupancy efficiency for our hotel units, protecting investor margins.</span>
+                    </p>
+                </div>
+                <div class="lg:w-1/3 w-full">
+                    <div class="p-10 bg-gray-900 rounded-[2.5rem] text-center shadow-2xl border-b-8 border-gold">
+                        <i class="fa-solid fa-arrows-split-up-and-left text-4xl text-gold mb-4"></i>
+                        <p class="text-gray-400 text-[10px] uppercase font-bold mb-2">
+                            <span class="lang-ar">نظام توجيه التدفق النوعي</span>
+                            <span class="lang-en">Qualitative Flow Direction System</span>
+                        </p>
+                        <p class="text-3xl font-black text-gold font-mono tracking-tighter italic">Yield Engine</p>
+                        <p class="text-xs text-white font-bold mt-2 font-mono uppercase tracking-widest">PROPRIETARY LOGIC</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section id="location" class="py-24 bg-gray-50 overflow-hidden">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+            
+            <div class="w-full lg:w-1/2" data-aos="fade-right">
+                <div class="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-[10px] font-black uppercase mb-6 tracking-widest">
+                    <span class="lang-ar">التحليل المكاني الاستراتيجي</span>
+                    <span class="lang-en">Strategic Spatial Analysis</span>
+                </div>
+                <h2 class="text-4xl font-black text-white-900 mb-8 leading-tight">
+                    <span class="lang-ar">موقع استراتيجي مختار.. <br> يجمع بين حيوية الوصول وهدوء الإقامة</span>
+                    <span class="lang-en">Strategic Location.. <br> Combining Prime Access & Tranquility</span>
+                </h2>
+                <p class="text-gray-600 text-lg mb-10 leading-relaxed italic">
+                    <span class="lang-ar">نختار مواقعنا بناءً على القرب من المحاور الحيوية ومناطق الجذب السياحي، مما يدعم استراتيجية "منظومة تدفق النزلاء" ويضمن سهولة الوصول والتحرك.</span>
+                    <span class="lang-en">Our locations are chosen based on proximity to key hubs and attractions, supporting our "Guest Flow Ecosystem" and ensuring seamless access.</span>
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-6 bg-white rounded-3xl shadow-sm border border-gray-100 flex items-center gap-5 group hover:border-gold transition-all">
+                        <div class="w-12 h-12 bg-gold/10 rounded-2xl flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-white transition-all">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-white-900 text-sm">
+                                <span class="lang-ar">القرب من المعالم الرئيسية</span>
+                                <span class="lang-en">Proximity to Landmarks</span>
+                            </h4>
+                            <p class="text-xs text-blue-600 font-bold font-mono uppercase">Premium Zone</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-white rounded-3xl shadow-sm border border-gray-100 flex items-center gap-5 group hover:border-blue-600 transition-all">
+                        <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                            <i class="fa-solid fa-van-shuttle"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-white-900 text-sm">
+                                <span class="lang-ar">سهولة الوصول والربط</span>
+                                <span class="lang-en">Connectivity & Access</span>
+                            </h4>
+                            <p class="text-xs text-blue-600 font-bold font-mono uppercase">Seamless Flow</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2 relative" data-aos="fade-left">
+                <div class="bg-gray-900 rounded-[3rem] p-4 shadow-2xl overflow-hidden border-8 border-white group">
+                    <div class="relative h-[450px] rounded-[2.5rem] overflow-hidden bg-slate-100">
+                        <iframe 
+                            id="dynamic-map-frame"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.648922547771!2d39.661504125185964!3d24.462962961049175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15bd95846f5c11d9%3A0x9bb98629acd29ebc!2z2KzYqNin2LEg2KjZhiDYtdiu2LHYjCDYp9mE2K7Yp9mE2K_Zitip2Iwg2KfZhNmF2K_ZitmG2Kkg2KfZhNmF2YbZiNix2KkgNDIzMTc!5e0!3m2!1sar!2ssa!4v1768098133063!5m2!1sar!2ssa" 
+                            class="w-full h-full border-0 grayscale group-hover:grayscale-0 transition-all duration-700" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                        
+
+                    </div>
+                </div>
+
+                <div class="absolute -bottom-6 -right-6 md:right-10 bg-white p-6 rounded-3xl shadow-2xl border border-gray-100 max-w-[250px] z-20">
+                    <p class="text-[10px] text-gold font-black uppercase mb-1 tracking-widest">Strategic Value</p>
+                    <p class="text-xs font-bold text-gray-700 leading-relaxed italic">
+                        <span class="lang-ar">"الموقع المختار يساهم في تقليل تكاليف التشغيل اللوجستي بنسبة كبيرة بفضل التمركز الجغرافي الذكي."</span>
+                        <span class="lang-en">"The chosen location helps significantly reduce operational logistics costs through smart geographical positioning."</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script>
+// أضف هذا الجزء داخل دالة تحديث البيانات لديك
+function updateMapLocation(mapUrl) {
+    const mapFrame = document.getElementById('dynamic-map-frame');
+    
+    // نتحقق من وجود رابط صحيح لعدم إظهار صفحة فارغة
+    if(mapUrl && mapUrl.trim() !== "" && mapFrame) {
+        mapFrame.src = mapUrl;
+        console.log("🗺️ تم تحميل موقع المشروع من الجدول بنجاح.");
+    } else {
+        // رابط افتراضي في حال كان الجدول فارغاً (اختياري)
+        console.warn("⚠️ رابط الخريطة مفقود في الجدول.");
+    }
+}
+</script>
+<section id="competition" class="py-24 bg-white overflow-hidden">
+    <div class="container mx-auto px-6">
+        
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="text-gold font-bold text-sm tracking-widest uppercase">
+                <span class="lang-ar">التحليل التنافسي للنموذج</span>
+                <span class="lang-en">Model Competitive Analysis</span>
+            </span>
+            <h2 class="text-4xl font-black text-white-900 mt-4 leading-tight">
+                <span class="lang-ar">لماذا يتفوق نموذج "أونارا" <br> على الأسلوب الفندقي التقليدي؟</span>
+                <span class="lang-en">Why Ownara's Model Outperforms <br> Traditional Hotel Approaches?</span>
+            </h2>
+            <div class="w-24 h-1.5 bg-gold mx-auto mt-6 rounded-full"></div>
+        </div>
+
+        <div class="overflow-x-auto shadow-2xl rounded-[2.5rem] border border-gray-100" data-aos="zoom-in">
+            <table class="w-full text-right border-collapse bg-white overflow-hidden">
+                <thead>
+                    <tr class="bg-gray-900 text-white text-sm">
+                        <th class="p-8 font-black">
+                            <span class="lang-ar">وجه المقارنة</span>
+                            <span class="lang-en">Comparison Point</span>
+                        </th>
+                        <th class="p-8 font-black text-center text-gray-400">
+                            <span class="lang-ar">الفنادق التقليدية</span>
+                            <span class="lang-en">Traditional Hotels</span>
+                        </th>
+                        <th class="p-8 font-black text-center bg-gold/20 text-gold italic">
+                            <span class="lang-ar">نموذج محفظة أونارا</span>
+                            <span class="lang-en">Ownara Portfolio Model</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-50 text-sm md:text-base">
+                    <tr class="hover:bg-gray-50 transition-colors">
+                        <td class="p-8 font-bold text-white-900">
+                            <span class="lang-ar">جودة ومعايير الأصول</span>
+                            <span class="lang-en">Asset Standards & Quality</span>
+                        </td>
+                        <td class="p-8 text-center text-gray-400 italic">
+                            <span class="lang-ar">تجهيزات تجارية محدودة</span>
+                            <span class="lang-en">Limited commercial furnishing</span>
+                        </td>
+                        <td class="p-8 text-center font-black text-white-900">
+                            <span class="lang-ar">تجهيزات فندقية بمعايير استدامة عالية</span>
+                            <span class="lang-en">High sustainability hotel standards</span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50 transition-colors">
+                        <td class="p-8 font-bold text-white-900">
+                            <span class="lang-ar">تعدد قنوات الدخل</span>
+                            <span class="lang-en">Income Diversification</span>
+                        </td>
+                        <td class="p-8 text-center text-gray-400 italic">
+                            <span class="lang-ar">إيرادات الغرف فقط</span>
+                            <span class="lang-en">Room revenues only</span>
+                        </td>
+                        <td class="p-8 text-center font-black text-gold">
+                            <span class="lang-ar">غرف + خدمات لوجستية + عوائد تشغيلية مساندة</span>
+                            <span class="lang-en">Rooms + Logistics + Ancillary Revenue</span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50 transition-colors">
+                        <td class="p-8 font-bold text-white-900">
+                            <span class="lang-ar">التجربة الرقمية والابتكار</span>
+                            <span class="lang-en">Innovation & Tech Experience</span>
+                        </td>
+                        <td class="p-8 text-center text-gray-400 italic">
+                            <span class="lang-ar">إقامة تقليدية</span>
+                            <span class="lang-en">Traditional lodging</span>
+                        </td>
+                        <td class="p-8 text-center font-black text-white-900">
+                            <span class="lang-ar">تقنيات واقع افتراضي + تشغيل ذكي</span>
+                            <span class="lang-en">VR Integration + Smart Ops</span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50 transition-colors">
+                        <td class="p-8 font-bold text-white-900">
+                            <span class="lang-ar">هندسة الإشغال (Pipeline)</span>
+                            <span class="lang-en">Occupancy Engineering</span>
+                        </td>
+                        <td class="p-8 text-center text-gray-400 italic">
+                            <span class="lang-ar">الاعتماد الكلي على المنصات الخارجية</span>
+                            <span class="lang-en">Total reliance on third-party OTAs</span>
+                        </td>
+                        <td class="p-8 text-center font-black text-white-900">
+                            <span class="lang-ar">منظومة "تدوير النزلاء" الحصرية</span>
+                            <span class="lang-en">Proprietary "Guest Rotation" Ecosystem</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-16 p-8 bg-gray-900 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-8" data-aos="fade-up">
+            <div class="flex items-center gap-6">
+                <div class="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center text-gold">
+                    <i class="fa-solid fa-shield-up text-3xl"></i>
+                </div>
+                <div>
+                    <h4 class="text-xl font-black text-white">
+                        <span class="lang-ar">النتيجة: حصانة مالية ضد تقلبات السوق</span>
+                        <span class="lang-en">Result: Financial Market Resilience</span>
+                    </h4>
+                    <p class="text-sm text-gray-500 italic">
+                        <span class="lang-ar">بفضل تفتيت التكاليف التشغيلية وتعدد مصادر الدخل، يحقق نموذجنا نقطة تعادل آمنة تضمن استمرارية الأرباح حتى في فترات الركود.</span>
+                        <span class="lang-en">By fragmenting operational costs and diversifying income, our model achieves a safe break-even point ensuring profit continuity.</span>
+                    </p>
+                </div>
+            </div>
+            <div class="text-3xl font-black text-gold font-mono uppercase tracking-tighter italic">Yield Safe</div>
+        </div>
+
+    </div>
+</section>
+<section id="property" class="py-24 bg-gray-50 overflow-hidden">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row gap-16 items-start">
+            
+            <div class="w-full lg:w-1/2" data-aos="fade-right">
+                <div class="inline-block px-4 py-1 bg-gold/10 text-gold rounded-full text-[10px] font-black uppercase mb-6 tracking-widest">
+                    <span class="lang-ar">الأصول الفندقية الملموسة</span>
+                    <span class="lang-en">Tangible Hotel Assets</span>
+                </div>
+                <h2 class="text-4xl font-black text-white-900 mb-6 leading-tight">
+                    <span class="lang-ar">منظومة عقارية متكاملة.. <br> تضمن استدامة تدفقاتك المالية</span>
+                    <span class="lang-en">Integrated Real Estate.. <br> Securing Your Financial Flows</span>
+                </h2>
+                <p class="text-gray-600 mb-10 leading-relaxed text-lg italic text-justify">
+                    <span class="lang-ar">نحن لا نبيع أرقاماً، بل نمكنك من تملك حصص عوائد في أصول فندقية قائمة. تتكون المحفظة من وحدات متنوعة مجهزة بأعلى معايير الضيافة الحديثة لخدمة الوفود والزوار في المدينة المنورة.</span>
+                    <span class="lang-en">We don't sell numbers; we enable you to own yield shares in established hotel assets, equipped with the highest hospitality standards.</span>
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                    <div class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm text-center group hover:border-gold transition-all duration-500">
+                        <i class="fa-solid fa-bed text-2xl text-gold mb-3"></i>
+                        <p class="text-3xl font-black text-white-900 font-mono">65</p>
+                        <p class="text-[10px] font-bold text-gray-400 uppercase">
+                            <span class="lang-ar">وحدة كلاسيكية</span><span class="lang-en">Classic Units</span>
+                        </p>
+                        <p class="text-[9px] text-gray-400 mt-2 italic">
+                            <span class="lang-ar">(السعة الكبرى للأصل)</span><span class="lang-en">(Main Asset Capacity)</span>
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm text-center group hover:border-gold transition-all duration-500">
+                        <i class="fa-solid fa-user-group text-2xl text-gold mb-3"></i>
+                        <p class="text-3xl font-black text-white-900 font-mono">5</p>
+                        <p class="text-[10px] font-bold text-gray-400 uppercase">
+                            <span class="lang-ar">أجنحة تراثية</span><span class="lang-en">Heritage Suites</span>
+                        </p>
+                        <p class="text-[9px] text-gray-400 mt-2 italic">
+                            <span class="lang-ar">(إقامة الوفود النوعية)</span><span class="lang-en">(Premium Group Stay)</span>
+                        </p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-[2rem] shadow-xl text-center group hover:scale-105 transition-all duration-500">
+                        <i class="fa-solid fa-crown text-2xl text-gold mb-3"></i>
+                        <p class="text-3xl font-black text-white font-mono">5</p>
+                        <p class="text-[10px] font-bold text-gold uppercase">
+                            <span class="lang-ar">أجنحة ملكية</span><span class="lang-en">Royal Suites</span>
+                        </p>
+                        <p class="text-[9px] text-gray-500 mt-2 italic">
+                            <span class="lang-ar">(تجربة VIP المطلقة)</span><span class="lang-en">(Ultimate VIP Exp.)</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2" data-aos="fade-left">
+                <div class="bg-white p-10 rounded-[3rem] border-2 border-gold/10 shadow-2xl relative">
+                    <div class="absolute -top-6 right-10 bg-gold-900 text-gold px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl">
+                        <span class="lang-ar">بيانات التعاقد المباشر</span><span class="lang-en">Direct Contractual Data</span>
+                    </div>
+
+                    <h4 class="font-black text-white-900 text-xl mb-8 flex items-center gap-3">
+                        <i class="fa-solid fa-file-signature text-gold"></i>
+                        <span class="lang-ar">ميثاق تملك العوائد وحماية الأصول</span>
+                        <span class="lang-en">Yield Ownership & Asset Protection</span>
+                    </h4>
+
+                    <div class="space-y-6">
+<div class="flex justify-between items-center pb-4 border-b border-gray-50">
+    <div>
+        <p class="text-sm font-black text-gray-800">
+            <span class="lang-ar">قيمة تملك المحفظة</span>
+            <span class="lang-en">Portfolio Value</span>
+        </p>
+    </div>
+    <span class="text-xl font-black text-gray-900 font-mono">
+        <span>750,000</span>
+        <span class="text-[10px] ml-1">SAR</span>
+    </span>
+</div>
+
+                        <div class="flex justify-between items-center pb-4 border-b border-gray-100">
+                            <div>
+                                <p class="text-sm font-black text-emerald-600">
+                                    <span class="lang-ar">سياسة حماية رأس المال</span><span class="lang-en">Capital Protection Policy</span>
+                                </p>
+                            </div>
+                            <span class="text-xl font-black text-emerald-600">100% <span class="text-[10px]">GUARANTEED</span></span>
+                        </div>
+
+<div class="bg-gold p-6 rounded-2xl flex justify-between items-center shadow-lg mt-4">
+    <span class="text-xs font-black text-gray-900 uppercase">
+        <span class="lang-ar">العائد السنوي الصافي</span><span class="lang-en">Net Annual Yield</span>
+    </span>
+    <span class="text-3xl font-black text-gray-900 font-mono">
+        <span>25</span>%
+    </span>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="logistics" class="py-24 bg-gray-50 overflow-hidden">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+            
+            <div class="w-full lg:w-1/2" data-aos="fade-right">
+                <div class="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-[10px] font-black uppercase mb-6 tracking-widest border border-blue-200">
+                    <span class="lang-ar">الاستثمار في كفاءة الحركة</span>
+                    <span class="lang-en">Investment in Mobility Efficiency</span>
+                </div>
+                <h2 class="text-4xl font-black text-white-900 mb-8 leading-tight">
+                    <span class="lang-ar">خدمات لوجستية متكاملة.. <br> لتعظيم <span class="text-blue-600">القيمة التشغيلية</span> لمحفظتك</span>
+                    <span class="lang-en">Integrated Logistics.. <br> Maximizing Your <span class="text-blue-600">Operational Value</span></span>
+                </h2>
+                <p class="text-gray-600 text-lg mb-10 leading-relaxed italic text-justify">
+                    <span class="lang-ar">نحن نؤمن بأن العائد المرتفع يبدأ من تفاصيل الخدمة. لذلك، نوفر للمشروع أسطولاً لوجستياً مخصصاً يضمن تدفق النزلاء بسلاسة بين الوجهات الحيوية، مما يرفع من تصنيف الوحدات ويحمي هوامش أرباحك السنوية كشريك في العوائد.</span>
+                    <span class="lang-en">We believe high yields start with service details. Therefore, we provide a dedicated logistics fleet ensuring seamless guest flow between vital destinations, increasing unit ratings and protecting your annual profit margins.</span>
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-8 bg-white rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-blue-600 transition-all duration-500">
+                        <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                            <i class="fa-solid fa-bus-simple text-2xl"></i>
+                        </div>
+                        <h4 class="font-black text-white-900 mb-2">
+                            <span class="lang-ar">دعم النقل الترددي</span>
+                            <span class="lang-en">Shuttle Support Service</span>
+                        </h4>
+                        <p class="text-[11px] text-gray-500 leading-relaxed italic">
+                            <span class="lang-ar">رفع كفاءة الإشغال عبر تسهيل وصول النزلاء للوجهات الحيوية في المدينة المنورة.</span>
+                            <span class="lang-en">Boosting occupancy by facilitating guest access to vital destinations in Madinah.</span>
+                        </p>
+                    </div>
+
+                    <div class="p-8 bg-white rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-gold transition-all duration-500">
+                        <div class="w-14 h-14 bg-gold/10 rounded-2xl flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-white transition-all">
+                            <i class="fa-solid fa-car-side text-2xl"></i>
+                        </div>
+                        <h4 class="font-black text-white-900 mb-2">
+                            <span class="lang-ar">خدمات الاستقبال النوعية</span>
+                            <span class="lang-en">Premium VIP Reception</span>
+                        </h4>
+                        <p class="text-[11px] text-gray-500 leading-relaxed italic">
+                            <span class="lang-ar">استخدام أصول تنقل فاخرة لخدمة أجنحة الرفاهية، مما يضمن استدامة السعر المرتفع لليلة.</span>
+                            <span class="lang-en">Using luxury transport assets for premium suites, ensuring the sustainability of high room rates.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2" data-aos="fade-left">
+                <div class="bg-[#0F172A] p-10 md:p-14 rounded-[3.5rem] shadow-2xl relative overflow-hidden text-white border-b-8 border-blue-600">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+                    
+                    <h3 class="text-2xl font-black mb-8 flex items-center gap-3 text-blue-400">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span class="lang-ar">المنطق الاستثماري للعوائد</span>
+                        <span class="lang-en">Yield Investment Logic</span>
+                    </h3>
+
+                    <div class="space-y-8 relative z-10">
+                        <p class="text-gray-400 leading-relaxed italic text-sm text-justify">
+                            <span class="lang-ar">"أنت لا تشتري جدراناً، بل تتملك حق الحصول على عوائد تشغيلية. في أونارا، نحن نتولى مخاطر الملكية، أعباء التجهيز، وتكاليف الصيانة الدورية، لنقدم لك استثماراً نقياً يركز على نمو تدفقاتك النقدية دون الدخول في دوامة الإهلاك العقاري."</span>
+                            <span class="lang-en">"You are not buying walls; you are owning the right to operational yields. At Ownara, we handle ownership risks, setup burdens, and periodic maintenance, providing a pure investment focused on cash flow growth."</span>
+                        </p>
+
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="p-6 bg-white/5 rounded-[2rem] border border-white/10 flex items-center gap-5 group hover:bg-white/10 transition-all">
+                                <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-black text-sm text-gold">
+                                        <span class="lang-ar">حق الانتفاع بالعوائد (Usufruct)</span>
+                                        <span class="lang-en">Usufruct of Operational Yields</span>
+                                    </h5>
+                                    <p class="text-[10px] text-gray-400 italic mt-1">
+                                        <span class="lang-ar">عقدك يضمن حصة سنوية من صافي دخل المشروع الإجمالي (غرف + خدمات).</span>
+                                        <span class="lang-en">Your contract ensures an annual share of the total project net income.</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="p-6 bg-white/5 rounded-[2rem] border border-white/10 flex items-center gap-5 group hover:bg-white/10 transition-all">
+                                <div class="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center text-emerald-400">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-black text-sm text-white">
+                                        <span class="lang-ar">إدارة الإهلاك مسؤوليتنا</span>
+                                        <span class="lang-en">Depreciation Management: Our Task</span>
+                                    </h5>
+                                    <p class="text-[10px] text-gray-400 italic mt-1">
+                                        <span class="lang-ar">أونارا تتحمل كافة مصاريف الصيانة الرأسمالية لضمان بقاء الأصل في ذروة ربحيته.</span>
+                                        <span class="lang-en">Ownara bears all capital maintenance costs to keep the asset at peak profitability.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-blue-600/20 rounded-2xl border border-blue-600/30 text-center">
+                            <p class="text-[11px] font-black italic text-blue-100">
+                                <span class="lang-ar">* استثمارك هو في "كفاءة الأداء" لضمان أعلى عائد نقدى ممكن.</span>
+                                <span class="lang-en">* Your investment is in "Performance Efficiency" for maximum cash yield.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="heritage-experience" class="py-24 bg-white overflow-hidden">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+            
+            <div class="w-full lg:w-1/2" data-aos="fade-right">
+                <div class="relative group">
+                    <div class="absolute -top-4 -right-4 z-10 bg-gold text-white-900 px-6 py-2 rounded-full font-black text-xs shadow-2xl animate-pulse">
+                        <span class="lang-ar">فئة الأجنحة الممتازة (Premium)</span>
+                        <span class="lang-en">Premium Suites Series</span>
+                    </div>
+                    <div class="rounded-[3.5rem] overflow-hidden border-8 border-gray-50 shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]">
+                        <img src="8.png?q=80&w=1974&auto=format&fit=crop" 
+                             class="w-full h-[500px] object-cover" alt="Luxury & Heritage Experience">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        
+                        <div class="absolute bottom-10 right-10 left-10 text-white">
+                            <div class="flex gap-4 mb-4">
+                                <span class="bg-gold/20 backdrop-blur-md border border-gold/50 px-3 py-1 rounded-lg text-[10px] font-black">5 أجنحة تراثية</span>
+                                <span class="bg-blue-500/20 backdrop-blur-md border border-blue-500/50 px-3 py-1 rounded-lg text-[10px] font-black">5 أجنحة ملكية</span>
+                            </div>
+                            <h4 class="text-2xl font-black mb-2">
+                                <span class="lang-ar">تجربة إقامة "تتجاوز التوقعات"</span>
+                                <span class="lang-en">An "Extraordinary" Stay Experience</span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2" data-aos="fade-left">
+                <div class="inline-block px-4 py-1 bg-gold/10 text-gold rounded-full text-[10px] font-black uppercase mb-6 tracking-widest">
+                    <span class="lang-ar">هندسة القيمة المضافة</span>
+                    <span class="lang-en">Value Added Engineering</span>
+                </div>
+                <h2 class="text-4xl font-black text-white-900 mb-8 leading-tight">
+                    <span class="lang-ar">لماذا نركز على الأجنحة النوعية؟ <br> <span class="text-gold">لرفع القوة السعرية للمشروع</span></span>
+                    <span class="lang-en">Why Focus on Premium Suites? <br> <span class="text-gold">To Boost Pricing Power</span></span>
+                </h2>
+
+                <div class="space-y-8">
+                    <div class="flex items-start gap-6">
+                        <div class="w-12 h-12 bg-gray-900 rounded-2xl flex items-center justify-center text-gold shrink-0">
+                            <i class="fa-solid fa-vr-cardboard text-xl"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-black text-white-900 mb-2">
+                                <span class="lang-ar">أجنحة الهوية والتراث (5 وحدات)</span>
+                                <span class="lang-en">Heritage Series Suites (5 Units)</span>
+                            </h5>
+                            <p class="text-sm text-gray-500 leading-relaxed italic">
+                                <span class="lang-ar">دمج عبق التاريخ بتقنيات الواقع الافتراضي (VR History)، مما يحول الجناح إلى وجهة سياحية بحد ذاتها ترفع من تقييم الضيوف وتجذب السياح النوعيين.</span>
+                                <span class="lang-en">Merging history with VR technology, transforming the suite into a tourist destination that attracts premium travelers and boosts ratings.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-6">
+                        <div class="w-12 h-12 bg-gold/10 rounded-2xl flex items-center justify-center text-gold shrink-0">
+                            <i class="fa-solid fa-crown text-xl"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-black text-white-900 mb-2">
+                                <span class="lang-ar">الأجنحة الملكية الفاخرة (5 وحدات)</span>
+                                <span class="lang-en">Royal Luxury Suites (5 Units)</span>
+                            </h5>
+                            <p class="text-sm text-gray-500 leading-relaxed italic">
+                                <span class="lang-ar">تصاميم عصرية فاخرة تستهدف كبار الشخصيات والوفود الرسمية، مما يمنح الإدارة القدرة على فرض أسعار "Premium" تفوق متوسط السوق بنسبة كبيرة.</span>
+                                <span class="lang-en">Luxury modern designs targeting VIPs and official delegations, allowing management to set premium rates significantly above market average.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-gray-50 rounded-3xl border border-gray-100 flex items-center justify-between">
+                        <div>
+                            <p class="text-[10px] text-gray-400 font-bold uppercase mb-1">
+                                <span class="lang-ar">إجمالي وحدات النخبة</span>
+                                <span class="lang-en">Total Elite Units</span>
+                            </p>
+                            <p class="text-2xl font-black text-white-900 font-mono">10 <span class="text-xs">UNITS</span></p>
+                        </div>
+                        <div class="h-10 w-px bg-gray-200"></div>
+                        <div>
+                            <p class="text-[10px] text-gray-400 font-bold uppercase mb-1">
+                                <span class="lang-ar">مستهدف رفع الدخل</span>
+                                <span class="lang-en">Revenue Lift Target</span>
+                            </p>
+                            <p class="text-2xl font-black text-gold font-mono">+20%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="train-cafe" class="py-24 relative overflow-hidden bg-[#0f3d3e]">
+    <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#185a5e] rounded-full blur-[150px]"></div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+            
+            <div class="w-full lg:w-1/2" data-aos="fade-right">
+                <div class="inline-block px-4 py-1 bg-gradient-to-r from-[#BF953F] to-[#AA771C] text-[#0f3d3e] rounded-full text-[10px] font-black uppercase mb-6 tracking-widest shadow-lg shadow-gold/20">
+                    <span class="lang-ar">تجربة الضيافة المبتكرة</span>
+                    <span class="lang-en">Innovative Hospitality Experience</span>
+                </div>
+                
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">
+                    <span class="lang-ar">محطة الكوفي (القطار).. <br> عوائد تشغيلية <span class="text-gold italic">بلا توقف</span></span>
+                    <span class="lang-en">The Coffee Station (Train).. <br> <span class="text-gold italic">Non-stop</span> Operational Yields</span>
+                </h2>
+                
+                <p class="text-gray-300 text-lg mb-10 leading-relaxed italic text-justify font-light border-l-4 border-gold pl-6">
+                    <span class="lang-ar">نحن لا نكتفي بإيرادات الغرف؛ "قطار الكوفي" هو نموذج ابتكاري يدمج متعة التجربة بكفاءة الدخل. يعمل هذا الأصل كقناة ربحية إضافية ترفع من متوسط إنفاق النزيل اليومي، مما يصب مباشرة في تعظيم العائد النهائي لمحفظتك الاستثمارية.</span>
+                    <span class="lang-en">We don't just rely on room revenue; the "Coffee Train" is an innovative model merging experience with income efficiency. This asset acts as an additional profit channel, increasing guest daily spend and maximizing your portfolio yields.</span>
+                </p>
+
+                <div class="grid grid-cols-1 gap-6 mb-12">
+                    <div class="p-8 bg-white/5 backdrop-blur-md rounded-[2.5rem] border border-white/10 group hover:bg-white/10 hover:border-gold/30 transition-all duration-500 relative overflow-hidden">
+                        <div class="absolute right-0 top-0 w-32 h-32 bg-gold/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-gold/20 transition-all"></div>
+                        
+                        <div class="flex items-center gap-6">
+                            <div class="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center border border-gold/30 shrink-0">
+                                <i class="fa-solid fa-mug-hot text-2xl text-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-black text-white mb-2">
+                                    <span class="lang-ar">تجربة حسية متكاملة</span>
+                                    <span class="lang-en">Immersive Sensory Experience</span>
+                                </h4>
+                                <p class="text-sm text-gray-400 italic">
+                                    <span class="lang-ar">رحلة بين الأماكن والصور، تحول كوب القهوة إلى ذكرى لا تنسى.</span>
+                                    <span class="lang-en">A journey through places and images, turning coffee into an unforgettable memory.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2" data-aos="fade-left">
+                <div class="relative group perspective-1000">
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-[#BF953F] to-[#AA771C] rounded-[3.8rem] opacity-30 blur-lg group-hover:opacity-50 transition-all duration-700"></div>
+                    
+                    <div class="relative bg-[#0f3d3e] rounded-[3.5rem] p-2 border border-white/10 overflow-hidden shadow-2xl transform transition-transform duration-700 group-hover:rotate-1">
+                        <img src="Gemini_Generated_Image_jj36l0jj36l0jj36.png?q=80&w=2070&auto=format&fit=crop" 
+                             class="w-full h-[500px] object-cover rounded-[3.2rem] brightness-90 group-hover:brightness-110 group-hover:scale-105 transition-all duration-700" 
+                             alt="The Coffee Train Concept">
+                        
+                        <div class="absolute bottom-8 right-8 bg-white/90 backdrop-blur-md text-[#0f3d3e] px-8 py-4 rounded-2xl font-black text-lg shadow-2xl border border-white flex items-center gap-3 transform group-hover:-translate-y-2 transition-transform">
+                            <i class="fa-solid fa-arrow-trend-up text-gold"></i>
+                            <span>Yield Booster +</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section id="investor-analysis" class="py-24 bg-white overflow-hidden">
+    <div class="container mx-auto px-6">
+        
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-black text-gray-900 leading-tight">
+                <span class="lang-ar">سيناريوهات <span class="text-gold">التشغيل والأرباح</span></span>
+                <span class="lang-en"><span class="text-gold">Operational & Profit</span> Scenarios</span>
+            </h2>
+            <p class="text-gray-500 mt-4 italic max-w-3xl mx-auto">
+                <span class="lang-ar">نعتمد نموذجاً تشغيلياً مرناً يتراوح بين المواسم الأساسية والممتدة، مع سياسة مالية صارمة تضع أمان رأس المال كأولوية قصوى.</span>
+                <span class="lang-en">We adopt a flexible operational model ranging from core to extended seasons, with a strict financial policy prioritizing capital security.</span>
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            
+            <div class="card-investment rounded-[3.5rem] p-10 relative overflow-hidden flex flex-col justify-between group hover:-translate-y-2 transition-transform duration-500" data-aos="fade-right">
+                <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full blur-3xl -mr-10 -mt-10"></div>
+                
+                <div>
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="p-4 bg-white/10 rounded-2xl backdrop-blur-md">
+                            <i class="fa-regular fa-calendar-check text-3xl text-white"></i>
+                        </div>
+                        <span class="px-4 py-1 rounded-full border border-white/20 text-[10px] font-black uppercase tracking-widest text-white/70">
+                            <span class="lang-ar">الحد الأدنى</span><span class="lang-en">Base Case</span>
+                        </span>
+                    </div>
+
+                    <h3 class="text-2xl font-black text-white mb-2">
+                        <span class="lang-ar">التشغيل الموسمي الأساسي</span>
+                        <span class="lang-en">Core Seasonal Operation</span>
+                    </h3>
+                    <p class="text-sm text-gray-300 italic mb-8">
+                        <span class="lang-ar">التركيز على ذروة مواسم الحج والعمرة ورمضان فقط.</span>
+                        <span class="lang-en">Focusing only on peak Hajj, Umrah, and Ramadan seasons.</span>
+                    </p>
+
+                    <div class="flex items-end gap-2 mb-2">
+                        <span class="text-5xl font-black text-white font-mono">120</span>
+                        <span class="text-sm font-bold text-gray-400 mb-2 uppercase"><span class="lang-ar">يوماً تشغيلياً</span><span class="lang-en">Days / Year</span></span>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-white/10">
+                    <p class="text-xs font-bold text-gray-400 uppercase mb-2">
+                        <span class="lang-ar">متوسط العائد السنوي المتوقع</span>
+                        <span class="lang-en">Expected Annual Yield</span>
+                    </p>
+                    <p class="text-3xl font-black text-white font-mono">18% - 20%</p>
+                </div>
+            </div>
+
+            <div class="card-investment rounded-[3.5rem] p-10 relative overflow-hidden flex flex-col justify-between border-2 border-gold/40 shadow-2xl shadow-[#c5a059]/10 transform scale-[1.02]" data-aos="fade-left">
+                <div class="absolute top-8 left-8">
+                    <span class="flex items-center gap-2 px-4 py-2 bg-white text-[#0f3d3e] rounded-full text-[10px] font-white uppercase tracking-widest shadow-lg">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span class="lang-ar">الأكثر أماناً</span><span class="lang-en">Max Security</span>
+                    </span>
+                </div>
+
+                <div class="mt-12">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-4 bg-gold/20 rounded-2xl backdrop-blur-md border border-gold/30">
+                            <i class="fa-solid fa-chart-line text-3xl text-gold"></i>
+                        </div>
+                    </div>
+
+                    <h3 class="text-3xl font-black text-gold mb-2">
+                        <span class="lang-ar">التشغيل الممتد الشامل</span>
+                        <span class="lang-en">Extended Full Operation</span>
+                    </h3>
+                    <p class="text-sm text-gray-200 italic mb-8">
+                        <span class="lang-ar">تشغيل يغطي المواسم + مواسم الإجازات المدرسية والصيف.</span>
+                        <span class="lang-en">Covering peak seasons + school holidays and summer.</span>
+                    </p>
+
+                    <div class="flex items-end gap-2 mb-2">
+                        <span class="text-5xl font-black text-gold font-mono">180</span>
+                        <span class="text-sm font-bold text-gray-300 mb-2 uppercase"><span class="lang-ar">يوماً تشغيلياً</span><span class="lang-en">Days / Year</span></span>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-white/10 bg-black/10 -mx-10 px-10 pb-4">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <p class="text-xs font-bold text-gray-300 uppercase mb-1">
+                                <span class="lang-ar">سقف العائد السنوي (Capped)</span>
+                                <span class="lang-en">Annual Yield Cap</span>
+                            </p>
+                            <p class="text-4xl font-black text-white font-mono">25% <span class="text-sm text-gold align-middle"><i class="fa-solid fa-lock"></i></span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 p-3 rounded-xl bg-gold/10 border border-gold/20">
+                        <p class="text-[10px] text-gray-200 leading-relaxed text-justify">
+                            <span class="lang-ar">
+                                <strong class="text-gold">لماذا 25%؟</strong> تم وضع هذا السقف لضمان أقصى درجات "أمان استرداد رأس المال". أي فوائض تتجاوز هذه النسبة يتم ترحيلها تلقائياً لاحتياطي الإهلاك وتطوير الأصول، مما يضمن استدامة الربحية وحماية أصل المبلغ.
+                            </span>
+                            <span class="lang-en">
+                                <strong class="text-gold">Why 25%?</strong> This cap is set to guarantee maximum "Capital Recovery Security". Any surplus exceeding this rate is automatically allocated to depreciation reserves, ensuring profitability sustainability and principal protection.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="value-allocation" class="py-24 bg-white overflow-hidden">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="text-blue-600 font-bold text-sm tracking-widest uppercase">
+                <span class="lang-ar">شفافية الأداء المالي</span>
+                <span class="lang-en">Financial Performance Transparency</span>
+            </span>
+<h2 class="text-4xl font-black text-gray-900 mt-4 leading-tight">
+    <span class="lang-ar">أين تذهب قيمة استثمارك البالغة <span class="text-gold">750,000</span> ريال؟</span>
+    <span class="lang-en">Where is your <span class="text-gold">750,000</span> SAR investment allocated?</span>
+</h2>
+            <p class="text-gray-500 mt-4 italic max-w-3xl mx-auto">
+                <span class="lang-ar">نحن لا نبيع أرقاماً، بل ندير قيمة استثمارك لضمان أعلى مستويات الكفاءة والربحية لمحفظتك.</span>
+                <span class="lang-en">We don't just sell numbers; we manage your investment value to ensure maximum efficiency and profitability.</span>
+            </p>
+            <div class="w-24 h-1.5 bg-blue-600 mx-auto mt-6 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+<div class="p-8 rounded-[2.5rem] bg-gray-50 border border-gray-100 shadow-sm hover:shadow-xl transition-all group" data-aos="fade-up">
+    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:bg-[#c5a059] transition-all">
+        <i class="fa-solid fa-couch text-2xl text-[#0f3d3e] group-hover:text-white"></i>
+    </div>
+    
+    <h3 class="font-black text-lg mb-4 text-white">
+        <span class="lang-ar">تهيئة البيئة التشغيلية</span>
+        <span class="lang-en">Operational Setup & Launch</span>
+    </h3>
+    
+    <p class="text-[11px] text-gray-300 leading-relaxed italic border-t border-white/10 pt-4">
+        <span class="lang-ar">توجيه رأس المال لتغطية مصاريف الإطلاق ورفع الكفاءة التشغيلية للوحدة، مما يضمن لك "حق الانتفاع" بالعائد فوراً دون الدخول في تعقيدات ملكية الأصول وصيانتها.</span>
+        <span class="lang-en">Directing capital to cover launch expenses and operational efficiency, ensuring immediate "Yield Rights" without the complexities of asset ownership or maintenance.</span>
+    </p>
+</div>
+
+            <div class="p-8 rounded-[2.5rem] bg-gray-900 text-white shadow-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6 border border-white/10 group-hover:bg-gold transition-all">
+                    <i class="fa-solid fa-shield-heart text-2xl text-gold group-hover:text-white-900"></i>
+                </div>
+                <h3 class="font-black text-lg mb-4 text-white">
+                    <span class="lang-ar">صمام أمان السيولة</span><span class="lang-en">Liquidity Safety Valve</span>
+                </h3>
+                <p class="text-[11px] text-gray-400 leading-relaxed italic border-t border-white/10 pt-4">
+                    <span class="lang-ar">تأمين مخصصات استرداد رأس المال (Depreciation Fund) لضمان عودة قيمة استثمارك تدريجياً طوال مدة العقد.</span>
+                    <span class="lang-en">Securing depreciation funds to ensure the gradual recovery of your capital throughout the contract term.</span>
+                </p>
+            </div>
+
+            <div class="p-8 rounded-[2.5rem] bg-gray-50 border border-gray-100 shadow-sm hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:bg-purple-600 transition-all">
+                    <i class="fa-solid fa-microchip text-2xl text-purple-600 group-hover:text-white"></i>
+                </div>
+                <h3 class="font-black text-lg mb-4 text-white-900">
+                    <span class="lang-ar">منظومة التشغيل الذكي</span><span class="lang-en">Smart Operations</span>
+                </h3>
+                <p class="text-[11px] text-gray-500 leading-relaxed italic border-t border-gray-100 pt-4">
+                    <span class="lang-ar">تغطية تكاليف الأنظمة السحابية، الربط مع منصات الحجز العالمية، وفريق الإدارة المحترف الذي يعمل لتعظيم عوائدك.</span>
+                    <span class="lang-en">Covers cloud systems, global booking integration, and professional management to maximize yields.</span>
+                </p>
+            </div>
+
+            <div class="p-8 rounded-[2.5rem] bg-gray-50 border border-gray-100 shadow-sm hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:bg-green-600 transition-all">
+                    <i class="fa-solid fa-file-invoice-dollar text-2xl text-green-600 group-hover:text-white"></i>
+                </div>
+                <h3 class="font-black text-lg mb-4 text-white-900">
+                    <span class="lang-ar">الامتثال والتحوط المالي</span><span class="lang-en">Compliance & Hedging</span>
+                </h3>
+                <p class="text-[11px] text-gray-500 leading-relaxed italic border-t border-gray-100 pt-4">
+                    <span class="lang-ar">تغطية الرسوم الحكومية، التأمين الشامل، وهامش الطوارئ لضمان استقرار التدفقات النقدية لمحفظتك.</span>
+                    <span class="lang-en">Covers government fees, comprehensive insurance, and emergency margins for cash flow stability.</span>
+                </p>
+            </div>
+        </div>
+
+<div class="max-w-4xl mx-auto p-[2px] bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#AA771C] rounded-[3rem] shadow-2xl transform hover:scale-[1.01] transition-transform duration-500" data-aos="zoom-in">
+    <div class="bg-gradient-to-br from-[#0f3d3e] to-[#185a5e] rounded-[2.9rem] p-10 flex flex-col md:flex-row justify-between items-center gap-10">
+        
+        <div class="md:w-2/3">
+            <h4 class="text-2xl font-black text-white mb-4 text-right leading-relaxed">
+                <span class="lang-ar">متى تتحول محفظتك لـ <span class="text-gold">الربحية الصافية</span>؟</span>
+                <span class="lang-en">When does your portfolio become <span class="text-gold">purely profitable</span>?</span>
+            </h4>
+            
+            <p class="text-sm text-gray-300 leading-relaxed italic text-justify border-t border-white/10 pt-4">
+                <span class="lang-ar">تعتمد هيكلتنا على "تفتيت التكاليف"؛ حيث تم تحديد تكلفة تشغيلية يومية ثابتة. بمجرد أن يتجاوز سعر الليلة هذا الرقم، تصبح كل هللة إضافية هي <strong class="text-gold">ربح صافي لك</strong>، دون قلق من أي مفاجآت.</span>
+                <span class="lang-en">Our structure relies on cost fragmentation. Once the nightly rate exceeds this fixed daily threshold, every additional cent is <strong class="text-gold">your pure profit</strong>, with no surprises.</span>
+            </p>
+        </div>
+
+        <div class="md:w-1/3 text-center md:border-r border-white/10 md:pr-10 w-full pt-6 md:pt-0 border-t md:border-t-0 mt-4 md:mt-0">
+            <p class="text-[10px] text-gray-400 font-black uppercase tracking-widest mb-2">
+                <span class="lang-ar">نقطة التعادل اليومية</span>
+                <span class="lang-en">Daily Break-even Point</span>
+            </p>
+            
+            <p class="text-5xl font-black text-white font-mono leading-none" id="value-allocation-daily">145</p>
+            
+            <p class="text-xs text-gold font-bold mt-2 uppercase tracking-wider">
+                <span class="lang-ar">ريال / للوحدة شامل التشغيل + استرداد الأصل + الضريبة
+
+</span>
+<span class="lang-en">SAR/unit inclusive of operation + asset recovery + tax</span>
+
+</span>            </p>
+        </div>
+
+    </div>
+</div>
+    </div>
+</section>
+<section id="gallery" class="py-24 bg-gray-50 overflow-hidden">
+    <div class="container mx-auto px-6">
+        
+        <div class="mb-20 text-center" data-aos="fade-up">
+            <span class="text-blue-600 font-bold text-sm tracking-widest uppercase block mb-2">
+                <span class="lang-ar">تجربة بصرية شاملة</span>
+                <span class="lang-en">Comprehensive Visual Experience</span>
+            </span>
+            <h2 class="text-4xl md:text-5xl font-black text-white-900 leading-tight">
+                <span class="lang-ar">معرض النماذج <span class="text-gold italic">السكنية</span></span>
+                <span class="lang-en">Residential <span class="text-gold italic">Showcase</span></span>
+            </h2>
+            <div class="w-24 h-1.5 bg-gold mx-auto mt-6 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 perspective-1000">
+
+            <div class="flip-card-container h-[550px] group" data-aos="zoom-in">
+                <div class="flip-card relative w-full h-full transition-all duration-1000 transform-style-3d group-hover:rotate-y-180">
+                    <div class="flip-card-front absolute inset-0 w-full h-full backface-hidden rounded-[2.5rem] overflow-hidden shadow-2xl">
+                        <img src="حارة الاغوات.png" class="w-full h-full object-cover">
+                        <button class="absolute top-6 left-6 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-gold transition-all z-30 flex items-center justify-center" onclick="openLightbox('حارة الاغوات.png')">
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent p-6 flex flex-col justify-end">
+                            <span class="category-badge badge-heritage mb-3 self-start"><span class="lang-ar">أجنحة تراثية</span><span class="lang-en">Heritage Suites</span></span>
+                            <h3 class="text-xl font-black text-white"><span class="lang-ar">نموذج الأغوات</span><span class="lang-en">Agwat Style</span></h3>
+                            <p class="text-[10px] text-gold mt-2 italic"><span class="lang-ar">اقلب لمشاهدة التفاصيل الصحية</span><span class="lang-en">Flip for bath details</span></p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-[2.5rem] overflow-hidden bg-gray-900 shadow-2xl border-2 border-gold/30">
+                        <img src="حارة الاغوات1.png" class="w-full h-full object-cover">
+                        <button class="absolute top-6 right-6 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-gold transition-all z-30 flex items-center justify-center" onclick="openLightbox('حارة الاغوات1.png')">
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card-container h-[550px] group" data-aos="zoom-in" data-aos-delay="100">
+                <div class="flip-card relative w-full h-full transition-all duration-1000 transform-style-3d group-hover:rotate-y-180">
+                    <div class="flip-card-front absolute inset-0 w-full h-full backface-hidden rounded-[2.5rem] overflow-hidden shadow-2xl">
+                        <img src="حارة الساحة.png" class="w-full h-full object-cover">
+                        <button class="absolute top-6 left-6 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-gold transition-all z-30 flex items-center justify-center" onclick="openLightbox('حارة الساحة.png')">
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent p-6 flex flex-col justify-end">
+                            <span class="category-badge badge-heritage mb-3 self-start"><span class="lang-ar">أجنحة تراثية</span><span class="lang-en">Heritage Suites</span></span>
+                            <h3 class="text-xl font-black text-white"><span class="lang-ar">نموذج الساحة</span><span class="lang-en">Saha Style</span></h3>
+                            <p class="text-[10px] text-gold mt-2 italic"><span class="lang-ar">اقلب لمشاهدة التفاصيل الصحية</span><span class="lang-en">Flip for bath details</span></p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-[2.5rem] overflow-hidden shadow-2xl border-2 border-gold/30">
+                        <img src="حارة الساحة 1.png" class="w-full h-full object-cover">
+                        <button class="absolute top-6 right-6 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-gold transition-all z-30 flex items-center justify-center" onclick="openLightbox('حارة الساحة 1.png')">
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card-container h-[550px] group" data-aos="zoom-in" data-aos-delay="200">
+                <div class="flip-card relative w-full h-full transition-all duration-1000 transform-style-3d group-hover:rotate-y-180">
+                    <div class="flip-card-front absolute inset-0 w-full h-full backface-hidden rounded-[2.5rem] overflow-hidden shadow-2xl">
+                        <img src="9.png" class="w-full h-full object-cover">
+                        <button class="absolute top-6 left-6 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-gold transition-all z-30 flex items-center justify-center" onclick="openLightbox('10.png')">
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent p-6 flex flex-col justify-end">
+                            <span class="category-badge badge-standard mb-3 self-start"><span class="lang-ar">النموذج القياسي</span><span class="lang-en">Standard Model</span></span>
+                            <h3 class="text-xl font-black text-white"><span class="lang-ar">غرف عصرية</span><span class="lang-en">Modern Rooms</span></h3>
+                            <p class="text-[10px] text-blue-400 mt-2 italic"><span class="lang-ar">تصميم يركز على الكفاءة والراحة</span><span class="lang-en">Efficiency & Comfort</span></p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-[2.5rem] overflow-hidden shadow-2xl border-2 border-blue-500/30">
+                        <img src="10.png" class="w-full h-full object-cover">
+                        <button class="absolute top-6 right-6 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-gold transition-all z-30 flex items-center justify-center" onclick="openLightbox('8.png')">
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card-container h-[550px] group" data-aos="zoom-in" data-aos-delay="300">
+                <div class="flip-card relative w-full h-full transition-all duration-1000 transform-style-3d group-hover:rotate-y-180">
+                    <div class="flip-card-front absolute inset-0 w-full h-full backface-hidden rounded-[2.5rem] overflow-hidden shadow-2xl">
+                        <img src="14.png" class="w-full h-full object-cover">
+                        <button class="absolute top-6 left-6 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-gold transition-all z-30 flex items-center justify-center" onclick="openLightbox('14.png')">
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent p-6 flex flex-col justify-end">
+                            <span class="category-badge badge-luxury mb-3 self-start"><span class="lang-ar">فئة النخبة</span><span class="lang-en">Elite Class</span></span>
+                            <h3 class="text-xl font-black text-white"><span class="lang-ar">أجنحة ملكية</span><span class="lang-en">Royal Suites</span></h3>
+                            <p class="text-[10px] text-gray-400 mt-2 italic"><span class="lang-ar">رفاهية مباشرة بجوار الحرم</span><span class="lang-en">Direct Luxury</span></p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-[2.5rem] overflow-hidden shadow-2xl border-2 border-gray-100/30">
+                        <img src="14.png" class="w-full h-full object-cover">
+                        <button class="absolute top-6 right-6 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-gold transition-all z-30 flex items-center justify-center" onclick="openLightbox('11.png')">
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card-container h-[550px] group" data-aos="zoom-in" data-aos-delay="400">
+                <div class="flip-card relative w-full h-full transition-all duration-1000 transform-style-3d group-hover:rotate-y-180">
+                    <div class="flip-card-front absolute inset-0 w-full h-full backface-hidden rounded-[2.5rem] overflow-hidden shadow-2xl">
+                        <img src="حارة العنبرية.png" class="w-full h-full object-cover">
+                        <button class="absolute top-6 left-6 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-gold transition-all z-30 flex items-center justify-center" onclick="openLightbox('حارة العنبرية.png')">
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent p-6 flex flex-col justify-end">
+                            <span class="category-badge badge-heritage mb-3 self-start"><span class="lang-ar">أجنحة تراثية</span><span class="lang-en">Heritage Suites</span></span>
+                            <h3 class="text-xl font-black text-white"><span class="lang-ar">نموذج العنبرية</span><span class="lang-en">Anbariya Style</span></h3>
+                            <p class="text-[10px] text-gold mt-2 italic"><span class="lang-ar">طابع تاريخي بأحجار البازلت</span><span class="lang-en">Historic Basalt Style</span></p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-[2.5rem] overflow-hidden shadow-2xl border-2 border-gold/30">
+                        <img src="حارة العنبرية 1.png" class="w-full h-full object-cover">
+                        <button class="absolute top-6 right-6 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-gold transition-all z-30 flex items-center justify-center" onclick="openLightbox('حارة العنبرية 1.png')">
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div id="lightbox" class="fixed inset-0 z-[9999] bg-black/95 hidden flex items-center justify-center p-4 md:p-10">
+    <button class="absolute top-10 right-10 text-white text-5xl hover:text-gold transition-all" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" class="max-w-full max-h-full rounded-2xl shadow-2xl object-contain border border-white/10">
+</div>
+
+<div id="lightbox" class="fixed inset-0 z-[9999] bg-black/95 hidden flex items-center justify-center p-4 md:p-10">
+    <button class="absolute top-10 right-10 text-white text-4xl hover:text-gold" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" class="max-w-full max-h-full rounded-xl shadow-2xl object-contain">
+</div>
+
+
+<section id="faq" class="py-24 bg-gray-50 overflow-hidden">
+    <div class="container mx-auto px-6">
+        
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="text-gold font-bold text-sm tracking-widest uppercase">
+                <span class="lang-ar">دليل المستثمر الذكي</span>
+                <span class="lang-en">Smart Investor Guide</span>
+            </span>
+            <h2 class="text-4xl font-black text-white-900 mt-4 leading-tight">
+                <span class="lang-ar">إجابات شفافة.. <br> لاستثمار آمن طويل الأمد</span>
+                <span class="lang-en">Transparent Answers.. <br> For Secure Long-term Investment</span>
+            </h2>
+            <div class="w-24 h-1.5 bg-gold mx-auto mt-6 rounded-full"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-4">
+
+            <div class="faq-item border border-gray-200 rounded-3xl bg-white overflow-hidden" data-aos="fade-up">
+                <button class="w-full p-6 text-right flex justify-between items-center group" onclick="toggleFaq(1)">
+                    <span class="font-black text-white-900 text-sm">
+                        <span class="lang-ar">1. ما الذي أمتلكه بالضبط عند دفع قيمة المحفظة؟</span>
+                        <span class="lang-en">1. What exactly do I own upon paying the portfolio value?</span>
+                    </span>
+                    <i id="icon-1" class="fa-solid fa-chevron-down text-gold transition-transform duration-300"></i>
+                </button>
+                <div id="ans-1" class="max-h-0 overflow-hidden transition-all duration-500">
+                    <div class="p-6 pt-0 text-sm text-gray-500 italic border-t border-gray-50 leading-relaxed">
+                        <span class="lang-ar">أنت تمتلك "حق الانتفاع بالعوائد التشغيلية" (Usufruct Rights) للحصة المخصصة لك في هذا الأصل الفندقي طوال مدة التعاقد. أنت شريك في "الأرباح" الناتجة عن التشغيل، ولست شريكاً في ملكية الأصول العينية أو العقار.</span>
+                        <span class="lang-en">You own the "Usufruct Rights" (Operational Yield Rights) for your designated share in this hotel asset for the contract term. You are a partner in "Profits" generated from operations, not a partner in physical assets or real estate.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item border border-gray-200 rounded-3xl bg-white overflow-hidden" data-aos="fade-up">
+                <button class="w-full p-6 text-right flex justify-between items-center" onclick="toggleFaq(2)">
+                    <span class="font-black text-white-900 text-sm">
+                        <span class="lang-ar">2. لماذا تظل ملكية الأصول والتجهيزات تابعة لشركة أونارا؟</span>
+                        <span class="lang-en">2. Why do assets and equipment remain owned by Ownara?</span>
+                    </span>
+                    <i id="icon-2" class="fa-solid fa-chevron-down text-gold"></i>
+                </button>
+                <div id="ans-2" class="max-h-0 overflow-hidden transition-all duration-500">
+                    <div class="p-6 pt-0 text-sm text-gray-500 italic border-t border-gray-50 leading-relaxed">
+                        <span class="lang-ar">لإعفاء المستثمر من كافة أعباء ومخاطر الملكية؛ أونارا تتحمل وحدها مسؤولية الصيانة، الإهلاك، والتجديد. هذا يضمن للمستثمر استثماراً "نقياً" يركز على العائد النقدي فقط دون الدخول في تفاصيل إدارة الأصول.</span>
+                        <span class="lang-en">To relieve the investor of all ownership burdens and risks; Ownara solely bears responsibility for maintenance, depreciation, and renewal. This ensures a "pure" investment focused only on cash yields.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item border border-gray-200 rounded-3xl bg-white overflow-hidden" data-aos="fade-up">
+                <button class="w-full p-6 text-right flex justify-between items-center" onclick="toggleFaq(3)">
+                    <span class="font-black text-white-900 text-sm text-blue-600">
+                        <span class="lang-ar">3. كيف يتم التعامل مع الفوائض المالية التي تتجاوز النسبة المستهدفة؟</span>
+                        <span class="lang-en">3. How are surpluses exceeding the target yield handled?</span>
+                    </span>
+                    <i id="icon-3" class="fa-solid fa-chevron-down text-gold"></i>
+                </button>
+                <div id="ans-3" class="max-h-0 overflow-hidden transition-all duration-500">
+                    <div class="p-6 pt-0 text-sm text-gray-500 italic border-t border-gray-50 leading-relaxed">
+                        <span class="lang-ar">تعتمد دراستنا على "سقف عائد مقرر" لضمان استدامة المشروع. الفوائض المالية التي تتجاوز هذا السقف يتم توجيهها لرفع كفاءة التشغيل، وتطوير الأنظمة، وتأمين احتياطيات الطوارئ، مما يضمن بقاء المشروع في ذروة أدائه طوال سنوات التعاقد.</span>
+                        <span class="lang-en">Our study relies on a "Target Yield Cap" to ensure sustainability. Surpluses exceeding this cap are redirected to enhance operational efficiency and secure emergency reserves, ensuring the project remains at peak performance.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item border border-gray-200 rounded-3xl bg-white overflow-hidden" data-aos="fade-up">
+                <button class="w-full p-6 text-right flex justify-between items-center" onclick="toggleFaq(4)">
+                    <span class="font-black text-white-900 text-sm text-red-500">
+                        <span class="lang-ar">4. ماذا يحدث لو انخفضت مبيعات السوق عن تقديرات الدراسة؟</span>
+                        <span class="lang-en">4. What if market sales fall below estimates?</span>
+                    </span>
+                    <i id="icon-4" class="fa-solid fa-chevron-down text-gold"></i>
+                </button>
+                <div id="ans-4" class="max-h-0 overflow-hidden transition-all duration-500">
+                    <div class="p-6 pt-0 text-sm text-gray-500 italic border-t border-gray-50 leading-relaxed">
+                        <span class="lang-ar">في حال ضعف البيع، قد يتأثر العائد طردياً، ولكن بفضل "نظام تدوير النزلاء" الخاص بأونارا، نعمل دائماً على تحقيق "نقطة التعادل" كحد أدنى لحماية محفظتك، مع العلم أن أونارا تتحمل العبء الأكبر من المصاريف الثابتة.</span>
+                        <span class="lang-en">If sales weaken, yields may be affected accordingly. However, thanks to Ownara's "Guest Rotation System," we aim for the "Break-even" point as a minimum to protect your portfolio, while Ownara bears the bulk of fixed expenses.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item border border-gray-200 rounded-3xl bg-white overflow-hidden" data-aos="fade-up">
+                <button class="w-full p-6 text-right flex justify-between items-center" onclick="toggleFaq(5)">
+                    <span class="font-black text-white-900 text-sm">
+                        <span class="lang-ar">5. هل أرباح الخدمات المساندة (كوفي/مطعم) تذهب للمستثمرين؟</span>
+                        <span class="lang-en">5. Do profits from ancillary services go to investors?</span>
+                    </span>
+                    <i id="icon-5" class="fa-solid fa-chevron-down text-gold"></i>
+                </button>
+                <div id="ans-5" class="max-h-0 overflow-hidden transition-all duration-500">
+                    <div class="p-6 pt-0 text-sm text-gray-500 italic border-t border-gray-50 leading-relaxed">
+                        <span class="lang-ar">نعم، يدار الأصل بنظام "المحفظة الموحدة". صافي أرباح الخدمات يُجمع مع إيرادات الغرف ويوزع بالتساوي على إجمالي الحصص الاستثمارية، مما يجعل كل مستثمر شريكاً في نجاح المشروع كمنظومة متكاملة.</span>
+                        <span class="lang-en">Yes, the asset is managed under a "Unified Portfolio" system. Net ancillary profits are pooled with room revenue and distributed equally across all investment shares, making every investor a partner in the project's success.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item border border-gray-200 rounded-3xl bg-white overflow-hidden" data-aos="fade-up">
+                <button class="w-full p-6 text-right flex justify-between items-center" onclick="toggleFaq(6)">
+                    <span class="font-black text-white-900 text-sm">
+                        <span class="lang-ar">6. كيف يمكنني مراقبة الأداء المالي لمساهمتي؟</span>
+                        <span class="lang-en">6. How can I monitor my contribution's financial performance?</span>
+                    </span>
+                    <i id="icon-6" class="fa-solid fa-chevron-down text-gold"></i>
+                </button>
+                <div id="ans-6" class="max-h-0 overflow-hidden transition-all duration-500">
+                    <div class="p-6 pt-0 text-sm text-gray-500 italic border-t border-gray-50 leading-relaxed">
+                        <span class="lang-ar">توفر أونارا تقارير دورية مفصلة مستخرجة مباشرة من أنظمة الإدارة السحابية المعتمدة، لضمان أعلى درجات الشفافية في رصد نسب الإشغال ومتوسط سعر الليلة وصافي الأرباح.</span>
+                        <span class="lang-en">Ownara provides detailed periodic reports extracted directly from certified cloud management systems, ensuring maximum transparency in monitoring occupancy rates, ADR, and net profits.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item border border-gray-200 rounded-3xl bg-white overflow-hidden bg-gold/5" data-aos="fade-up">
+                <button class="w-full p-6 text-right flex justify-between items-center" onclick="toggleFaq(7)">
+                    <span class="font-black text-white-900 text-sm italic text-blue-600">
+                        <span class="lang-ar">7. ما الذي يجعل هذا النموذج الاستثماري فريداً؟</span>
+                        <span class="lang-en">7. What makes this investment model unique?</span>
+                    </span>
+                    <i id="icon-7" class="fa-solid fa-star text-gold"></i>
+                </button>
+                <div id="ans-7" class="max-h-0 overflow-hidden transition-all duration-500">
+                    <div class="p-6 pt-0 text-sm text-gray-800 font-bold border-t border-gray-200 bg-white">
+                        <span class="lang-ar">تفرّد "أونارا" يكمن في تحويل الاستثمار الفندقي التقليدي إلى "عوائد نقدية ذكية"؛ حيث نتحمل نحن كافة الأعباء التشغيلية، ونمنحك أنت حق الانتفاع بالعائد الصافي المحمي بنظام تدوير النزلاء وتقنيات الضيافة المبتكرة.</span>
+                        <span class="lang-en">Ownara's uniqueness lies in transforming traditional hotel investment into "Smart Cash Yields"; we bear all operational burdens, granting you the rights to net yields secured by our guest rotation system and innovative hospitality tech.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section id="final-decision" class="py-24 relative overflow-hidden bg-[#0f3d3e]">
+    <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0f3d3e]/95 via-[#0f3d3e]/80 to-black/90 z-10"></div>
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" 
+             class="w-full h-full object-cover opacity-40 mix-blend-overlay" alt="Executive Meeting">
+    </div>
+
+    <div class="container mx-auto px-6 relative z-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="bg-white/5 backdrop-blur-2xl rounded-[3rem] border border-white/10 p-8 md:p-14 shadow-2xl relative overflow-hidden" data-aos="zoom-in">
+                
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1/2 bg-gold/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+                <div class="text-center mb-14 relative">
+                    <span class="inline-block px-6 py-2 bg-gradient-to-r from-[#BF953F] to-[#AA771C] text-[#0f3d3e] rounded-full text-[10px] font-black uppercase mb-6 tracking-[0.2em] shadow-lg shadow-gold/20">
+                        <span class="lang-ar">بطاقة تملك العوائد النهائية</span>
+                        <span class="lang-en">Final Yield Ownership Card</span>
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-black text-white leading-tight">
+                        <span class="lang-ar">استثمارك القادم في <br> <span class="text-gold italic">أصول الضيافة الذكية</span></span>
+                        <span class="lang-en">Your Next Investment in <br> <span class="text-gold italic">Smart Hospitality Assets</span></span>
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    
+                    <div class="text-center p-6 bg-white/5 rounded-3xl border border-white/5 group hover:bg-white/10 hover:border-gold/30 transition-all duration-300">
+                        <p class="text-[9px] text-gray-400 font-bold uppercase mb-3 tracking-wider">
+                            <span class="lang-ar">قيمة تملك المحفظة</span><span class="lang-en">Portfolio Value</span>
+                        </p>
+                        <p class="text-2xl lg:text-3xl font-black text-gold font-mono">750,000 <span class="text-[10px] text-gray-400">SAR</span></p>
+                    </div>
+
+                    <div class="text-center p-6 bg-white/5 rounded-3xl border border-white/5 group hover:bg-white/10 hover:border-gold/30 transition-all duration-300">
+                        <p class="text-[9px] text-gray-400 font-bold uppercase mb-3 tracking-wider">
+                            <span class="lang-ar">سقف العائد السنوي</span><span class="lang-en">Annual Yield Cap</span>
+                        </p>
+                        <p class="text-2xl lg:text-3xl font-black text-white font-mono">25%</p>
+                    </div>
+
+                    <div class="text-center p-6 bg-gradient-to-br from-[#BF953F] to-[#AA771C] rounded-3xl shadow-lg shadow-gold/20 transform md:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-white/20 group-hover:bg-transparent transition-all"></div>
+                        <p class="text-[9px] text-[#0f3d3e] font-black uppercase mb-3 tracking-wider relative z-10">
+                            <span class="lang-ar">نوع الاستحقاق</span><span class="lang-en">Ownership Type</span>
+                        </p>
+                        <p class="text-lg font-black text-[#0f3d3e] relative z-10">
+                            <span class="lang-ar">حق انتفاع بالعوائد</span><span class="lang-en">Yield Usufruct</span>
+                        </p>
+                    </div>
+
+                    <div class="text-center p-6 bg-white/5 rounded-3xl border border-white/5 group hover:bg-white/10 hover:border-gold/30 transition-all duration-300">
+                        <p class="text-[9px] text-gray-400 font-bold uppercase mb-3 tracking-wider">
+                            <span class="lang-ar">حماية رأس المال</span><span class="lang-en">Capital Shield</span>
+                        </p>
+                        <p class="text-2xl lg:text-3xl font-black text-white font-mono">100%</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center border-t border-white/10 pt-12">
+                    
+                    <div class="space-y-6 text-center lg:text-right lg:ltr:text-left">
+                        <p class="text-base text-gray-300 leading-relaxed italic font-light">
+                            <span class="lang-ar">"إن تملكك لحصة في عوائد أونارا هو قرار استراتيجي يضع أموالك في منظومة تشغيلية محصنة. نحن نتولى كافة الأعباء التشغيلية والمخاطر، لنقدم لك استثماراً نقياً ينمو مع نمو سوق الضيافة العالمي."</span>
+                            <span class="lang-en">"Owning a share in Ownara yields is a strategic decision placing your capital in a fortified ecosystem. We handle all risks and management burdens, providing a pure investment growing with the market."</span>
+                        </p>
+                        <div class="flex items-center justify-center lg:justify-start gap-2 text-gold font-black text-[10px] uppercase tracking-widest">
+                            <i class="fa-solid fa-circle-check animate-pulse"></i>
+                            <span class="lang-ar">الحصص المتاحة محدودة جداً لإغلاق الجولة</span>
+                            <span class="lang-en">Limited shares available to close the round</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-4">
+                        <a href="https://wa.me/966544976640?text=أهلاً أونارا، أنا مهتم بالحصول على تفاصيل إضافية حول محفظة العوائد الفندقية المتاحة." 
+                           class="group relative overflow-hidden bg-gradient-to-r from-[#BF953F] to-[#AA771C] text-[#0f3d3e] px-8 py-5 rounded-2xl font-black text-lg text-center transition-all shadow-xl hover:shadow-gold/30 hover:scale-[1.02] flex items-center justify-center gap-3">
+                            <div class="absolute inset-0 w-full h-full bg-white/30 skew-x-12 -translate-x-full group-hover:animate-[shimmer_1s_infinite]"></div>
+                            
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span class="relative z-10">
+                                <span class="lang-ar">تحدث مع مستشارك المالي الآن</span>
+                                <span class="lang-en">Talk to your Financial Advisor</span>
+                            </span>
+                        </a>
+                        <p class="text-[9px] text-gray-500 text-center uppercase font-bold tracking-widest opacity-60">
+                            <span class="lang-ar">سيتم الرد عليك فوراً لحجز موعدك</span>
+                            <span class="lang-en">Instant reply with all necessary documents</span>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-gray-900 pt-20 pb-10 border-t border-white/5">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-white pb-16">
+            <div class="lg:col-span-2">
+                <div class="text-3xl font-black text-gold mb-6 uppercase tracking-tighter italic">OWNARA</div>
+                <p class="text-gray-400 leading-relaxed max-w-md italic text-sm">
+                    <span class="lang-ar">نحن نبتكر حلولاً استثمارية في قطاع الضيافة تهدف لتعظيم القيمة النقدية للمستثمرين عبر التشغيل الذكي وإدارة المحافظ النوعية.</span>
+                    <span class="lang-en">We innovate hospitality investment solutions aimed at maximizing cash value for investors through smart operations and premium portfolio management.</span>
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-black text-white mb-6 uppercase text-xs tracking-widest">
+                    <span class="lang-ar">روابط سريعة</span><span class="lang-en">Quick Links</span>
+                </h4>
+                <ul class="space-y-4 text-xs text-gray-500 font-bold uppercase">
+                    <li><a href="#summary" class="hover:text-gold transition-colors"><span class="lang-ar">فلسفة العائد</span><span class="lang-en">Yield Philosophy</span></a></li>
+                    <li><a href="#investor-analysis" class="hover:text-gold transition-colors"><span class="lang-ar">المحاكي المالي</span><span class="lang-en">Financial Simulator</span></a></li>
+                    <li><a href="#faq" class="hover:text-gold transition-colors"><span class="lang-ar">دليل الوضوح</span><span class="lang-en">Transparency Guide</span></a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-black text-white mb-6 uppercase text-xs tracking-widest">
+                    <span class="lang-ar">تواصل مع أونارا</span><span class="lang-en">Contact Ownara</span>
+                </h4>
+                <p class="text-xs text-gray-500 font-bold mb-4 uppercase">
+                    <span class="lang-ar">المركز التشغيلي - المدينة المنورة</span>
+                    <span class="lang-en">Operations Center - Madinah</span>
+                </p>
+                <p class="text-sm text-gold font-black font-mono">0544976640</p>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center text-[10px] text-gray-600 font-bold uppercase tracking-widest border-t border-white/5 pt-10">
+            <p>© 2026 OWNARA PORTFOLIO MANAGEMENT. ALL RIGHTS RESERVED.</p>
+            <p class="mt-2 opacity-50 italic">
+                <span class="lang-ar">إخلاء مسؤولية: كافة الأرقام هي تقديرات تشغيلية مبنية على مصفوفة أونارا المالية وليست ضماناً قانونياً للأرباح.</span>
+                <span class="lang-en">Disclaimer: All figures are operational estimates based on Ownara's financial matrix and do not constitute a legal profit guarantee.</span>
+            </p>
+        </div>
+    </div>
+</footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // تهيئة الأنيميشن
+    AOS.init({ duration: 1000, once: true, offset: 100 });
+
+    // وظيفة تبديل اللغة
+    function toggleLang() {
+        const html = document.documentElement;
+        const btnText = document.getElementById('langBtnText');
+        if (html.lang === 'ar') {
+            html.lang = 'en'; html.dir = 'ltr'; btnText.innerText = 'العربية';
+        } else {
+            html.lang = 'ar'; html.dir = 'rtl'; btnText.innerText = 'ENGLISH';
+        }
+        if(typeof AOS !== 'undefined') AOS.refresh();
+    }
+
+    // وظيفة الأسئلة الشائعة (FAQ)
+    function toggleFaq(id) {
+        const ans = document.getElementById('ans-' + id);
+        const icon = document.getElementById('icon-' + id);
+        
+        if (ans.style.maxHeight && ans.style.maxHeight !== '0px') {
+            ans.style.maxHeight = '0px';
+            icon.style.transform = 'rotate(0deg)';
+        } else {
+            // إغلاق البقية (اختياري)
+            document.querySelectorAll('[id^="ans-"]').forEach(el => el.style.maxHeight = '0px');
+            document.querySelectorAll('[id^="icon-"]').forEach(el => el.style.transform = 'rotate(0deg)');
+            
+            ans.style.maxHeight = ans.scrollHeight + 'px';
+            icon.style.transform = 'rotate(180deg)';
+        }
+    }
+
+    // وظيفة الصور المكبرة (Lightbox)
+    function openLightbox(src) {
+        const lightbox = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        if(lightbox && img) {
+            img.src = src;
+            lightbox.classList.remove('hidden');
+            setTimeout(() => lightbox.classList.add('active'), 10);
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        if(lightbox) {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    // إغلاق اللايت بوكس عند النقر خارجه
+    const lb = document.getElementById('lightbox');
+    if(lb) {
+        lb.addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+    }
+</script>
+    </body>
+</html>
